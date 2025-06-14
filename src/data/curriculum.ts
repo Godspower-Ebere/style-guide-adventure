@@ -23,42 +23,60 @@ export const curriculum: DayLesson[] = [
     day: 1,
     title: "Introduction to HTML",
     category: "HTML Basics",
-    description: "Learn the fundamentals of HTML and create your first webpage",
+    description: "Learn the fundamentals of HTML and create your first webpage. This lesson covers the core concepts that form the foundation of all websites.",
     learningObjectives: [
-      "Understand what HTML is and its purpose",
-      "Learn the basic structure of an HTML document",
-      "Create your first HTML file",
-      "Understand HTML tags and elements"
+      "Understand what HTML is and its crucial role in web development.",
+      "Learn the basic structure of an HTML document, including the doctype, head, and body.",
+      "Create, save, and open your first HTML file in a web browser.",
+      "Understand the concept of HTML tags and elements, the building blocks of a webpage."
     ],
     detailedExplanation: `
-HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using markup tags.
+Welcome to your first day! Today, we dive into the world of HTML.
 
 ## What is HTML?
-HTML is not a programming language; it's a markup language that uses tags to structure content. Every HTML document is made up of elements, which are defined by tags.
+HTML stands for **HyperText Markup Language**. It's the standard language used to create and design documents on the World Wide Web. Think of it as the skeleton of a webpage. While other technologies like CSS (for styling) and JavaScript (for interactivity) are essential, HTML provides the fundamental structure.
 
-## Basic HTML Structure
-Every HTML document has a basic structure:
-- DOCTYPE declaration
-- HTML element (root element)
-- HEAD element (metadata)
-- BODY element (visible content)
+Every website you visit, from Google to your favorite blog, is built on a foundation of HTML.
 
-## HTML Tags
-HTML tags are keywords surrounded by angle brackets: <tagname>
-Most HTML tags come in pairs: opening tag <tagname> and closing tag </tagname>
-The content goes between the opening and closing tags.
+## The Basic Structure of an HTML Document
+Every HTML document follows a standard structure. This ensures that web browsers can understand and render your page correctly. Here’s a breakdown of the essential parts:
 
-## HTML Elements
-An HTML element includes the opening tag, content, and closing tag:
-<tagname>Content goes here</tagname>
+\`\`\`html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+  </body>
+</html>
+\`\`\`
 
-Some elements are self-closing and don't need a closing tag, like <br> and <img>.
+Let's break down this example:
+- **\`<!DOCTYPE html>\`**: This declaration defines that the document is an HTML5 document. It's the very first thing in your HTML file and tells the browser how to interpret the code.
+- **\`<html>\`**: This is the root element of an HTML page. All other elements are nested inside it.
+- **\`<head>\`**: This element contains meta-information about the HTML document. This information is not displayed on the webpage itself but is used by browsers and search engines. It includes things like the page title, character set, and links to CSS files.
+- **\`<title>\`**: This element specifies a title for the HTML page, which is shown in the browser's title bar or in the page's tab.
+- **\`<body>\`**: This element defines the document's body. It contains all the visible content of the webpage, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
+
+## HTML Tags and Elements
+HTML uses "tags" to mark up content.
+- Tags are keywords surrounded by angle brackets, like \`<p>\`.
+- Most tags come in pairs: an opening tag (e.g., \`<h1>\`) and a closing tag (e.g., \`</h1>\`).
+- The closing tag is written like the opening tag, but with a forward slash (/) before the tag name.
+- The combination of an opening tag, the content, and a closing tag is called an **HTML element**.
+
+Some elements are "self-closing" and don't need a closing tag, like \`<br>\` for a line break or \`<img>\` for an image. We'll learn more about these later.
     `,
     keyTerms: [
-      { term: "HTML", definition: "HyperText Markup Language - the standard markup language for web pages" },
-      { term: "Tag", definition: "Keywords surrounded by angle brackets that define HTML elements" },
-      { term: "Element", definition: "A complete HTML tag including opening tag, content, and closing tag" },
-      { term: "DOCTYPE", definition: "Declaration that defines the document type and version of HTML" }
+      { term: "HTML", definition: "HyperText Markup Language - the standard markup language for creating the structure of web pages." },
+      { term: "Tag", definition: "A command in HTML that tells the browser how to format the text or content. For example: <p>." },
+      { term: "Element", definition: "A complete HTML structure, consisting of an opening tag, the content, and a closing tag." },
+      { term: "DOCTYPE", definition: "A declaration at the beginning of an HTML file that defines the document type and version of HTML being used." },
+      { term: "Head", definition: "The section of an HTML document that contains metadata, which is not displayed on the page itself." },
+      { term: "Body", definition: "The section of an HTML document that contains the visible content of the webpage." }
     ],
     exercises: [
       {
@@ -67,12 +85,13 @@ Some elements are self-closing and don't need a closing tag, like <br> and <img>
         type: "classwork",
         difficulty: "easy",
         instructions: [
-          "Create a new file called 'index.html'",
-          "Add the DOCTYPE declaration: <!DOCTYPE html>",
-          "Create the opening and closing <html> tags",
-          "Inside the html tags, add <head> and </head> tags",
-          "Inside the html tags, after the head section, add <body> and </body> tags",
-          "Save the file and open it in a web browser"
+          "Open a simple text editor (like Notepad on Windows, or TextEdit on Mac).",
+          "Create a new file.",
+          "Add the DOCTYPE declaration at the very top: `<!DOCTYPE html>`",
+          "Create the root element by adding `<html>` and `</html>` tags.",
+          "Inside the `<html>` tags, add the head section with `<head>` and `</head>` tags.",
+          "After the head section, add the body section with `<body>` and `</body>` tags.",
+          "Save the file on your desktop as 'index.html'. Make sure the file extension is .html, not .txt."
         ]
       },
       {
@@ -81,40 +100,43 @@ Some elements are self-closing and don't need a closing tag, like <br> and <img>
         type: "classwork",
         difficulty: "easy",
         instructions: [
-          "Open your index.html file",
-          "Inside the <head> section, add <title> and </title> tags",
-          "Between the title tags, type 'My First Web Page'",
-          "Save the file and refresh your browser",
-          "Notice how the title appears in the browser tab"
+          "Open your 'index.html' file if it's not already open.",
+          "Inside the `<head>` section, add a `<title>` and `</title>` tag.",
+          "Between the title tags, write: `My Web Development Journey`",
+          "Save your file.",
+          "Open 'index.html' in a web browser (like Chrome or Firefox) by double-clicking it. You should see your title in the browser tab."
         ]
       },
       {
         id: 3,
-        title: "Create Your First Heading",
+        title: "Create Your First Heading and Paragraph",
         type: "classwork",
         difficulty: "easy",
         instructions: [
-          "In your index.html file, inside the <body> section",
-          "Add an <h1> and </h1> tag",
-          "Between the h1 tags, type 'Hello World!'",
-          "Save the file and refresh your browser",
-          "You should see your heading displayed on the page"
+          "In your 'index.html' file, find the `<body>` section.",
+          "Add a main heading by typing `<h1>Welcome to My Website</h1>`.",
+          "Below the heading, add a paragraph by typing `<p>This is the start of my journey to become a web developer. I am excited to learn HTML!</p>`.",
+          "Save the file and refresh the page in your browser.",
+          "You should now see your heading and paragraph displayed on the page."
         ]
       },
       {
         id: 4,
-        title: "Add Multiple Headings",
+        title: "Explore Different Heading Levels",
         type: "homework",
         difficulty: "easy",
         instructions: [
-          "Create a new file called 'headings.html'",
-          "Set up the basic HTML structure (DOCTYPE, html, head, body)",
-          "Add a title 'Learning HTML Headings'",
-          "In the body, create headings h1 through h6",
-          "For h1, type 'This is Heading 1'",
-          "For h2, type 'This is Heading 2'",
-          "Continue this pattern through h6",
-          "Save and view in browser to see the size differences"
+          "Create a new file named 'headings.html'.",
+          "Set up the basic HTML structure (DOCTYPE, html, head with a title, and body).",
+          "For the title, use 'Exploring HTML Headings'.",
+          "In the body, create a heading for each level from h1 to h6.",
+          "For h1, use the content: `The Importance of Structure`",
+          "For h2, use: `Main Topics`",
+          "For h3, use: `Sub-topic 1`",
+          "For h4, use: `Details of Sub-topic 1`",
+          "For h5, use: `A Finer Point`",
+          "For h6, use: `A Minor Note`",
+          "Save the file and view it in your browser to see how the different heading sizes create a visual hierarchy."
         ]
       },
       {
@@ -123,14 +145,14 @@ Some elements are self-closing and don't need a closing tag, like <br> and <img>
         type: "homework",
         difficulty: "medium",
         instructions: [
-          "Create a new file called 'about.html'",
-          "Set up the complete HTML structure",
-          "Add a title 'About Me'",
-          "Create an h1 heading with your name",
-          "Add an h2 heading that says 'Introduction'",
-          "Add an h3 heading that says 'My Goals'",
-          "Save the file and open it in your browser",
-          "Observe how the different heading levels create visual hierarchy"
+          "Create a new file called 'about.html'.",
+          "Set up the full HTML structure with a title 'About Me'.",
+          "Inside the body, create an `<h1>` heading with your name.",
+          "Add an `<h2>` heading that says 'My Coding Journey'.",
+          "Under this heading, add a paragraph: `I am starting this journey to build amazing things on the web. My goal is to understand how websites are created from the ground up.`",
+          "Add another `<h2>` heading that says 'My Goals for This Course'.",
+          "Under this heading, add a paragraph: `By the end of this 100-day course, I want to be able to build responsive and interactive websites confidently.`",
+          "Save the file and open it in your browser."
         ]
       }
     ]
@@ -139,108 +161,128 @@ Some elements are self-closing and don't need a closing tag, like <br> and <img>
     day: 2,
     title: "HTML Paragraphs and Text Formatting",
     category: "HTML Basics",
-    description: "Learn how to add paragraphs and format text in HTML",
+    description: "Learn how to structure text with paragraphs and apply formatting to emphasize and style your content.",
     learningObjectives: [
-      "Learn to create paragraphs with the <p> tag",
-      "Understand line breaks and spacing in HTML",
-      "Learn basic text formatting tags",
-      "Practice combining headings with paragraphs"
+      "Use the <p> tag to create well-structured paragraphs.",
+      "Understand how browsers handle whitespace and line breaks in HTML.",
+      "Apply common text formatting tags like <strong>, <em>, <b>, <i>, and <u>.",
+      "Differentiate between semantic (<strong>, <em>) and presentational (<b>, <i>) tags."
     ],
     detailedExplanation: `
-Text is the foundation of web content. HTML provides several ways to structure and format text content.
+Now that you can create a basic HTML page, let's focus on its most common content: text.
 
-## Paragraphs
-The <p> tag defines a paragraph. Browsers automatically add space before and after paragraphs.
+## Paragraphs: The \`<p>\` Tag
+The \`<p>\` tag is one of the most fundamental tags in HTML. It defines a paragraph of text. Web browsers automatically add some vertical space (a margin) before and after each paragraph, which helps to separate them visually.
 
-## Line Breaks
-The <br> tag creates a line break. It's a self-closing tag, meaning it doesn't need a closing tag.
+\`\`\`html
+<p>This is a paragraph. It can contain one or many sentences.</p>
+<p>This is another paragraph. The browser will render it separately from the one above.</p>
+\`\`\`
 
-## Text Formatting
-HTML provides several tags for formatting text:
-- <strong> or <b> for bold text
-- <em> or <i> for italic text
-- <u> for underlined text
-- <small> for smaller text
+## Whitespace and Line Breaks
+A common point of confusion for beginners is how HTML handles whitespace. If you put multiple spaces or line breaks in your HTML code, the browser will collapse them into a single space when it renders the page.
 
-## Whitespace in HTML
-HTML ignores extra spaces and line breaks in your code. Multiple spaces become one space, and line breaks are ignored unless you use specific tags.
+To force a line break without starting a new paragraph, you can use the line break tag: \`<br>\`. This is a self-closing tag.
+
+\`\`\`html
+<p>This text is on one line.<br>This text appears on the next line.</p>
+\`\`\`
+
+## Text Formatting: Making Your Text Stand Out
+HTML provides several tags to format text. It's important to distinguish between **semantic** tags (which add meaning to the content) and **presentational** tags (which just change the appearance).
+
+### Semantic Formatting
+- **\`<strong>\`**: Defines text with strong importance. Browsers typically render this as **bold**. You should use this when the text is semantically important.
+  - Example: \`<strong>Warning:</strong> Do not touch.\`
+- **\`<em>\`**: Defines emphasized text. Browsers typically render this as *italic*. Use this to change the meaning of a sentence.
+  - Example: \`You *must* complete this step.\`
+
+### Presentational Formatting
+- **\`<b>\`**: Defines bold text without any extra importance.
+  - Example: \`This word is in <b>bold</b>.\`
+- **\`<i>\`**: Defines italic text, often used for technical terms, thoughts, or ship names.
+  - Example: \`The term <i>hyperlink</i> is fundamental to the web.\`
+- **\`<u>\`**: Defines underlined text. Be careful with this one, as users often associate underlined text with hyperlinks.
+  - Example: \`This text is <u>underlined</u>.\`
+
+**Best Practice:** Whenever possible, prefer using \`<strong>\` and \`<em>\` over \`<b>\` and \`<i>\`. It's better for accessibility (screen readers can use them to add vocal emphasis) and for search engine optimization (SEO).
     `,
     keyTerms: [
-      { term: "Paragraph", definition: "A block of text defined by the <p> tag" },
-      { term: "Line Break", definition: "A tag <br> that forces text to continue on the next line" },
-      { term: "Strong", definition: "A tag that makes text bold and indicates importance" },
-      { term: "Emphasis", definition: "A tag <em> that makes text italic and adds emphasis" }
+      { term: "Paragraph (`<p>`)", definition: "A tag used to define a block of text as a paragraph." },
+      { term: "Line Break (`<br>`)", definition: "A self-closing tag that creates a line break within a block of text." },
+      { term: "Strong (`<strong>`)", definition: "A semantic tag that indicates strong importance, typically rendered as bold." },
+      { term: "Emphasis (`<em>`)", definition: "A semantic tag used to add emphasis to text, typically rendered as italic." },
+      { term: "Whitespace", definition: "Any sequence of space, tab, and newline characters in your HTML code. Browsers collapse multiple whitespace characters into a single space." }
     ],
     exercises: [
       {
         id: 1,
-        title: "Create Your First Paragraph",
+        title: "Create and Style Your First Paragraph",
         type: "classwork",
         difficulty: "easy",
         instructions: [
-          "Open your index.html file from yesterday",
-          "After your h1 heading, add a <p> tag",
-          "Inside the p tags, write: 'This is my first paragraph in HTML.'",
-          "Add the closing </p> tag",
-          "Save and refresh your browser to see the paragraph"
+          "Open your 'index.html' file.",
+          "Delete the placeholder paragraph you created yesterday.",
+          "Add a new paragraph with the following content: `HTML is the skeleton of every webpage. It provides the structure and meaning of the content.`",
+          "Save and refresh your browser to see the new paragraph."
         ]
       },
       {
         id: 2,
-        title: "Add Multiple Paragraphs",
+        title: "Add Multiple Paragraphs and Line Breaks",
         type: "classwork",
         difficulty: "easy",
         instructions: [
-          "In the same index.html file",
-          "Add two more paragraphs after your first one",
-          "In the second paragraph, write about what you hope to learn",
-          "In the third paragraph, write about why you're interested in web development",
-          "Notice how browsers add space between paragraphs automatically"
+          "In the same 'index.html' file, add a second paragraph below the first one.",
+          "Content for the second paragraph: `Learning HTML is the first and most crucial step in web development. With it, you lay the foundation upon which you'll build with CSS and JavaScript.`",
+          "In the middle of the second paragraph, add a line break `<br>` right after the first sentence.",
+          "Save the file and observe how the line break affects the paragraph's display."
         ]
       },
       {
         id: 3,
-        title: "Text Formatting Practice",
+        title: "Practice with Text Formatting",
         type: "classwork",
         difficulty: "medium",
         instructions: [
-          "Create a new paragraph in your index.html",
-          "Write a sentence and make one word <strong>bold</strong>",
-          "In the same paragraph, make another word <em>italic</em>",
-          "Add a line break <br> in the middle of your paragraph",
-          "Save and view the formatting changes in your browser"
+          "Create a new paragraph in 'index.html'.",
+          "Add the following sentence: `It is very important to distinguish between semantic and presentational tags.`",
+          "Wrap the word 'important' with `<strong>` tags.",
+          "Wrap the words 'semantic' and 'presentational' with `<em>` tags.",
+          "Add one more sentence: `Bold text is created with <b> and italic with <i>.`",
+          "Save and view the formatting changes in your browser."
         ]
       },
       {
         id: 4,
-        title: "Create a Story Page",
+        title: "Create a Story Page with Formatting",
         type: "homework",
         difficulty: "medium",
         instructions: [
-          "Create a new file called 'story.html'",
-          "Set up the complete HTML structure",
-          "Add the title 'My Short Story'",
-          "Create an h1 heading with a story title of your choice",
-          "Write a short story using at least 4 paragraphs",
-          "Use <strong> tags to emphasize important words",
-          "Use <em> tags for dialogue or thoughts",
-          "Add line breaks where appropriate for dramatic effect"
+          "Create a new file called 'story.html'.",
+          "Set up the complete HTML structure, with the title 'The Dragon\\'s Treasure'.",
+          "Create an `<h1>` with the title: `The Dragon\\'s Treasure`.",
+          "Add an `<h2>` with the author: `By [Your Name]`.",
+          "Write a short story using at least three paragraphs.",
+          "In the first paragraph, describe the setting. Use an `<em>` tag for the name of the ancient forest.",
+          "In the second paragraph, describe the hero's challenge. Use a `<strong>` tag to highlight the main danger, like 'a slumbering dragon'.",
+          "In the third paragraph, describe the treasure. Use `<b>` and `<i>` tags to describe some of the items, for example: `a <b>golden</b> chalice and an <i>enchanted</i> scroll.`"
         ]
       },
       {
         id: 5,
-        title: "Format a Recipe",
+        title: "Format a Recipe Page",
         type: "homework",
         difficulty: "medium",
         instructions: [
-          "Create a new file called 'recipe.html'",
-          "Set up the HTML structure with title 'My Favorite Recipe'",
-          "Add an h1 with the recipe name",
-          "Create an h2 heading called 'Description'",
-          "Write a paragraph describing the dish",
-          "Add another h2 heading called 'Why I Love This Recipe'",
-          "Write a paragraph explaining why it's your favorite",
-          "Use formatting tags to emphasize key words like cooking techniques or flavors"
+          "Create a new file called 'recipe.html'.",
+          "Set up the HTML structure with the title 'My Favorite Chocolate Chip Cookies'.",
+          "Add an `<h1>` with the recipe name: `The Ultimate Chocolate Chip Cookies`.",
+          "Create an `<h2>` heading called 'Description'.",
+          "Write a paragraph describing the cookies. Use a `<strong>` tag on the word `best`.",
+          "Add another `<h2>` heading called 'A Note from the Baker'.",
+          "Write a paragraph with a personal tip. Emphasize a key instruction with an `<em>` tag, like `You *must* chill the dough for at least one hour.`",
+          "Use a `<u>` tag for a fun fact, like: `<u>Fun Fact: Chocolate chip cookies were invented by accident!</u>`"
         ]
       }
     ]
