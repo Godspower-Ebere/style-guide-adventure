@@ -88,9 +88,9 @@ Some elements are "self-closing" and don't need a closing tag, like \`<br>\` for
           "Open a simple text editor (like Notepad on Windows, or TextEdit on Mac).",
           "Create a new file.",
           "Add the DOCTYPE declaration at the very top: `<!DOCTYPE html>`",
-          "Create the root element by adding `<html>` and `</html>` tags.",
-          "Inside the `<html>` tags, add the head section with `<head>` and `</head>` tags.",
-          "After the head section, add the body section with `<body>` and `</body>` tags.",
+          "Create the root element using an `html` tag.",
+          "Inside the `html` tag, add a `head` section.",
+          "After the `head` section, add a `body` section.",
           "Save the file on your desktop as 'index.html'. Make sure the file extension is .html, not .txt."
         ]
       },
@@ -101,8 +101,8 @@ Some elements are "self-closing" and don't need a closing tag, like \`<br>\` for
         difficulty: "easy",
         instructions: [
           "Open your 'index.html' file if it's not already open.",
-          "Inside the `<head>` section, add a `<title>` and `</title>` tag.",
-          "Between the title tags, write: `My Web Development Journey`",
+          "Inside the `head` section, add a `title` tag.",
+          "Inside the `title` tag, write the text: 'My Web Development Journey'",
           "Save your file.",
           "Open 'index.html' in a web browser (like Chrome or Firefox) by double-clicking it. You should see your title in the browser tab."
         ]
@@ -113,9 +113,9 @@ Some elements are "self-closing" and don't need a closing tag, like \`<br>\` for
         type: "classwork",
         difficulty: "easy",
         instructions: [
-          "In your 'index.html' file, find the `<body>` section.",
-          "Add a main heading by typing `<h1>Welcome to My Website</h1>`.",
-          "Below the heading, add a paragraph by typing `<p>This is the start of my journey to become a web developer. I am excited to learn HTML!</p>`.",
+          "In your 'index.html' file, find the `body` section.",
+          "Add a main heading using an `h1` tag. The content should be 'Welcome to My Website'.",
+          "Below the heading, add a paragraph using a `p` tag. The content should be 'This is the start of my journey to become a web developer. I am excited to learn HTML!'.",
           "Save the file and refresh the page in your browser.",
           "You should now see your heading and paragraph displayed on the page."
         ]
@@ -130,12 +130,12 @@ Some elements are "self-closing" and don't need a closing tag, like \`<br>\` for
           "Set up the basic HTML structure (DOCTYPE, html, head with a title, and body).",
           "For the title, use 'Exploring HTML Headings'.",
           "In the body, create a heading for each level from h1 to h6.",
-          "For h1, use the content: `The Importance of Structure`",
-          "For h2, use: `Main Topics`",
-          "For h3, use: `Sub-topic 1`",
-          "For h4, use: `Details of Sub-topic 1`",
-          "For h5, use: `A Finer Point`",
-          "For h6, use: `A Minor Note`",
+          "For the `h1` tag, use the content: 'The Importance of Structure'",
+          "For the `h2` tag, use: 'Main Topics'",
+          "For the `h3` tag, use: 'Sub-topic 1'",
+          "For the `h4` tag, use: 'Details of Sub-topic 1'",
+          "For the `h5` tag, use: 'A Finer Point'",
+          "For the `h6` tag, use: 'A Minor Note'",
           "Save the file and view it in your browser to see how the different heading sizes create a visual hierarchy."
         ]
       },
@@ -147,11 +147,11 @@ Some elements are "self-closing" and don't need a closing tag, like \`<br>\` for
         instructions: [
           "Create a new file called 'about.html'.",
           "Set up the full HTML structure with a title 'About Me'.",
-          "Inside the body, create an `<h1>` heading with your name.",
-          "Add an `<h2>` heading that says 'My Coding Journey'.",
-          "Under this heading, add a paragraph: `I am starting this journey to build amazing things on the web. My goal is to understand how websites are created from the ground up.`",
-          "Add another `<h2>` heading that says 'My Goals for This Course'.",
-          "Under this heading, add a paragraph: `By the end of this 100-day course, I want to be able to build responsive and interactive websites confidently.`",
+          "Inside the `body`, create an `h1` heading with your name.",
+          "Add an `h2` heading with the content 'My Coding Journey'.",
+          "Under this heading, add a paragraph with the content: 'I am starting this journey to build amazing things on the web. My goal is to understand how websites are created from the ground up.'",
+          "Add another `h2` heading with the content 'My Goals for This Course'.",
+          "Under this heading, add a paragraph with the content: 'By the end of this 100-day course, I want to be able to build responsive and interactive websites confidently.'",
           "Save the file and open it in your browser."
         ]
       }
@@ -223,7 +223,7 @@ HTML provides several tags to format text. It's important to distinguish between
         instructions: [
           "Open your 'index.html' file.",
           "Delete the placeholder paragraph you created yesterday.",
-          "Add a new paragraph with the following content: `HTML is the skeleton of every webpage. It provides the structure and meaning of the content.`",
+          "Add a new paragraph using a `p` tag with the following content: 'HTML is the skeleton of every webpage. It provides the structure and meaning of the content.'",
           "Save and refresh your browser to see the new paragraph."
         ]
       },
@@ -234,8 +234,8 @@ HTML provides several tags to format text. It's important to distinguish between
         difficulty: "easy",
         instructions: [
           "In the same 'index.html' file, add a second paragraph below the first one.",
-          "Content for the second paragraph: `Learning HTML is the first and most crucial step in web development. With it, you lay the foundation upon which you'll build with CSS and JavaScript.`",
-          "In the middle of the second paragraph, add a line break `<br>` right after the first sentence.",
+          "Content for the second paragraph: 'Learning HTML is the first and most crucial step in web development. With it, you lay the foundation upon which you'll build with CSS and JavaScript.'",
+          "In the middle of the second paragraph, add a line break using a `br` tag right after the first sentence.",
           "Save the file and observe how the line break affects the paragraph's display."
         ]
       },
@@ -246,10 +246,10 @@ HTML provides several tags to format text. It's important to distinguish between
         difficulty: "medium",
         instructions: [
           "Create a new paragraph in 'index.html'.",
-          "Add the following sentence: `It is very important to distinguish between semantic and presentational tags.`",
-          "Wrap the word 'important' with `<strong>` tags.",
-          "Wrap the words 'semantic' and 'presentational' with `<em>` tags.",
-          "Add one more sentence: `Bold text is created with <b> and italic with <i>.`",
+          "Add a new paragraph with the sentence: 'It is very important to distinguish between semantic and presentational tags.'",
+          "Wrap the word 'important' with `strong` tags.",
+          "Wrap the words 'semantic' and 'presentational' with `em` tags.",
+          "Add another paragraph with the content: 'This text is bold and this one is italic.'. Then, wrap the word 'bold' with a `b` tag, and the word 'italic' with an `i` tag.",
           "Save and view the formatting changes in your browser."
         ]
       },
@@ -261,12 +261,12 @@ HTML provides several tags to format text. It's important to distinguish between
         instructions: [
           "Create a new file called 'story.html'.",
           "Set up the complete HTML structure, with the title 'The Dragon\\'s Treasure'.",
-          "Create an `<h1>` with the title: `The Dragon\\'s Treasure`.",
-          "Add an `<h2>` with the author: `By [Your Name]`.",
+          "Create an `h1` with the title: `The Dragon\\'s Treasure`.",
+          "Create an `h2` with the author: `By [Your Name]`.",
           "Write a short story using at least three paragraphs.",
-          "In the first paragraph, describe the setting. Use an `<em>` tag for the name of the ancient forest.",
-          "In the second paragraph, describe the hero's challenge. Use a `<strong>` tag to highlight the main danger, like 'a slumbering dragon'.",
-          "In the third paragraph, describe the treasure. Use `<b>` and `<i>` tags to describe some of the items, for example: `a <b>golden</b> chalice and an <i>enchanted</i> scroll.`"
+          "In the first paragraph, describe the setting. Use an `em` tag for the name of the ancient forest.",
+          "In the second paragraph, describe the hero's challenge. Use a `strong` tag to highlight the main danger, for example, 'a slumbering dragon'.",
+          "In the third paragraph, describe the treasure. Use `b` and `i` tags to describe some of the items. For example, in a sentence like 'a golden chalice and an enchanted scroll', make 'golden' bold and 'enchanted' italic."
         ]
       },
       {
@@ -277,12 +277,12 @@ HTML provides several tags to format text. It's important to distinguish between
         instructions: [
           "Create a new file called 'recipe.html'.",
           "Set up the HTML structure with the title 'My Favorite Chocolate Chip Cookies'.",
-          "Add an `<h1>` with the recipe name: `The Ultimate Chocolate Chip Cookies`.",
-          "Create an `<h2>` heading called 'Description'.",
-          "Write a paragraph describing the cookies. Use a `<strong>` tag on the word `best`.",
-          "Add another `<h2>` heading called 'A Note from the Baker'.",
-          "Write a paragraph with a personal tip. Emphasize a key instruction with an `<em>` tag, like `You *must* chill the dough for at least one hour.`",
-          "Use a `<u>` tag for a fun fact, like: `<u>Fun Fact: Chocolate chip cookies were invented by accident!</u>`"
+          "Add an `h1` with the recipe name: `The Ultimate Chocolate Chip Cookies`.",
+          "Create an `h2` heading called 'Description'.",
+          "Write a paragraph describing the cookies. Use a `strong` tag on the word `best`.",
+          "Add another `h2` heading called 'A Note from the Baker'.",
+          "Write a paragraph with a personal tip. Emphasize a key instruction with an `em` tag. For example, in the sentence 'You must chill the dough for at least one hour', wrap the word 'must' in `em` tags.",
+          "Use a `u` tag for a fun fact. For example, create a paragraph with 'Fun Fact: Chocolate chip cookies were invented by accident!' and wrap the entire sentence in a `u` tag."
         ]
       }
     ]
@@ -337,10 +337,10 @@ export const generateRemainingDays = (): DayLesson[] => {
           type: "classwork",
           difficulty: "easy",
           instructions: [
-            "Create a new HTML file for this exercise",
-            "Set up the basic HTML structure",
-            "Implement the core concept from today's lesson",
-            "Test your code in the browser"
+            "Create a new HTML file for this exercise.",
+            "Set up the basic HTML structure.",
+            `Create a basic example using the primary HTML tags for ${topics[topicIndex]} discussed in this lesson.`,
+            "Test your code in the browser."
           ]
         },
         {
@@ -349,10 +349,10 @@ export const generateRemainingDays = (): DayLesson[] => {
           type: "classwork",
           difficulty: "medium",
           instructions: [
-            "Build upon your previous exercise",
-            "Add more complex elements",
-            "Combine multiple concepts",
-            "Verify everything works correctly"
+            "Build upon your previous exercise.",
+            "Expand your example by adding attributes or nesting elements as shown in the detailed explanation.",
+            `Try to combine ${topics[topicIndex]} with other HTML elements you have learned, like headings and paragraphs.`,
+            "Verify everything works correctly."
           ]
         },
         {
@@ -361,10 +361,10 @@ export const generateRemainingDays = (): DayLesson[] => {
           type: "classwork",
           difficulty: "hard",
           instructions: [
-            "Create a comprehensive example",
-            "Integrate today's lesson with previous knowledge",
-            "Focus on best practices",
-            "Test across different scenarios"
+            "Create a comprehensive example from scratch.",
+            "Integrate today's lesson with previous knowledge.",
+            "Focus on the best practices mentioned in the lesson.",
+            "Test across different scenarios, if applicable."
           ]
         },
         {
@@ -373,10 +373,10 @@ export const generateRemainingDays = (): DayLesson[] => {
           type: "homework",
           difficulty: "medium",
           instructions: [
-            "Start a mini-project using today's concepts",
-            "Plan your approach before coding",
-            "Implement the foundational structure",
-            "Document your progress"
+            "Start a mini-project using today's concepts.",
+            "Plan your approach before coding.",
+            "Implement the foundational structure for your project.",
+            "Document your progress in comments within your code."
           ]
         },
         {
@@ -385,10 +385,10 @@ export const generateRemainingDays = (): DayLesson[] => {
           type: "homework",
           difficulty: "hard",
           instructions: [
-            "Complete your mini-project",
-            "Add styling and enhancements",
-            "Test thoroughly for any issues",
-            "Reflect on what you've learned"
+            "Complete your mini-project from the previous exercise.",
+            "Add styling and any possible enhancements.",
+            "Test thoroughly for any issues or bugs.",
+            "Reflect on what you've learned by adding comments explaining your code."
           ]
         }
       ]
