@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Exercise } from "@/data/curriculum";
+import { Exercise } from "@/data/types";
 import { CheckCircle2, Circle } from "lucide-react";
 
 interface ExerciseCardProps {
