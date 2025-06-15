@@ -20,7 +20,7 @@ Modern JavaScript provides a rich set of features for working with objects that 
 ### Destructuring & Spread Syntax
 
 **Destructuring** allows you to unpack values from objects into distinct variables.
-**Spread syntax (`...`)** allows you to expand an object into a new object, perfect for cloning or merging.
+**Spread syntax (\\\`...\\\`)** allows you to expand an object into a new object, perfect for cloning or merging.
 
 \\\`\\\`\\\`javascript
 const user = {
@@ -50,13 +50,13 @@ console.log(userWithRole.name); // 'Alice Smith'
 console.log(userWithRole.role); // 'admin'
 \\\`\\\`\\\`
 
-### Optional Chaining (`?.`) & Nullish Coalescing (`??`)
+### Optional Chaining (\\\`?.\\\`) & Nullish Coalescing (\\\`??\\\`)
 
 These two operators are a powerful combination for safely handling potentially missing data.
 
-**Optional Chaining (`?.`)** stops an expression from throwing an error if a property in the chain is \`null\` or \`undefined\`. Instead, it returns \`undefined\`.
+**Optional Chaining (\\\`?.\\\`)** stops an expression from throwing an error if a property in the chain is \\\`null\\\` or \\\`undefined\\\`. Instead, it returns \\\`undefined\\\`.
 
-**Nullish Coalescing (`??`)** provides a default value only when the left-hand side is \`null\` or \`undefined\` (unlike \`||\` which also triggers for \`0\`, \`false\`, or \`''\`).
+**Nullish Coalescing (\\\`??\\\`)** provides a default value only when the left-hand side is \\\`null\\\` or \\\`undefined\\\` (unlike \\\`||\\\` which also triggers for \\\`0\\\`, \\\`false\\\`, or \\\`''\\\`).
 
 \\\`\\\`\\\`javascript
 const user1 = { name: 'Bob' }; // No address
@@ -76,7 +76,7 @@ console.log(city); // "City not provided"
 ### Shorthand Properties & Computed Property Names
 
 **Shorthand Properties**: If a variable name is the same as the object key, you can just use the variable name.
-**Computed Property Names**: You can use an expression in brackets \`[]\` to define an object key dynamically.
+**Computed Property Names**: You can use an expression in brackets \\\`[]\\\` to define an object key dynamically.
 
 \\\`\\\`\\\`javascript
 const username = 'JohnDoe';
