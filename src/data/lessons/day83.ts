@@ -26,7 +26,7 @@ Once a promise is fulfilled or rejected, it is **settled** and its state cannot 
 ### Consuming a Promise
 Most of the time, you'll be working with functions that *return* a promise (like the \`fetch\` API). You handle the result using the \`.then()\` and \`.catch()\` methods.
 
-\\\`\\\`\\\`javascript
+\`\`\`javascript
 // fetch returns a promise
 fetch('https://api.example.com/data')
   .then(response => {
@@ -43,13 +43,13 @@ fetch('https://api.example.com/data')
     // or if response.json() fails (e.g., invalid JSON).
     console.error("Something went wrong:", error);
   });
-\\\`\\\`\\\`
+\`\`\`
 This is called **promise chaining** and it's a clean way to handle a sequence of async tasks.
 
 ### Creating a Promise
 You can create your own promises using the \`Promise\` constructor. It takes a function (called the "executor") with two arguments: \`resolve\` and \`reject\`.
 
-\\\`\\\`\\\`javascript
+\`\`\`javascript
 const myPromise = new Promise((resolve, reject) => {
   console.log("Executor function starts...");
   
@@ -75,7 +75,7 @@ myPromise
   .catch(error => {
     console.error("Rejected:", error.message); // "The operation failed."
   });
-\\\`\\\`\\\`
+\`\`\`
 `,
   keyTerms: [
     { term: "Promise", definition: "An object representing the eventual completion or failure of an asynchronous operation." },

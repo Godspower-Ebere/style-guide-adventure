@@ -29,31 +29,31 @@ The box model consists of four parts, from the inside out:
 
 ### padding
 Sets the padding on all four sides. You can also set them individually.
-\\\`\\\`\\\`css
+\`\`\`css
 .box {
   padding: 20px; /* 20px on all sides */
   /* padding-top, padding-right, padding-bottom, padding-left */
   padding: 10px 20px 10px 20px; /* Top, Right, Bottom, Left */
   padding: 10px 20px; /* 10px top/bottom, 20px left/right */
 }
-\\\`\\\`\\\`
+\`\`\`
 
 ### border
 A shorthand for \`border-width\`, \`border-style\`, and \`border-color\`.
-\\\`\\\`\\\`css
+\`\`\`css
 .box {
   border: 2px solid #333;
 }
-\\\`\\\`\\\`
+\`\`\`
 
 ### margin
 Sets the margin on all four sides. Margins of adjacent elements can "collapse".
-\\\`\\\`\\\`css
+\`\`\`css
 .box {
   margin: 15px; /* 15px on all sides */
   margin: 10px 20px; /* 10px top/bottom, 20px left/right */
 }
-\\\`\\\`\\\`
+\`\`\`
 
 ## box-sizing: The Key to Sanity
 By default, the \`width\` and \`height\` you set applies *only to the content box*. Padding and borders are added *on top* of that, which can make sizing difficult.
@@ -65,15 +65,15 @@ Total width = \`width\` + \`padding-left\` + \`padding-right\` + \`border-left\`
 Total width = \`width\` (The \`width\` property now includes content, padding, and border).
 
 This is much more intuitive. It's a common best practice to apply this to all elements.
-\\\`\\\`\\\`css
+\`\`\`css
 * {
   box-sizing: border-box;
 }
-\\\`\\\`\\\`
+\`\`\`
 With \`box-sizing: border-box;\`, if you set an element's width to 100px, it will always be 100px wide, regardless of its padding or border thickness.
 
 ## Example
-\\\`\\\`\\\`html
+\`\`\`html
 <div class="box1">I am content-box.</div>
 <div class="box2">I am border-box.</div>
 <style>
@@ -86,7 +86,7 @@ With \`box-sizing: border-box;\`, if you set an element's width to 100px, it wil
   .box1 { box-sizing: content-box; } /* Total width: 200 + 40 + 10 = 250px */
   .box2 { box-sizing: border-box; }  /* Total width: 200px */
 </style>
-\\\`\\\`\\\`
+\`\`\`
 `,
   keyTerms: [
     { term: "Content", definition: "The area of an element's box where text and images appear." },

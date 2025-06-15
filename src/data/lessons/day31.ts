@@ -19,75 +19,75 @@ Typography is a critical part of web design. CSS gives you extensive control ove
 
 ### font-family
 Specifies a prioritized list of fonts. The browser will use the first font in the list that it has available.
-\\\`\\\`\\\`css
+\`\`\`css
 p {
   /* Starts with a specific font, falls back to more generic ones */
   font-family: "Roboto", Arial, sans-serif;
 }
-\\\`\\\`\\\`
+\`\`\`
 
 ### font-size
 Controls the size of the text. You can use pixels (\`px\`), ems (\`em\`), rems (\`rem\`), or percentages (\`%\`).
-\\\`\\\`\\\`css
+\`\`\`css
 h1 { font-size: 2.5rem; } /* 2.5 times the root font size */
 p { font-size: 16px; }
-\\\`\\\`\\\`
+\`\`\`
 
 ### font-weight
 Sets how thick or thin characters are. It can be a keyword (\`normal\`, \`bold\`) or a number (100-900).
-\\\`\\\`\\\`css
+\`\`\`css
 .heavy { font-weight: 700; } /* Same as 'bold' */
 .light { font-weight: 300; }
-\\\`\\\`\\\`
+\`\`\`
 
 ### font-style
 Used to specify italic text.
-\\\`\\\`\\\`css
+\`\`\`css
 .emphasis { font-style: italic; }
-\\\`\\\`\\\`
+\`\`\`
 
 ### font (shorthand)
 Combines multiple font properties into one line. The order is important: \`font-style font-weight font-size/line-height font-family\`.
-\\\`\\\`\\\`css
+\`\`\`css
 body {
   font: italic 700 16px/1.5 "Helvetica", sans-serif;
 }
-\\\`\\\`\\\`
+\`\`\`
 
 ## Text Properties
 
 ### text-align
 Specifies the horizontal alignment of text.
-\\\`\\\`\\\`css
+\`\`\`css
 .center-text { text-align: center; }
 .right-text { text-align: right; }
 .justified-text { text-align: justify; }
-\\\`\\\`\\\`
+\`\`\`
 
 ### text-decoration
 Adds or removes decorations from text (like underlines).
-\\\`\\\`\\\`css
+\`\`\`css
 a { text-decoration: none; } /* Removes underline from links */
 .strike { text-decoration: line-through; }
-\\\`\\\`\\\`
+\`\`\`
 
 ### line-height
 Sets the distance between lines of text. Using a unitless value is recommended.
-\\\`\\\`\\\`css
+\`\`\`css
 p { line-height: 1.6; } /* 1.6 times the font size */
-\\\`\\\`\\\`
+\`\`\`
 
 ### letter-spacing and word-spacing
 Adjusts the space between characters or words.
-\\\`\\\`\\\`css
+\`\`\`css
 h1 { letter-spacing: 2px; }
 p { word-spacing: 4px; }
-\\\`\\\`\\\`
+\`\`\`
 
 ## Using Web Fonts with @font-face
 You can use custom fonts that aren't installed on the user's computer. First, get the font files (e.g., from Google Fonts).
 
-\\\`\\\`\\\`css
+\`\`\`css
 @font-face {
   font-family: "MyCustomFont";
   src: url("my-custom-font.woff2") format("woff2"),
@@ -99,7 +99,7 @@ You can use custom fonts that aren't installed on the user's computer. First, ge
 body {
   font-family: "MyCustomFont", sans-serif;
 }
-\\\`\\\`\\\`
+\`\`\`
 This allows for unique and consistent branding across all users' devices.
 `,
   keyTerms: [
