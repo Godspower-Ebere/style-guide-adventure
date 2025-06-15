@@ -79,6 +79,16 @@ import { day77 } from './day77';
 import { day78 } from './day78';
 import { day79 } from './day79';
 import { day80 } from './day80';
+import { day81 } from './day81';
+import { day82 } from './day82';
+import { day83 } from './day83';
+import { day84 } from './day84';
+import { day85 } from './day85';
+import { day86 } from './day86';
+import { day87 } from './day87';
+import { day88 } from './day88';
+import { day89 } from './day89';
+import { day90 } from './day90';
 import { DayLesson } from '../types';
 
 export const detailedLessons: DayLesson[] = [
@@ -162,4 +172,14 @@ export const detailedLessons: DayLesson[] = [
   day78,
   day79,
   day80,
+  day81,
+  day82,
+  day83,
+  day84,
+  day85,
+  day86,
+  day87,
+  day88,
+  day89,
+  day90,
 ];

@@ -10,7 +10,7 @@ export interface Exercise {
 export interface DayLesson {
   day: number;
   title: string;
-  category: 'HTML Basics' | 'CSS Basics' | 'HTML Forms' | 'CSS Layouts' | 'Advanced HTML' | 'Advanced CSS' | 'Responsive Design' | 'CSS Animations' | 'HTML5 Features' | 'CSS Grid & Flexbox' | 'JavaScript Basics' | 'JavaScript Advanced';
+  category: 'HTML Basics' | 'CSS Basics' | 'HTML Forms' | 'CSS Layouts' | 'Advanced HTML' | 'Advanced CSS' | 'Responsive Design' | 'CSS Animations' | 'HTML5 Features' | 'CSS Grid & Flexbox' | 'JavaScript Basics' | 'JavaScript Advanced' | 'Asynchronous JavaScript' | 'Web APIs' | 'Modern JavaScript';
   description: string;
   learningObjectives: string[];
   detailedExplanation: string;
