@@ -153,7 +153,7 @@ Understanding truthy/falsy values allows you to write more concise and idiomatic
       difficulty: "easy",
       instructions: [
         "Declare a variable `userInput`.",
-        "Assign it one of the falsy values (e.g., `0`, `null`, `""`).",
+        'Assign it one of the falsy values (e.g., `0`, `null`, `""`).',
         "Write an `if` statement that checks `if (userInput)`.",
         "In the `if` block, log 'Input is valid'. In the `else` block, log 'Please provide input'.",
         "Test this with different falsy and truthy values (like a non-empty string or a non-zero number)."
