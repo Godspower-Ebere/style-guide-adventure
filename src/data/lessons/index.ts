@@ -45,6 +45,10 @@ import { day43 } from './day43';
 import { day44 } from './day44';
 import { day45 } from './day45';
 import { day46 } from './day46';
+import { day47 } from './day47';
+import { day48 } from './day48';
+import { day49 } from './day49';
+import { day50 } from './day50';
 import { DayLesson } from '../types';
 
 export const detailedLessons: DayLesson[] = [
@@ -94,4 +98,8 @@ export const detailedLessons: DayLesson[] = [
   day44,
   day45,
   day46,
+  day47,
+  day48,
+  day49,
+  day50,
 ];
