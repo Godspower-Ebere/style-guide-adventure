@@ -1,165 +1,146 @@
+
 import { DayLesson } from "../types";
 
 export const day80: DayLesson = {
   day: 80,
   title: "JS Data Structures: Map and Set",
   category: "JavaScript Advanced",
-  description: "Explore the powerful ES6 data structures, Map and Set, for more efficient ways to handle collections of data.",
+  description: "Explore the powerful ES6 data structures, Map and Set, for handling unique collections and keyed data more effectively than with plain objects or arrays.",
   learningObjectives: [
-    "Understand the advantages of using `Set` for storing unique values.",
-    "Use common `Set` methods like `add`, `has`, `delete`, and `clear`.",
-    "Understand the advantages of `Map` for key-value pairs where keys can be any data type.",
-    "Use common `Map` methods like `set`, `get`, `has`, `delete`, and `clear`.",
-    "Iterate over `Map` and `Set` objects."
+    "Understand the differences between Map and Object.",
+    "Create and manipulate data in a Map using `set`, `get`, `has`, and `delete`.",
+    "Iterate over Maps using `forEach` or `for...of`.",
+    "Understand the use case for Set to store unique values.",
+    "Add, check for, and remove items from a Set.",
+    "Convert between Sets and Arrays to leverage the strengths of both."
   ],
   detailedExplanation: `
-ES6 introduced two new data structures, \`Set\` and \`Map\`, which provide more specialized and often more efficient ways to handle collections of data compared to plain objects and arrays.
+ES6 introduced two new and incredibly useful data structures to JavaScript: **Set** and **Map**. They provide more specialized and powerful ways to handle collections of data compared to traditional arrays and objects.
 
 ### Set
-A \`Set\` is a collection of **unique** values. A value in a Set may only occur once; it is unique in the Set's collection. You can store any type of value, whether primitive values or object references.
+A **Set** is a collection of **unique values**. Any single value can only appear once in a Set, which makes them perfect for tasks like removing duplicates.
 
-**Key Use Case:** Removing duplicates from an array or quickly checking for the presence of an item in a collection.
+Key features of a Set:
+*   **Uniqueness**: Automatically handles uniqueness. You cannot add a duplicate value.
+*   **Any Data Type**: Values in a Set can be of any type, from primitives to objects.
+*   **Iterable**: You can easily loop over a Set using \`for...of\` or \`forEach\`.
 
-// Creating a Set
-const mySet = new Set();
+\`\`\`javascript
+// Create a new Set
+const uniqueNumbers = new Set();
 
-// Adding values
-mySet.add(1);
-mySet.add(5);
-mySet.add("some text");
-mySet.add({ a: 1 });
+// Add values using the .add() method
+uniqueNumbers.add(5);
+uniqueNumbers.add(10);
+uniqueNumbers.add(5); // This will be ignored, as 5 is already in the Set
 
-// Adding a duplicate value does nothing
-mySet.add(5); 
+console.log(uniqueNumbers); // Set(2) { 5, 10 }
 
-console.log(mySet.size); // 4
+// Check if a value exists with .has()
+console.log(uniqueNumbers.has(10)); // true
+console.log(uniqueNumbers.has(15)); // false
 
-// Checking for a value (much faster than Array.includes for large collections)
-console.log(mySet.has(1)); // true
-console.log(mySet.has(3)); // false
+// Get the number of items with the .size property
+console.log(uniqueNumbers.size); // 2
 
-// Deleting a value
-mySet.delete(5);
-
-// Iterating over a Set
-for (let item of mySet) {
-  console.log(item);
-}
-
-// A common use case: remove duplicates from an array
-const numbers = [2, 3, 4, 4, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7];
-const uniqueNumbers = [...new Set(numbers)];
-console.log(uniqueNumbers); // [2, 3, 4, 5, 6, 7]
+// A common use case: removing duplicates from an array
+const numberList = [1, 2, 3, 2, 4, 1, 5];
+const uniqueList = [...new Set(numberList)]; // Use spread syntax to convert back to an array
+console.log(uniqueList); // [1, 2, 3, 4, 5]
+\`\`\`
 
 ### Map
-A \`Map\` is a collection of key-value pairs where **any value (both objects and primitive values) may be used as either a key or a value**. This is a significant advantage over plain objects, which are limited to using strings or symbols as keys.
+A **Map** is a collection of **keyed data items**, just like an Object. However, Maps have some significant advantages:
+*   **Any Key Type**: Map keys can be of **any data type** (even an object or a function), whereas object keys are limited to strings and symbols.
+*   **Iterable**: Maps are directly iterable. You can reliably loop over their \`[key, value]\` pairs in insertion order.
+*   **Size Property**: Maps have a \`.size\` property that easily gives you the number of key-value pairs.
+*   **Performance**: Maps are optimized for frequent additions and removals of key-value pairs.
 
-**Key Use Case:** When you need to associate data with a specific object, or when you need keys that aren't strings.
+\`\`\`javascript
+// Create a new Map
+const userRoles = new Map();
 
-// Creating a Map
-const myMap = new Map();
+// Add key-value pairs with .set()
+userRoles.set('alice', 'admin');
+userRoles.set('bob', 'editor');
+userRoles.set('charlie', 'viewer');
 
-const keyString = "a string";
-const keyObject = {};
-const keyFunction = function() {};
+// Get a value by its key with .get()
+console.log(userRoles.get('alice')); // "admin"
 
-// Setting values
-myMap.set(keyString, "value associated with 'a string'");
-myMap.set(keyObject, "value associated with keyObject");
-myMap.set(keyFunction, "value associated with keyFunction");
+// Check if a key exists with .has()
+console.log(userRoles.has('bob')); // true
 
-console.log(myMap.size); // 3
+// Get the size
+console.log(userRoles.size); // 3
 
-// Getting values
-console.log(myMap.get(keyString)); // "value associated with 'a string'"
-console.log(myMap.get(keyObject)); // "value associated with keyObject"
-
-// Checking for a key
-console.log(myMap.has(keyFunction)); // true
-
-// Iterating over a Map
-// Using .entries() or for...of
-for (let [key, value] of myMap) {
-  console.log(\`\\\${key} = \\\${value}\`);
+// Iterate over a Map
+for (const [user, role] of userRoles) {
+  console.log(\`\${user} has the role: \${role}\`);
 }
+\`\`\`
 
-// Using .keys()
-for (let key of myMap.keys()) {
-  console.log(key);
-}
-
-// Using .values()
-for (let value of myMap.values()) {
-  console.log(value);
-}
-
-### Map vs. Object - Key Differences
-| Feature | Map | Object |
-| :--- | :--- | :--- |
-| **Key Types** | Any value (object, primitive) | String or Symbol |
-| **Key Order** | Keys are ordered by insertion | Keys are not guaranteed to be in order |
-| **Size** | Easily get size with \`.size\` property | Must manually calculate size (e.g., \`Object.keys(obj).length\`) |
-| **Iteration** | Directly iterable (e.g., \`for...of\`) | Not directly iterable (must use \`Object.keys\`, etc.) |
-| **Performance** | Optimized for frequent additions and removals | Not optimized for frequent additions and removals |
+In summary:
+*   Use a **Set** when you need a list of unique items and order doesn't matter as much.
+*   Use a **Map** when you need a key-value store, especially if your keys are not strings or if you need to iterate over the collection frequently.
 `,
   keyTerms: [
-    { term: "Set", definition: "An ES6 data structure that represents a collection of unique values." },
-    { term: "Map", definition: "An ES6 data structure that represents a collection of key-value pairs, where keys can be of any data type." },
-    { term: ".add()", definition: "A method on a Set to add a new element." },
-    { term: ".has()", definition: "A method on a Set or Map to check for the presence of an element or key." },
-    { term: ".set()", definition: "A method on a Map to add or update a key-value pair." },
-    { term: ".get()", definition: "A method on a Map to retrieve the value associated with a key." }
+    { term: "Set", definition: "A data structure that stores a collection of unique values of any type." },
+    { term: "Map", definition: "A data structure that stores key-value pairs where keys can be of any data type." },
+    { term: "Uniqueness", definition: "The property of a Set where each value can only appear once." },
+    { term: "Key-Value Pair", definition: "The fundamental unit of data in a Map, associating a key with a value." },
+    { term: "Iterable", definition: "An object that can be looped over in a predictable order, like Map and Set." }
   ],
   exercises: [
     {
       id: 1,
-      title: "De-duplicating an Array",
+      title: "Remove Duplicate Tags",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create an array of strings with several duplicate values.",
-        "Use a `Set` to create a new array containing only the unique values from the original array.",
-        "Log the new, de-duplicated array to the console."
+        "You have an array of tags with duplicates: `['javascript', 'react', 'css', 'javascript', 'html', 'css']`.",
+        "Use a `Set` to create a new array containing only the unique tags.",
+        "Log the final unique array to the console."
       ]
     },
     {
       id: 2,
-      title: "Tagging System with a Set",
+      title: "Basic User Preferences Map",
       type: "classwork",
-      difficulty: "medium",
+      difficulty: "easy",
       instructions: [
-        "Create a `Set` to store tags for a blog post.",
-        "Add several tags like 'javascript', 'es6', 'webdev'.",
-        "Try to add 'javascript' again and observe that the set size doesn't change.",
-        "Check if the set `has()` the tag 'css'.",
-        "Log the final size of the set."
+        "Create a new `Map` called `userPrefs`.",
+        "Use the `set()` method to store the following preferences: `theme` -> `'dark'`, `fontSize` -> `16`, `showAvatars` -> `true`.",
+        "Use the `get()` method to retrieve and log the `theme` preference.",
+        "Use the `has()` method to check if a preference for `fontSize` exists and log the result.",
+        "Log the `size` of the map."
       ]
     },
     {
       id: 3,
-      title: "User Roles with a Map",
+      title: "Counting Word Frequencies",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "Create two user objects, `user1` and `user2`.",
-        "Create a `Map` called `userRoles`.",
-        "Use the user objects themselves as keys in the map.",
-        "Set the value for `user1` to 'Admin' and for `user2` to 'Editor'.",
-        "Write a function `getRole(user)` that takes a user object and returns their role from the map.",
-        "Test the function with both users."
+        "You are given a string of text: `'hello world this is a test hello world'`.",
+        "Create a function `countWords(text)`.",
+        "Inside the function, split the text into an array of words.",
+        "Use a `Map` to store the frequency of each word. The word should be the key and its count should be the value.",
+        "Iterate over the array of words. For each word, update its count in the map.",
+        "Return the map and log it to the console."
       ]
     },
     {
       id: 4,
-      title: "Counting Word Frequency",
+      title: "Managing a Class Roster",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Take a sentence (string of text).",
-        "Create a `Map` to store the frequency of each word.",
-        "Iterate over the words in the sentence.",
-        "For each word, use it as a key in the map. If the word is already in the map, increment its value (count). If not, add it to the map with a value of 1.",
-        "After processing the whole sentence, log the map to see the word counts."
+        "Create a `Map` to act as a class roster where the key is the student ID (number) and the value is the student's name (string).",
+        "Add 3 students to the roster with IDs 101, 102, and 103.",
+        "A student drops the class. Remove the student with ID 102 from the roster using the `delete()` method.",
+        "A new student enrolls. Add a new student with ID 104.",
+        "Iterate over the final roster using a `for...of` loop and log each student's ID and name to the console."
       ]
     }
   ]
