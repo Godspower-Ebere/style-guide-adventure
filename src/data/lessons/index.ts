@@ -18,6 +18,11 @@ import { day92 } from "./day92";
 import { day93 } from "./day93";
 import { day94 } from "./day94";
 import { day95 } from "./day95";
+import { day96 } from "./day96";
+import { day97 } from "./day97";
+import { day98 } from "./day98";
+import { day99 } from "./day99";
+import { day100 } from "./day100";
 
 export const detailedLessons: DayLesson[] = [
   day31,
@@ -38,4 +43,9 @@ export const detailedLessons: DayLesson[] = [
   day93,
   day94,
   day95,
+  day96,
+  day97,
+  day98,
+  day99,
+  day100,
 ];
