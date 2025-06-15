@@ -33,6 +33,9 @@ import { day31 } from './day31';
 import { day32 } from './day32';
 import { day33 } from './day33';
 import { day34 } from './day34';
+import { day35 } from './day35';
+import { day36 } from './day36';
+import { day37 } from './day37';
 import { DayLesson } from '../types';
 
 export const detailedLessons: DayLesson[] = [
@@ -70,4 +73,7 @@ export const detailedLessons: DayLesson[] = [
   day32,
   day33,
   day34,
+  day35,
+  day36,
+  day37,
 ];
