@@ -1,4 +1,3 @@
-
 import { DayLesson } from "../types";
 
 export const day80: DayLesson = {
@@ -21,7 +20,6 @@ A \`Set\` is a collection of **unique** values. A value in a Set may only occur 
 
 **Key Use Case:** Removing duplicates from an array or quickly checking for the presence of an item in a collection.
 
-\`\`\`javascript
 // Creating a Set
 const mySet = new Set();
 
@@ -52,14 +50,12 @@ for (let item of mySet) {
 const numbers = [2, 3, 4, 4, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7];
 const uniqueNumbers = [...new Set(numbers)];
 console.log(uniqueNumbers); // [2, 3, 4, 5, 6, 7]
-\`\`\`
 
 ### Map
 A \`Map\` is a collection of key-value pairs where **any value (both objects and primitive values) may be used as either a key or a value**. This is a significant advantage over plain objects, which are limited to using strings or symbols as keys.
 
 **Key Use Case:** When you need to associate data with a specific object, or when you need keys that aren't strings.
 
-\`\`\`javascript
 // Creating a Map
 const myMap = new Map();
 
@@ -84,7 +80,7 @@ console.log(myMap.has(keyFunction)); // true
 // Iterating over a Map
 // Using .entries() or for...of
 for (let [key, value] of myMap) {
-  console.log(\`\${key} = \${value}\`);
+  console.log(\`\\\${key} = \\\${value}\`);
 }
 
 // Using .keys()
@@ -96,15 +92,14 @@ for (let key of myMap.keys()) {
 for (let value of myMap.values()) {
   console.log(value);
 }
-\`\`\`
 
 ### Map vs. Object - Key Differences
 | Feature | Map | Object |
 | :--- | :--- | :--- |
 | **Key Types** | Any value (object, primitive) | String or Symbol |
 | **Key Order** | Keys are ordered by insertion | Keys are not guaranteed to be in order |
-| **Size** | Easily get size with `.size` property | Must manually calculate size (e.g., `Object.keys(obj).length`) |
-| **Iteration** | Directly iterable (e.g., `for...of`) | Not directly iterable (must use `Object.keys`, etc.) |
+| **Size** | Easily get size with \`.size\` property | Must manually calculate size (e.g., \`Object.keys(obj).length\`) |
+| **Iteration** | Directly iterable (e.g., \`for...of\`) | Not directly iterable (must use \`Object.keys\`, etc.) |
 | **Performance** | Optimized for frequent additions and removals | Not optimized for frequent additions and removals |
 `,
   keyTerms: [

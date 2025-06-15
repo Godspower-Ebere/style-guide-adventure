@@ -1,4 +1,3 @@
-
 import { DayLesson } from "../types";
 
 export const day72: DayLesson = {
@@ -20,7 +19,6 @@ Every JavaScript object has a hidden, internal property, written in the specific
 
 When you try to access a property on an object, the JavaScript engine first checks if the property exists directly on that object. If not, it follows the \`[[Prototype]]\` link to the prototype object and checks there. If it's still not found, it continues up the **prototype chain** until it finds the property or reaches the end of the chain. The end of the chain is almost always the built-in \`Object.prototype\`.
 
-\`\`\`javascript
 const animal = {
   eats: true,
   walk() {
@@ -37,14 +35,12 @@ console.log(rabbit.jumps);    // true (own property)
 rabbit.walk();                // "Animal is walking." (inherited from animal)
 
 // The prototype chain: rabbit ---> animal ---> Object.prototype ---> null
-\`\`\`
 
 ### Creating Objects with Prototypes
 
-#### 1. `Object.create()`
+#### 1. \`Object.create()\`
 This is the most direct way to create an object with a specified prototype.
 
-\`\`\`javascript
 const vehicle = {
   hasEngine: true
 };
@@ -54,14 +50,12 @@ car.wheels = 4;
 
 console.log(car.hasEngine); // true
 console.log(Object.getPrototypeOf(car) === vehicle); // true
-\`\`\`
 
 #### 2. Constructor Functions
 This was the traditional "class-like" way of creating objects before the \`class\` keyword. When you create a function and call it with \`new\`, the new object's \`[[Prototype]]\` is automatically set to the constructor function's \`prototype\` property.
 
 It's important to understand that \`MyConstructor.prototype\` is NOT the prototype of the function itself. It's the object that will become the prototype for all instances created with \`new MyConstructor()\`.
 
-\`\`\`javascript
 function Dog(name) {
   this.name = name;
 }
@@ -81,7 +75,7 @@ fluffy.bark(); // "Woof! My name is Fluffy"
 // fido doesn't have its own 'bark' method. It finds it on its prototype.
 console.log(fido.hasOwnProperty('bark')); // false
 console.log(Object.getPrototypeOf(fido) === Dog.prototype); // true
-\`\`\`
+
 This is more memory-efficient than putting the \`bark\` method directly on \`this\` inside the constructor, as every dog instance would get its own copy of the function. With prototypes, they all share one.
 
 ### Checking Prototypes
