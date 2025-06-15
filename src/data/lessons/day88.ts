@@ -1,4 +1,3 @@
-
 import { DayLesson } from "../types";
 
 export const day88: DayLesson = {
@@ -17,20 +16,20 @@ export const day88: DayLesson = {
   detailedExplanation: `
 As applications grow, keeping all your JavaScript in one file becomes unmanageable. **Modules** allow you to split your code into separate files and share code between them. This improves organization, reusability, and maintainability. ES6 introduced a standardized module system built into the JavaScript language.
 
-To use ES6 modules in the browser, you must tell the browser that a script is a module by adding \`type="module"\` to the \`<script>\` tag.
-\`\`\`html
+To use ES6 modules in the browser, you must tell the browser that a script is a module by adding \\\`type="module"\\\` to the \\\`<script>\\\` tag.
+\\\`\\\`\\\`html
 <!-- This script will be treated as a module -->
 <script type="module" src="app.js"></script>
-\`\`\`
+\\\`\\\`\\\`
 Modules have some key characteristics:
 *   They are automatically in **strict mode**.
 *   Variables declared in a module are **scoped to that module** by default. They are not automatically added to the global scope.
-*   You must explicitly \`export\` what you want to share and \`import\` what you need.
+*   You must explicitly \\\`export\\\` what you want to share and \\\`import\\\` what you need.
 
 ### Named Exports
-You can export multiple values from a single file using the \`export\` keyword. These are called **named exports**.
+You can export multiple values from a single file using the \\\`export\\\` keyword. These are called **named exports**.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 // 📁 utils.js
 
 export const PI = 3.14159;
@@ -44,11 +43,11 @@ export class User {
     this.name = name;
   }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-To import these, you use curly braces \`{}\` with the exact names of the exports.
+To import these, you use curly braces \\\`{}\\\` with the exact names of the exports.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 // 📁 app.js
 
 import { PI, add, User } from './utils.js';
@@ -65,12 +64,12 @@ console.log(user.name); // 'Alice'
 // You can also import everything as a single object
 import * as utils from './utils.js';
 console.log(utils.PI);
-\`\`\`
+\\\`\\\`\\\`
 
 ### Default Export
 A module can have **one (and only one) default export**. This is useful for modules that have a primary purpose, like exporting a single class or function.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 // 📁 Greeter.js
 
 export default class Greeter {
@@ -78,27 +77,27 @@ export default class Greeter {
     this.greeting = greeting;
   }
   greet(name) {
-    return \`\${this.greeting}, \${name}!\`;
+    return \`\\\${this.greeting}, \\\${name}!\`;
   }
 }
-\`\`\`
+\\\`\\\`\\\`
 
 When you import a default export, you don't use curly braces, and you can give it any name you like.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 // 📁 app.js
 
 import MyGreeter from './Greeter.js'; // The name 'MyGreeter' is arbitrary
 
 const greeter = new MyGreeter('Hello');
 console.log(greeter.greet('World')); // "Hello, World!"
-\`\`\`
+\\\`\\\`\\\`
 
 You can have both named exports and a default export in the same file.
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 // 📁 app.js
 import MyGreeter, { PI, add } from './someModule.js';
-\`\`\`
+\\\`\\\`\\\`
 `,
   keyTerms: [
     { term: "Module", definition: "A self-contained file of JavaScript code that can export and import functionality from other modules." },

@@ -16,10 +16,10 @@ export const day86: DayLesson = {
   detailedExplanation: `
 Proper error handling is critical for building reliable applications. In asynchronous JavaScript, unhandled errors can crash your program or lead to silent failures.
 
-### Errors in Promise Chains (`.then/.catch`)
-A key feature of promise chains is that a single \`.catch()\` at the end can handle a rejection from any of the preceding promises.
+### Errors in Promise Chains (\`.then/.catch\`)
+A key feature of promise chains is that a single \\\`.catch()\\\` at the end can handle a rejection from any of the preceding promises.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 step1() // This might reject
   .then(result1 => step2(result1)) // Or this might reject
   .then(result2 => step3(result2)) // Or this one
@@ -29,13 +29,13 @@ step1() // This might reject
     // The chain stops as soon as a rejection occurs.
     console.error("An error occurred in the process:", error);
   });
-\`\`\`
-This makes promise chains much cleaner than nested `try/catch` blocks or checking for error arguments in every callback.
+\\\`\\\`\\\`
+This makes promise chains much cleaner than nested \`try/catch\` blocks or checking for error arguments in every callback.
 
-### Errors with Async/Await (`try...catch`)
-As we saw previously, \`async/await\` allows us to use the standard synchronous \`try...catch\` syntax, which is often more intuitive.
+### Errors with Async/Await (\`try...catch\`)
+As we saw previously, \\\`async/await\\\` allows us to use the standard synchronous \\\`try...catch\\\` syntax, which is often more intuitive.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 async function processData() {
   try {
     const data = await fetchData();
@@ -53,15 +53,15 @@ async function processData() {
     console.error("Failed to process data:", error.message);
   }
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### Handling Multiple Promises
 When working with multiple promises, the error handling strategy depends on your goal.
 
-#### `Promise.all()` - Fail-Fast
-\`Promise.all()\` is fail-fast. If any single promise in the array rejects, the entire \`Promise.all()\` immediately rejects with that error, and you won't get the results of the promises that did succeed.
+#### \`Promise.all()\` - Fail-Fast
+\\\`Promise.all()\\\` is fail-fast. If any single promise in the array rejects, the entire \\\`Promise.all()\\\` immediately rejects with that error, and you won't get the results of the promises that did succeed.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 const p1 = Promise.resolve("Success 1");
 const p2 = Promise.reject("FAILURE!");
 const p3 = Promise.resolve("Success 3");
@@ -69,12 +69,12 @@ const p3 = Promise.resolve("Success 3");
 Promise.all([p1, p2, p3])
   .then(results => console.log(results)) // This will not run
   .catch(error => console.error(error)); // "FAILURE!"
-\`\`\`
+\\\`\\\`\\\`
 
-#### `Promise.allSettled()` - Wait for All
-Introduced in ES2020, \`Promise.allSettled()\` waits for *all* promises to settle (either fulfilled or rejected). It never rejects itself. It returns a promise that resolves to an array of objects, each describing the outcome of a promise.
+#### \`Promise.allSettled()\` - Wait for All
+Introduced in ES2020, \\\`Promise.allSettled()\\\` waits for *all* promises to settle (either fulfilled or rejected). It never rejects itself. It returns a promise that resolves to an array of objects, each describing the outcome of a promise.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 Promise.allSettled([p1, p2, p3])
   .then(results => {
     console.log(results);
@@ -86,7 +86,7 @@ Promise.allSettled([p1, p2, p3])
     ]
     */
   });
-\`\`\`
+\\\`\\\`\\\`
 This is incredibly useful when you need to perform several independent operations and want to know the result of each one, even if some of them fail. You can then loop through the results array to handle successes and failures accordingly.
 `,
   keyTerms: [

@@ -3,170 +3,135 @@ import { DayLesson } from "../types";
 
 export const day83: DayLesson = {
   day: 83,
-  title: "Asynchronous JS: Async/Await",
+  title: "Introduction to Promises",
   category: "Asynchronous JavaScript",
-  description: "Master the most modern and readable syntax for handling Promises: async/await. Write asynchronous code that looks and behaves like synchronous code.",
+  description: "Learn what Promises are, why they are an improvement over callbacks, and how to create and use them to handle asynchronous operations.",
   learningObjectives: [
-    "Understand that async/await is syntactic sugar over Promises.",
-    "Declare an asynchronous function using the `async` keyword.",
-    "Pause function execution to wait for a Promise to settle using the `await` keyword.",
-    "Handle successful results from awaited Promises.",
-    "Handle errors from awaited Promises using `try...catch` blocks."
+    "Explain what a Promise is and the problem it solves.",
+    "Understand the three states of a Promise: pending, fulfilled, and rejected.",
+    "Create a new Promise using the `Promise` constructor.",
+    "Consume a Promise using the `.then()` method for success and `.catch()` for failure.",
+    "Chain multiple `.then()` calls to perform sequential asynchronous operations."
   ],
   detailedExplanation: `
-ES2017 introduced \`async\` and \`await\`, which provide a huge improvement in the syntax of asynchronous programming. They allow you to write promise-based code as if it were synchronous, but without blocking the main thread.
+A **Promise** is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. It's a powerful way to manage async code, avoiding the "Callback Hell" we saw previously.
 
-### The \`async\` Keyword
-Placing the \`async\` keyword before a function declaration turns it into an **async function**. An async function always returns a Promise. If the function returns a value, the Promise will be resolved with that value. If the function throws an error, the Promise will be rejected with that error.
+A Promise can be in one of three states:
+*   **Pending**: The initial state; neither fulfilled nor rejected.
+*   **Fulfilled**: The operation completed successfully. The promise has a resulting value.
+*   **Rejected**: The operation failed. The promise has a reason for the failure.
 
-\`\`\`javascript
-async function myFunc() {
-  return "Hello";
-}
+Once a promise is fulfilled or rejected, it is **settled** and its state cannot change.
 
-myFunc().then(console.log); // Logs "Hello"
+### Consuming a Promise
+Most of the time, you'll be working with functions that *return* a promise (like the \`fetch\` API). You handle the result using the \`.then()\` and \`.catch()\` methods.
 
-// Is equivalent to:
-function myFuncEquivalent() {
-  return Promise.resolve("Hello");
-}
-\`\`\`
-
-### The \`await\` Keyword
-The real magic happens with \`await\`. The \`await\` operator can only be used **inside an \`async\` function**. It makes JavaScript wait until the Promise settles and returns its result.
-
-\`\`\`javascript
-function getMessage() {
-  return new Promise(resolve => {
-    setTimeout(() => resolve("This is the message!"), 1500);
+\\\`\\\`\\\`javascript
+// fetch returns a promise
+fetch('https://api.example.com/data')
+  .then(response => {
+    // This first .then() handles the fulfillment of the fetch promise.
+    // The response object itself has a .json() method which ALSO returns a promise.
+    return response.json(); 
+  })
+  .then(data => {
+    // This second .then() handles the fulfillment of the response.json() promise.
+    console.log("Here is the data:", data);
+  })
+  .catch(error => {
+    // .catch() will be triggered if fetch() fails (e.g., network error)
+    // or if response.json() fails (e.g., invalid JSON).
+    console.error("Something went wrong:", error);
   });
-}
+\\\`\\\`\\\`
+This is called **promise chaining** and it's a clean way to handle a sequence of async tasks.
 
-async function logMessage() {
-  console.log("Waiting for message...");
-  const message = await getMessage(); // Pauses execution here until the promise resolves
-  console.log(message); // "This is the message!" - runs after 1.5 seconds
-  console.log("Done.");
-}
+### Creating a Promise
+You can create your own promises using the \`Promise\` constructor. It takes a function (called the "executor") with two arguments: \`resolve\` and \`reject\`.
 
-logMessage();
-\`\`\`
-Behind the scenes, \`await\` is just a cleaner way to write \`.then()\`. The code above is much easier to read than its promise-chaining equivalent.
-
-### Error Handling with \`try...catch\`
-What happens if an awaited promise rejects? The \`await\` expression throws an error. You can handle these errors using a standard, synchronous-style \`try...catch\` block.
-
-\`\`\`javascript
-function mightFail() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Simulate failure
-      reject(new Error("Something went wrong!"));
-    }, 1000);
-  });
-}
-
-async function process() {
-  try {
-    console.log("Attempting operation...");
-    const result = await mightFail();
-    console.log("Success:", result); // This line will not be reached
-  } catch (error) {
-    console.error("Caught an error:", error.message);
-  } finally {
-    console.log("Operation complete.");
-  }
-}
-
-process();
-\`\`\`
-This is often preferred over a \`.catch()\` block because it allows you to handle errors from both synchronous and asynchronous code within the same block, making the logic much more straightforward.
-
-### Sequential vs. Concurrent Execution
-A common mistake is to \`await\` promises sequentially when they could be run in parallel.
-
-\`\`\`javascript
-// SLOW: Sequential
-async function getABC_Slow() {
-  const A = await getValueA(); // waits
-  const B = await getValueB(); // then waits
-  const C = await getValueC(); // then waits
-  return [A, B, C];
-}
-
-// FAST: Concurrent
-async function getABC_Fast() {
-  // Start all three operations without awaiting
-  const promiseA = getValueA();
-  const promiseB = getValueB();
-  const promiseC = getValueC();
+\\\`\\\`\\\`javascript
+const myPromise = new Promise((resolve, reject) => {
+  console.log("Executor function starts...");
   
-  // Now await them all at once
-  const [A, B, C] = await Promise.all([promiseA, promiseB, promiseC]);
-  return [A, B, C];
-}
-\`\`\`
-If the operations don't depend on each other, running them concurrently with \`Promise.all()\` is much more efficient.
+  setTimeout(() => {
+    const success = true; // Change this to false to see the rejection
+    
+    if (success) {
+      // If the operation is successful, call resolve() with the result.
+      resolve("The operation was a success!"); 
+    } else {
+      // If it fails, call reject() with an error.
+      reject(new Error("The operation failed."));
+    }
+  }, 2000); // Simulate a 2-second delay
+});
+
+console.log("Promise has been created.");
+
+myPromise
+  .then(result => {
+    console.log("Fulfilled:", result); // "The operation was a success!"
+  })
+  .catch(error => {
+    console.error("Rejected:", error.message); // "The operation failed."
+  });
+\\\`\\\`\\\`
 `,
   keyTerms: [
-    { term: "async", definition: "A keyword that declares a function as asynchronous, causing it to implicitly return a Promise." },
-    { term: "await", definition: "An operator used inside an async function to pause execution and wait for a Promise to resolve or reject." },
-    { term: "Syntactic Sugar", definition: "Syntax within a programming language that is designed to make things easier to read or to express, while not introducing any new functionality." },
-    { term: "try...catch", definition: "A statement that allows you to define a block of code to be tested for errors while it is being executed (the `try` block) and a block of code to be executed if an error occurs (the `catch` block)." }
+    { term: "Promise", definition: "An object representing the eventual completion or failure of an asynchronous operation." },
+    { term: "Pending", definition: "The initial state of a promise, before it has been fulfilled or rejected." },
+    { term: "Fulfilled", definition: "The state of a promise representing a successful operation. Also called 'resolved'." },
+    { term: "Rejected", definition: "The state of a promise representing a failed operation." },
+    { term: ".then()", definition: "A promise method for handling the fulfilled state. It takes a callback function that receives the result." },
+    { term: ".catch()", definition: "A promise method for handling the rejected state. It takes a callback that receives the error/reason." },
+    { term: "Promise Chaining", definition: "The act of linking multiple .then() calls together to perform a sequence of asynchronous operations." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Basic Async Function",
+      title: "Create a Simple Promise",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create an `async` function called `greet`.
-        "Inside `greet`, create a promise that resolves with the string 'Hello, Async World!' after a 1-second delay.",
-        "Use `await` to get the result from the promise.",
-        "Log the result to the console.",
-        "Call your `greet` function."
+        "Create a new Promise called `willWaterPlants`.",
+        "The promise should resolve with the string 'Plants have been watered.' after a 1-second delay (use `setTimeout`).",
+        "Use `.then()` to log the success message to the console."
       ]
     },
     {
       id: 2,
-      title: "Refactor Promise Chain to Async/Await",
+      title: "Create a Failing Promise",
       type: "classwork",
-      difficulty: "medium",
+      difficulty: "easy",
       instructions: [
-        "Take the promise-chaining exercise from the previous day (`orderPizza`, `bakePizza`, `deliverPizza`).",
-        "Create a new `async` function called `handlePizzaOrder`.",
-        "Inside this function, call and `await` each of the three pizza functions in sequence.",
-        "Log the result of each step.",
-        "Compare the readability of the async/await version to the `.then()` chain."
+        "Create a new Promise called `willForgetWatering`.",
+        "This promise should immediately reject with an `Error` object containing the message 'Forgot to water the plants!'.",
+        "Use `.catch()` to log the error message to the console."
       ]
     },
     {
       id: 3,
-      title: "Handling Errors with try/catch",
+      title: "Promise Chaining",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "Create a function `fetchData` that returns a promise.",
-        "The promise should randomly either resolve with `{ data: 'some data' }` or reject with `new Error('Network Error')` after a 1-second delay. (Use `Math.random() > 0.5`).",
-        "Create an `async` function `processData`.",
-        "Inside `processData`, use a `try...catch` block to `await` the result of `fetchData()`.",
-        "In the `try` block, log the successful data. In the `catch` block, log the error message.",
-        "Run `processData` several times to see both outcomes."
+        "Create a promise that resolves with the number `10` after 1 second.",
+        "Chain a `.then()` to it. Inside this first `.then()`, receive the number, multiply it by 2, and return the new value.",
+        "Chain a second `.then()`. Inside it, receive the result from the previous step and log it to the console. It should log `20`."
       ]
     },
     {
       id: 4,
-      title: "Concurrent Awaits with Promise.all",
+      title: "Simulating an API Call",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create two `async` functions: `fetchUser(id)` and `fetchPosts(id)`.
-        "Both should return promises that resolve with mock data after a delay (`{id: 1, name: '...'}` and `[{...}, {...}]`).",
-        "Create a third `async` function `getUserProfileData(id)`.",
-        "Inside `getUserProfileData`, call `fetchUser` and `fetchPosts` concurrently (without awaiting them individually).",
-        "Use `await Promise.all([...])` to wait for both promises to resolve.",
-        "Log the combined results (user and posts)."
+        "Write a function `fetchUserData(userId)` that returns a promise.",
+        "Inside the promise, use `setTimeout` to simulate a network delay.",
+        "After 2 seconds, check if the `userId` is valid (e.g., a positive number).",
+        "If valid, resolve with a user object: `{ id: userId, name: 'John Doe', email: 'john@example.com' }`.",
+        "If invalid, reject with an error message: 'Invalid User ID'.",
+        "Test your function by calling it with a valid ID and an invalid ID, using `.then()` and `.catch()` to handle the outcomes."
       ]
     }
   ]

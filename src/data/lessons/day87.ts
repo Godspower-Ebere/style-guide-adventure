@@ -1,4 +1,3 @@
-
 import { DayLesson } from "../types";
 
 export const day87: DayLesson = {
@@ -18,15 +17,15 @@ export const day87: DayLesson = {
   detailedExplanation: `
 The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive way than working with cookies. There are two mechanisms within Web Storage:
 
-*   **`sessionStorage`**: Maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores). Data is cleared when the tab or browser is closed.
-*   **`localStorage`**: Does the same thing, but persists even when the browser is closed and reopened. The data has no expiration time.
+*   **\\\`sessionStorage\\\`**: Maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores). Data is cleared when the tab or browser is closed.
+*   **\\\`localStorage\\\`**: Does the same thing, but persists even when the browser is closed and reopened. The data has no expiration time.
 
-Both `sessionStorage` and `localStorage` share the same API methods and properties. The only difference is their persistence. We'll use \`localStorage\` for the examples, but you can substitute \`sessionStorage\` and it will work the same way.
+Both \\\`sessionStorage\\\` and \\\`localStorage\\\` share the same API methods and properties. The only difference is their persistence. We'll use \\\`localStorage\\\` for the examples, but you can substitute \\\`sessionStorage\\\` and it will work the same way.
 
 ### Basic Usage
 The API is very simple and works with key-value pairs. **Both keys and values must be strings.**
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 // 1. Save data to localStorage
 localStorage.setItem('username', 'JohnDoe');
 localStorage.setItem('theme', 'dark');
@@ -46,14 +45,14 @@ console.log(localStorage.getItem('theme')); // null
 // 4. Remove all items from localStorage
 localStorage.clear();
 console.log(localStorage.getItem('username')); // null
-\`\`\`
+\\\`\\\`\\\`
 
 ### Storing Complex Data
-Since web storage can only store strings, what if you want to save an object or an array? You need to serialize it. The most common way is to use `JSON`.
-*   **`JSON.stringify()`**: Converts a JavaScript object into a JSON string.
-*   **`JSON.parse()`**: Converts a JSON string back into a JavaScript object.
+Since web storage can only store strings, what if you want to save an object or an array? You need to serialize it. The most common way is to use \`JSON\`.
+*   **\\\`JSON.stringify()\\\`**: Converts a JavaScript object into a JSON string.
+*   **\\\`JSON.parse()\\\`**: Converts a JSON string back into a JavaScript object.
 
-\`\`\`javascript
+\\\`\\\`\\\`javascript
 const userSettings = {
   theme: 'dark',
   notifications: true,
@@ -69,12 +68,12 @@ const parsedSettings = JSON.parse(storedSettingsString);
 
 console.log(parsedSettings); // { theme: 'dark', notifications: true, layout: 'compact' }
 console.log(parsedSettings.theme); // "dark"
-\`\`\`
+\\\`\\\`\\\`
 This stringify/parse pattern is essential for working with web storage effectively.
 
 ### Use Cases
-*   **`localStorage`**: Saving user preferences (like a theme), keeping a user logged in (by storing a token), or saving the contents of a shopping cart.
-*   **`sessionStorage`**: Storing temporary data for a multi-page form, so if the user refreshes, their input isn't lost.
+*   **\\\`localStorage\\\`**: Saving user preferences (like a theme), keeping a user logged in (by storing a token), or saving the contents of a shopping cart.
+*   **\\\`sessionStorage\\\`**: Storing temporary data for a multi-page form, so if the user refreshes, their input isn't lost.
 
 **Important Note:** Web storage is insecure and should **never** be used to store sensitive information like passwords or credit card numbers. All data in web storage is easily accessible to anyone with access to the browser, including through cross-site scripting (XSS) attacks.
 `,

@@ -5,185 +5,152 @@ export const day90: DayLesson = {
   day: 90,
   title: "Modern JavaScript: Advanced Object Techniques",
   category: "Modern JavaScript",
-  description: "Learn modern ES6+ syntax for working with objects, including destructuring, spread/rest syntax, and new operators for safer property access.",
+  description: "Master powerful object-related features in modern JavaScript, including destructuring, spread syntax, optional chaining, and more for cleaner, more efficient code.",
   learningObjectives: [
-    "Use destructuring assignment to unpack values from objects.",
-    "Use the spread syntax (`...`) to expand an object into another object.",
-    "Use the rest parameter (`...`) to collect remaining properties into a new object.",
-    "Safely access nested properties using optional chaining (`?.`).",
-    "Provide default values for nullish variables using the nullish coalescing operator (`??`)."
+    "Use destructuring to extract properties from objects.",
+    "Use the spread syntax to merge or clone objects.",
+    "Safely access nested properties with optional chaining (`?.`).",
+    "Use the nullish coalescing operator (`??`) for default values.",
+    "Understand and use computed property names.",
+    "Define shorthand properties and methods in object literals."
   ],
   detailedExplanation: `
-ES6 and subsequent versions of JavaScript have added powerful new syntax for making object manipulation cleaner and more expressive.
+Modern JavaScript provides a rich set of features for working with objects that can make your code significantly more concise and readable.
 
-### Destructuring Assignment
-Destructuring allows you to extract properties from an object and bind them to variables.
+### Destructuring & Spread Syntax
 
-\`\`\`javascript
+**Destructuring** allows you to unpack values from objects into distinct variables.
+**Spread syntax (`...`)** allows you to expand an object into a new object, perfect for cloning or merging.
+
+\\\`\\\`\\\`javascript
 const user = {
-  id: 1,
+  id: 123,
   name: 'Alice',
-  email: 'alice@example.com',
-  settings: {
+  profile: {
+    email: 'alice@example.com',
     theme: 'dark'
   }
 };
 
-// Old way
-// const name = user.name;
-// const email = user.email;
-
-// New way with destructuring
-const { name, email } = user;
+// Destructuring
+const { name, profile } = user;
 console.log(name); // 'Alice'
-console.log(email); // 'alice@example.com'
+console.log(profile); // { email: 'alice@...', theme: 'dark' }
 
-// You can also rename variables
-const { name: userName } = user;
-console.log(userName); // 'Alice'
+// Nested destructuring with renaming
+const { profile: { email: userEmail } } = user;
+console.log(userEmail); // 'alice@example.com'
 
-// And destructure nested objects
-const { settings: { theme } } = user;
-console.log(theme); // 'dark'
+// Spread to clone
+const userClone = { ...user };
 
-// And provide default values
-const { name, role = 'user' } = user;
-console.log(role); // 'user'
-\`\`\`
-This is extremely useful for unpacking props in components or handling function parameters.
+// Spread to merge and add/overwrite properties
+const userWithRole = { ...user, role: 'admin', name: 'Alice Smith' };
+console.log(userWithRole.name); // 'Alice Smith'
+console.log(userWithRole.role); // 'admin'
+\\\`\\\`\\\`
 
-### Spread (`...`) and Rest (`...`) Syntax
-The three dots (`...`) can be used for two different but related operations.
+### Optional Chaining (`?.`) & Nullish Coalescing (`??`)
 
-#### Spread Syntax
-The spread syntax "expands" an iterable (like an object or array) into its individual elements. It's perfect for making shallow copies or merging objects.
+These two operators are a powerful combination for safely handling potentially missing data.
 
-\`\`\`javascript
-const defaults = { color: 'blue', size: 'medium' };
-const custom = { size: 'large', weight: 50 };
+**Optional Chaining (`?.`)** stops an expression from throwing an error if a property in the chain is \`null\` or \`undefined\`. Instead, it returns \`undefined\`.
 
-// Merge objects. Properties from later objects overwrite earlier ones.
-const merged = { ...defaults, ...custom };
-console.log(merged); // { color: 'blue', size: 'large', weight: 50 }
+**Nullish Coalescing (`??`)** provides a default value only when the left-hand side is \`null\` or \`undefined\` (unlike \`||\` which also triggers for \`0\`, \`false\`, or \`''\`).
 
-// Create a shallow copy
-const userCopy = { ...user };
-\`\`\`
+\\\`\\\`\\\`javascript
+const user1 = { name: 'Bob' }; // No address
+const user2 = { name: 'Charlie', address: { city: 'New York' } };
 
-#### Rest Parameter
-When used in destructuring, the rest syntax collects all *remaining* properties into a new object.
+// Without optional chaining, this would throw an error for user1
+console.log(user1.address?.street); // undefined
 
-\`\`\`javascript
-const player = {
-  name: 'Player 1',
-  score: 100,
-  x: 50,
-  y: 20,
-  z: 10
+// With optional chaining, it's safe
+console.log(user2.address?.city); // 'New York'
+
+// Using nullish coalescing for a default value
+const city = user1.address?.city ?? 'City not provided';
+console.log(city); // "City not provided"
+\\\`\\\`\\\`
+
+### Shorthand Properties & Computed Property Names
+
+**Shorthand Properties**: If a variable name is the same as the object key, you can just use the variable name.
+**Computed Property Names**: You can use an expression in brackets \`[]\` to define an object key dynamically.
+
+\\\`\\\`\\\`javascript
+const username = 'JohnDoe';
+const email = 'john.doe@email.com';
+
+// Shorthand properties
+const newUser = { username, email };
+// Same as: const newUser = { username: username, email: email };
+
+// Computed property name
+const key = 'isAdmin';
+const userWithStatus = {
+  ...newUser,
+  [key]: true
 };
-
-// Extract name and score, put the rest into a 'position' object
-const { name, score, ...position } = player;
-console.log(name);     // 'Player 1'
-console.log(score);    // 100
-console.log(position); // { x: 50, y: 20, z: 10 }
-\`\`\`
-
-### Optional Chaining (`?.`)
-This operator prevents errors when you try to access a property of a value that is \`null\` or \`undefined\`. Instead of throwing a \`TypeError\`, it short-circuits and returns \`undefined\`.
-
-\`\`\`javascript
-const data = {
-  user: {
-    name: 'Bob',
-    // address is missing
-  }
-};
-
-// Old way (error-prone or verbose)
-// const street = data.user.address.street; // Throws TypeError
-// const streetSafe = data && data.user && data.user.address && data.user.address.street;
-
-// New way with optional chaining
-const street = data.user?.address?.street;
-console.log(street); // undefined (no error!)
-\`\`\`
-This drastically cleans up code that deals with deeply nested data from APIs, which might have missing fields.
-
-### Nullish Coalescing Operator (`??`)
-This logical operator returns its right-hand side operand when its left-hand side operand is \`null\` or \`undefined\`, and otherwise returns its left-hand side operand.
-
-This is a safer alternative to the OR operator (`||`) for providing default values, because \`||\` also triggers on other "falsy" values like \`0\`, \`''\` (empty string), and \`false\`, which you might want to consider valid.
-
-\`\`\`javascript
-let volume = 0;
-let userVolume = volume || 50; // Oops, userVolume is 50 because 0 is falsy
-let userVolumeSafe = volume ?? 50; // Correct, userVolumeSafe is 0
-
-let name = '';
-let userName = name || 'Guest'; // 'Guest'
-let userNameSafe = name ?? 'Guest'; // '' (empty string is a valid name)
-\`\`\`
-Use \`??\` when you specifically want to provide a fallback for only \`null\` and \`undefined\`.
+console.log(userWithStatus.isAdmin); // true
+\\\`\\\`\\\`
 `,
   keyTerms: [
-    { term: "Destructuring", definition: "A syntax that allows unpacking values from arrays or properties from objects into distinct variables." },
-    { term: "Spread Syntax (...)", definition: "Expands an iterable (like an object) into its individual elements, used for copying or merging." },
-    { term: "Rest Parameter (...)", definition: "Collects multiple elements or properties into a single variable, typically used in function parameters or destructuring." },
-    { term: "Optional Chaining (?.)", definition: "Permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid." },
-    { term: "Nullish Coalescing Operator (??)", definition: "A logical operator that returns its right-hand side operand only when the left-hand side is `null` or `undefined`." }
+    { term: "Object Destructuring", definition: "A syntax for unpacking properties from an object into distinct variables." },
+    { term: "Spread Syntax (`...`)", definition: "A syntax for expanding an iterable (like an object) into its individual elements, used for cloning and merging." },
+    { term: "Optional Chaining (`?.`)", definition: "An operator that allows safe access to deeply nested properties without checking if each level exists." },
+    { term: "Nullish Coalescing Operator (`??`)", definition: "A logical operator that returns its right-hand side operand when its left-hand side operand is `null` or `undefined`." },
+    { term: "Computed Property Names", definition: "A syntax that allows using an expression in brackets to define an object key dynamically." },
+    { term: "Shorthand Properties", definition: "A syntax for initializing an object property when the variable name matches the key." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Destructure Function Parameters",
+      title: "Destructure User Data",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create a function `displayUser` that accepts a user object as its only argument.",
-        "Instead of writing `function displayUser(user)`, use destructuring in the parameter list itself: `function displayUser({ name, email })`.",
-        "The function should log a string like `'Name: ..., Email: ...'`.
-        "Create a user object and call the function to test it."
+        "Given the object `const user = { name: 'Jane', age: 28, city: 'London' }`.",
+        "Use destructuring to create three variables `name`, `age`, and `city` from the object.",
+        "Log each variable to the console."
       ]
     },
     {
       id: 2,
-      title: "Merge and Clone",
+      title: "Merge and Update Settings",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create a `baseConfig` object with some default settings.",
-        "Create an `overrideConfig` object with one or two different settings.",
-        "Use the spread syntax to merge them into a `finalConfig` object, with the override settings taking precedence.",
-        "Then, create a separate clone of the `finalConfig` object, also using the spread syntax."
+        "You have two objects: `const defaultSettings = { theme: 'light', notifications: true };` and `const userSettings = { notifications: false, timezone: 'GMT' };`.",
+        "Use the spread syntax to create a new `finalSettings` object.",
+        "The new object should contain all properties from both, but `userSettings` should override `defaultSettings` if there's a conflict.",
+        "Log the `finalSettings` object."
       ]
     },
     {
       id: 3,
-      title: "Safe Navigation",
+      title: "Safely Access Nested Data",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "You receive an API response object that might be incomplete.",
-        `const response = { data: { user: { profile: { name: 'Dev' } } } };`,
-        `const brokenResponse = { data: { user: null } };`,
-        "Write a function `getUserName(apiResponse)`.",
-        "Inside the function, use optional chaining (`?.`) to safely access `apiResponse.data.user.profile.name`.",
-        "Use the nullish coalescing operator (`??`) to return `'Guest'` if the name is not found.",
-        "Test your function with both the complete and broken response objects."
+        "Create a function `getZipCode(user)`.",
+        "The user object might look like `{ info: { address: { zip: '12345' } } }` or it might be missing the `address` or `info` properties.",
+        "Inside the function, use optional chaining (`?.`) and the nullish coalescing operator (`??`) to safely get the zip code.",
+        "If the zip code exists, return it. If it doesn't exist at any level, return the string 'Zip code not available'.",
+        "Test your function with a complete user object and an empty one."
       ]
     },
     {
       id: 4,
-      title: "Separate Config with Rest",
+      title: "Dynamic Property Creator",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "You have a single large object containing both user data and UI settings: `{ name: '...', email: '...', theme: '...', language: '...' }`.",
-        "Use destructuring with the rest syntax to separate the object.",
-        "Pull out `theme` and `language` into their own variables.",
-        "Collect the remaining properties (`name`, `email`, etc.) into a `userData` object.",
-        "Log the `theme`, `language`, and the `userData` object to verify they were separated correctly."
+        "Create a function `createDynamicObject(key, value)`.",
+        "This function should return a new object with a single property.",
+        "The property's key should be the `key` argument, and its value should be the `value` argument.",
+        "Use computed property names to achieve this.",
+        "Test it by calling `createDynamicObject('productID', 456)` and logging the result."
       ]
     }
   ]
