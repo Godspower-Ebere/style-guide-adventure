@@ -213,7 +213,7 @@ self.addEventListener('error', function(e) {
     { term: "Web Worker", definition: "Browser API that allows running JavaScript in background threads separate from the main UI thread." },
     { term: "postMessage()", definition: "Method used to send data between the main thread and Web Worker." },
     { term: "onmessage", definition: "Event handler that receives messages from Web Workers or main thread." },
-    {   "terminate()", definition: "Method to stop a Web Worker from the main thread." },
+    { term: "terminate()", definition: "Method to stop a Web Worker from the main thread." },
     { term: "self", definition: "Global object reference within a Web Worker context." },
     { term: "Background Thread", definition: "Separate execution thread that runs independently from the main UI thread." }
   ],

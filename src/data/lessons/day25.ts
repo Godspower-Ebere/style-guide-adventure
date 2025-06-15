@@ -253,4 +253,66 @@ Twitter Cards enhance how links appear on Twitter:
       type: "classwork",
       difficulty: "hard",
       instructions: [
-        "Create 's
+        "Create 'seo-optimized-portfolio.html' as a complete SEO-optimized personal portfolio page.",
+        "Set up the complete HTML5 document structure with proper DOCTYPE and language attributes.",
+        "Add comprehensive meta tags including charset, viewport, title, description, keywords, and author.",
+        "Include robots meta tag and canonical URL for SEO optimization.",
+        "Add complete Open Graph meta tags for social media sharing optimization.",
+        "Include Twitter Card meta tags with appropriate content for Twitter sharing.",
+        "Add favicon links and apple-touch-icon for various devices.",
+        "Include structured data markup using JSON-LD for better search engine understanding.",
+        "Create semantic HTML content with proper heading hierarchy (h1, h2, h3).",
+        "Add navigation with proper anchor links and descriptive link text.",
+        "Include sections for About, Skills, Projects, and Contact with appropriate semantic elements.",
+        "Validate your HTML using the W3C HTML validator and fix any issues.",
+        "Test your meta tags using Google's Rich Results Test tool.",
+        "Verify that all SEO elements are properly implemented and functional."
+      ]
+    },
+    {
+      id: 4,
+      title: "E-commerce Product Page SEO",
+      type: "homework",
+      difficulty: "medium",
+      instructions: [
+        "Create 'product-seo.html' for a fictional e-commerce product page with full SEO optimization.",
+        "Choose a specific product (like a smartphone, book, or clothing item) as your focus.",
+        "Set up complete HTML5 structure with appropriate title including product name and key features.",
+        "Add comprehensive meta description that includes product benefits and call-to-action.",
+        "Include relevant keywords in meta keywords tag related to your chosen product.",
+        "Add Open Graph meta tags optimized for product sharing including product image and price.",
+        "Include Twitter Card meta tags with product-specific information.",
+        "Add structured data markup for Product schema using JSON-LD format.",
+        "Create semantic content including product name, description, features, specifications, and reviews.",
+        "Add breadcrumb navigation and ensure proper heading hierarchy.",
+        "Include call-to-action buttons and contact information.",
+        "Add canonical URL and appropriate robots meta tag.",
+        "Test the page with various SEO analysis tools and document the results.",
+        "Ensure all meta tags are optimized for both search engines and social media platforms."
+      ]
+    },
+    {
+      id: 5,
+      title: "Multi-page Website SEO Strategy",
+      type: "homework",
+      difficulty: "hard",
+      instructions: [
+        "Create a multi-page website with 'index.html', 'about.html', 'services.html', and 'contact.html'.",
+        "Choose a business type (like web design agency, restaurant, or consulting firm) as your theme.",
+        "Develop unique and optimized title tags for each page that reflect the page content and include target keywords.",
+        "Write distinct meta descriptions for each page that encourage clicks and include relevant keywords.",
+        "Implement consistent navigation across all pages with descriptive anchor text.",
+        "Add appropriate canonical URLs for each page to prevent duplicate content issues.",
+        "Create a comprehensive sitemap.html page that links to all other pages.",
+        "Implement breadcrumb navigation on appropriate pages.",
+        "Add Open Graph and Twitter Card meta tags customized for each page's specific content.",
+        "Include consistent branding elements like favicon and apple-touch-icon across all pages.",
+        "Add structured data markup appropriate for your chosen business type (Organization, LocalBusiness, etc.).",
+        "Ensure proper internal linking between pages with descriptive anchor text.",
+        "Implement semantic HTML structure with appropriate heading hierarchies on each page.",
+        "Test all pages for SEO optimization and create a brief report documenting your SEO strategy and implementation.",
+        "Validate all HTML pages and ensure cross-page consistency in SEO implementation."
+      ]
+    }
+  ]
+};
