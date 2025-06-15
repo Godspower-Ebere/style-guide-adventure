@@ -20,13 +20,13 @@ There are two main properties for blending:
 ### 1. \`mix-blend-mode\`
 This property specifies how an element's content should blend with the content of the element(s) *behind* it.
 
-\`\`\`html
+\\\`\\\`\\\`html
 <div class="background-image"></div>
 <div class="text-container">
   <h1>HELLO</h1>
 </div>
-\`\`\`
-\`\`\`css
+\\\`\\\`\\\`
+\\\`\\\`\\\`css
 .background-image {
   background-image: url('colorful-galaxy.jpg');
 }
@@ -37,12 +37,12 @@ This property specifies how an element's content should blend with the content o
   /* This will blend the white text with the galaxy image behind it */
   mix-blend-mode: overlay;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### 2. \`background-blend-mode\`
 This property is used to blend **multiple backgrounds on a single element**. This could be multiple background images, or a background image and a background color.
 
-\`\`\`css
+\\\`\\\`\\\`css
 .duotone-image {
   background-image: url('portrait.jpg'), linear-gradient(to right, blue, red);
   background-size: cover;
@@ -50,7 +50,7 @@ This property is used to blend **multiple backgrounds on a single element**. Thi
   /* This blends the portrait with the gradient */
   background-blend-mode: multiply;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### Common Blend Mode Values
 Many blend modes are available, each with a different mathematical formula for combining colors. Here are some of the most useful ones:
@@ -65,10 +65,10 @@ Many blend modes are available, each with a different mathematical formula for c
 - \`soft-light\`: A gentler version of \`overlay\`.
 
 ### Use Cases
-- **Colorizing Images:** Place a colored `div` over a grayscale image and use `mix-blend-mode: color;`.
-- **Duotone Images:** Use `background-blend-mode` with a grayscale image and a gradient.
+- **Colorizing Images:** Place a colored \`div\` over a grayscale image and use \`mix-blend-mode: color;\`.
+- **Duotone Images:** Use \`background-blend-mode\` with a grayscale image and a gradient.
 - **Text Effects:** Blend large, bold text into a background image for dramatic effect.
-- **Knockout Text:** A white text element with `mix-blend-mode: screen` on top of a white background will be invisible, but if you place it over an image, the image will show through the text.
+- **Knockout Text:** A white text element with \`mix-blend-mode: screen\` on top of a white background will be invisible, but if you place it over an image, the image will show through the text.
 `,
   keyTerms: [
     { term: "Blend Mode", definition: "A method for determining how two layers are mixed together to create a final, blended result." },

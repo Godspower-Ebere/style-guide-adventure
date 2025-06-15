@@ -16,14 +16,14 @@ export const day55: DayLesson = {
   detailedExplanation: `
 While pseudo-classes style an element based on its *state*, a pseudo-element lets you style a specific *part* of an element. It's like a 'phantom' element that you can style independently.
 
-The standard syntax is a double colon (\`::\`) to distinguish them from pseudo-classes (e.g., \`p::first-line\`). While browsers support single-colon for legacy reasons, it's best practice to use the double colon for pseudo-elements.
+The standard syntax is a double colon (\\\`::\\\`) to distinguish them from pseudo-classes (e.g., \\\`p::first-line\\\`). While browsers support single-colon for legacy reasons, it's best practice to use the double colon for pseudo-elements.
 
-### \`::before\` and \`::after\`
+### \\\`::before\\\` and \\\`::after\\\`
 These are the most powerful and common pseudo-elements. They create a new 'element' just before or just after the *content* of the selected element.
 
-**They have one critical requirement: the \`content\` property.** Even if you want it to be empty, you must declare \`content: '';\`.
+**They have one critical requirement: the \\\`content\\\` property.** Even if you want it to be empty, you must declare \\\`content: '';\\\`.
 
-\`\`\`css
+\\\`\\\`\\\`css
 /* Adding quotation marks to a blockquote */
 blockquote::before {
   content: '"';
@@ -47,16 +47,16 @@ blockquote::after {
   background-color: rgba(0, 0, 0, 0.4);
   /* You can transition this on hover for cool effects */
 }
-\`\`\`
-**Important:** Content added with `::before`/`::after` is **not** in the DOM. Screen readers may ignore it, so it should only be used for decorative purposes, not for important content.
+\\\`\\\`\\\`
+**Important:** Content added with \\\`::before\\\`/\`::after\\\` is **not** in the DOM. Screen readers may ignore it, so it should only be used for decorative purposes, not for important content.
 
 ### Typographic Pseudo-elements
 These give you fine-grained control over text blocks.
 
-- \`::first-letter\`: Styles the first letter of a block-level element. Perfect for creating "drop caps".
-- \`::first-line\`: Styles the first line of a block-level element. The length of the line depends on the container's width.
+- \\\`::first-letter\\\`: Styles the first letter of a block-level element. Perfect for creating "drop caps".
+- \\\`::first-line\\\`: Styles the first line of a block-level element. The length of the line depends on the container's width.
 
-\`\`\`css
+\\\`\\\`\\\`css
 p::first-letter {
   font-size: 3rem;
   font-weight: bold;
@@ -68,16 +68,16 @@ p::first-line {
   font-weight: bold;
   letter-spacing: 1px;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### UI Pseudo-elements
 These target parts of the browser's user interface.
 
-- \`::selection\`: Styles the portion of the document that has been highlighted by the user (e.g., by clicking and dragging).
-- \`::placeholder\`: Styles the placeholder text in an \`<input>\` or \`<textarea>\`.
-- \`::marker\`: Styles the bullet point or number of a list item (\`<li>\`).
+- \\\`::selection\\\`: Styles the portion of the document that has been highlighted by the user (e.g., by clicking and dragging).
+- \\\`::placeholder\\\`: Styles the placeholder text in an \\\`<input>\\\` or \\\`<textarea>\\\`.
+- \\\`::marker\\\`: Styles the bullet point or number of a list item (\\\`<li>\\\`).
 
-\`\`\`css
+\\\`\\\`\\\`css
 /* Custom selection styles */
 ::selection {
   background-color: #ffb7b7; /* A nice pink */
@@ -95,7 +95,7 @@ li::marker {
   color: blue;
   font-size: 1.2em;
 }
-\`\`\`
+\\\`\\\`\\\`
 `,
   keyTerms: [
     { term: "Pseudo-element", definition: "A keyword added to a selector that lets you style a specific part of the selected element(s), such as `::first-letter` or `::before`." },
