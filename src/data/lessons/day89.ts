@@ -1,4 +1,3 @@
-
 import { DayLesson } from "../types";
 
 export const day89: DayLesson = {
@@ -17,7 +16,7 @@ export const day89: DayLesson = {
   detailedExplanation: `
 Modern JavaScript provides a rich set of array methods that allow you to write expressive, declarative code and avoid manual \`for\` loops.
 
-### `.filter()`
+### \`.filter()\`
 Creates a new array with all elements that pass the test implemented by the provided callback function.
 
 \`\`\`javascript
@@ -34,7 +33,7 @@ const affordableProducts = products.filter(product => product.price < 100);
 console.log(affordableProducts); // [{ name: 'Mouse', ... }, { name: 'Keyboard', ... }]
 \`\`\`
 
-### `.find()`
+### \`.find()\`
 Returns the **value of the first element** in the array that satisfies the provided testing function. Otherwise \`undefined\` is returned.
 
 \`\`\`javascript
@@ -43,10 +42,10 @@ const userBob = users.find(user => user.name === 'Bob');
 console.log(userBob); // { id: 2, name: 'Bob' }
 \`\`\`
 
-### `.some()` and `.every()`
+### \`.some()\` and \`.every()\`
 These methods test the elements of an array and return a boolean.
-*   **`.some()`**: returns \`true\` if **at least one** element passes the test.
-*   **`.every()`**: returns \`true\` if **all** elements pass the test.
+*   **\`.some()\`**: returns \`true\` if **at least one** element passes the test.
+*   **\`.every()\`**: returns \`true\` if **all** elements pass the test.
 
 \`\`\`javascript
 const scores = [85, 92, 78, 65, 95];
@@ -57,7 +56,7 @@ const allPassingScores = scores.every(score => score >= 60);
 console.log(allPassingScores); // true
 \`\`\`
 
-### `.reduce()`
+### \`.reduce()\`
 This is the most powerful and often most confusing array method. It executes a "reducer" function on each element of the array, resulting in a single output value. It's great for summing up values, flattening arrays, or grouping objects.
 
 The reducer function takes two main arguments:
