@@ -39,7 +39,8 @@ const DayLesson = () => {
     'Responsive Design': 'bg-pink-100 text-pink-800',
     'CSS Animations': 'bg-yellow-100 text-yellow-800',
     'HTML5 Features': 'bg-cyan-100 text-cyan-800',
-    'CSS Grid & Flexbox': 'bg-emerald-100 text-emerald-800'
+    'CSS Grid & Flexbox': 'bg-emerald-100 text-emerald-800',
+    'JavaScript Basics': 'bg-teal-100 text-teal-800',
   };
 
   const classworkExercises = lesson.exercises.filter(ex => ex.type === 'classwork');
