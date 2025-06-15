@@ -27,6 +27,8 @@ import { day25 } from './day25';
 import { day26 } from './day26';
 import { day27 } from './day27';
 import { day28 } from './day28';
+import { day29 } from './day29';
+import { day30 } from './day30';
 import { DayLesson } from '../types';
 
 export const detailedLessons: DayLesson[] = [
@@ -58,4 +60,6 @@ export const detailedLessons: DayLesson[] = [
   day26,
   day27,
   day28,
+  day29,
+  day30,
 ];
