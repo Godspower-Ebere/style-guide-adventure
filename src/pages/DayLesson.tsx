@@ -1,5 +1,8 @@
 
 import { useParams, Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -88,10 +91,10 @@ const DayLesson = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="prose prose-gray max-w-none">
-              <div className="whitespace-pre-line text-gray-700 leading-relaxed">
+            <div className="prose prose-gray max-w-none dark:prose-invert">
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {lesson.detailedExplanation}
-              </div>
+              </ReactMarkdown>
             </div>
           </CardContent>
         </Card>
