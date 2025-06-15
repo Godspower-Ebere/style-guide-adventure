@@ -1,3 +1,4 @@
+
 import { DayLesson } from "../types";
 
 export const day43: DayLesson = {
@@ -49,7 +50,7 @@ You can create more complex queries using logical operators.
   /* Applies when the viewport is between 600px and 900px wide */
   @media (min-width: 600px) and (max-width: 900px) { ... }
   \`\`\`
-- **`,` (comma)**: Acts as a logical OR. The styles apply if *any* of the queries match.
+- **\`,\` (comma)**: Acts as a logical OR. The styles apply if *any* of the queries match.
   \`\`\`css
   /* Applies on very small screens OR when printing */
   @media (max-width: 480px), print { ... }
