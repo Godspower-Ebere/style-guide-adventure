@@ -25,6 +25,7 @@ const Index = () => {
     'HTML5 Features': 'bg-cyan-100 text-cyan-800',
     'CSS Grid & Flexbox': 'bg-emerald-100 text-emerald-800',
     'JavaScript Basics': 'bg-teal-100 text-teal-800',
+    'JavaScript Advanced': 'bg-fuchsia-100 text-fuchsia-800',
   };
 
   return (
