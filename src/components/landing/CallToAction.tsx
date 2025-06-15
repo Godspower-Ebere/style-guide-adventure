@@ -11,7 +11,7 @@ export const CallToAction = () => (
                 Don't wait. The best time to start learning is now. Join hundreds of other developers on this journey.
             </p>
             <Button asChild size="lg">
-                <Link to="/day/31">I'm Ready!</Link>
+                <Link to="/curriculum">I'm Ready!</Link>
             </Button>
         </div>
     </section>

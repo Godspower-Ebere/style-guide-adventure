@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import DayLesson from "./pages/DayLesson";
 import NotFound from "./pages/NotFound";
+import CurriculumPage from "./pages/CurriculumPage";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/curriculum" element={<CurriculumPage />} />
           <Route path="/day/:dayNumber" element={<DayLesson />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

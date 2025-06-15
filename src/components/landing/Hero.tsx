@@ -13,7 +13,7 @@ export const Hero = () => (
         Embark on a 100-day adventure to become a JavaScript expert. From fundamentals to advanced topics, we've got you covered, one day at a time.
       </p>
       <Button asChild size="lg">
-        <Link to="/day/31">Begin Your Adventure</Link>
+        <Link to="/curriculum">Begin Your Adventure</Link>
       </Button>
     </div>
   </section>

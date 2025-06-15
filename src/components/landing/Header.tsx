@@ -12,7 +12,7 @@ export const Header = () => (
       </Link>
       <nav>
         <Button asChild>
-          <Link to="/day/31">Start Learning</Link>
+          <Link to="/curriculum">Start Learning</Link>
         </Button>
       </nav>
     </div>
