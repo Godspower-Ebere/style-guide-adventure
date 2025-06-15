@@ -20,140 +20,140 @@ There are several ways to define colors in CSS.
 
 ### 1. Color Keywords
 Simple, predefined color names.
-\`\`\`css
+\\\`\\\`\\\`css
 p { color: tomato; }
 h1 { color: steelblue; }
-\`\`\`
+\\\`\\\`\\\`
 
 ### 2. HEX (Hexadecimal)
 A six-digit code representing Red, Green, and Blue (RRGGBB). Can also be a three-digit shorthand (RGB).
-\`\`\`css
+\\\`\\\`\\\`css
 /* #RRGGBB */
 .header { background-color: #2c3e50; } 
 /* #RGB shorthand for #FF6600 */
 .button { background-color: #f60; }
-\`\`\`
+\\\`\\\`\\\`
 
 ### 3. RGB and RGBA
 Defines a color using its Red, Green, and Blue values (0-255). RGBA adds an Alpha channel for transparency (0 to 1).
-\`\`\`css
+\\\`\\\`\\\`css
 /* rgb(red, green, blue) */
 p { color: rgb(51, 51, 51); }
 /* rgba(red, green, blue, alpha) */
 .overlay { background-color: rgba(0, 0, 0, 0.5); } /* 50% transparent black */
-\`\`\`
+\\\`\\\`\\\`
 
 ### 4. HSL and HSLA
 Defines a color using Hue, Saturation, and Lightness. HSLA adds an Alpha channel. This can be more intuitive for adjusting colors.
 - **Hue**: A degree on the color wheel (0-360). 0 is red, 120 is green, 240 is blue.
 - **Saturation**: Intensity of the color (0% is a shade of gray, 100% is full color).
 - **Lightness**: Brightness of the color (0% is black, 100% is white).
-\`\`\`css
+\\\`\\\`\\\`css
 /* hsl(hue, saturation, lightness) */
 .primary { color: hsl(240, 100%, 50%); } /* A vibrant blue */
 /* hsla(hue, saturation, lightness, alpha) */
 .tooltip { background-color: hsla(0, 0%, 100%, 0.9); } /* 90% transparent white */
-\`\`\`
+\\\`\\\`\\\`
 
 ## CSS Background Properties
 
 ### background-color
 Sets a solid background color.
-\`\`\`css
+\\\`\\\`\\\`css
 body { background-color: #f4f4f4; }
-\`\`\`
+\\\`\\\`\\\`
 
 ### background-image
 Sets one or more background images.
-\`\`\`css
+\\\`\\\`\\\`css
 .hero { background-image: url('hero-image.jpg'); }
-\`\`\`
+\\\`\\\`\\\`
 
 ### background-repeat
 Controls if/how a background image repeats.
-- `repeat` (default): Repeats horizontally and vertically.
-- `repeat-x`: Repeats only horizontally.
-- `repeat-y`: Repeats only vertically.
-- `no-repeat`: Does not repeat.
-\`\`\`css
+- \`repeat\` (default): Repeats horizontally and vertically.
+- \`repeat-x\`: Repeats only horizontally.
+- \`repeat-y\`: Repeats only vertically.
+- \`no-repeat\`: Does not repeat.
+\\\`\\\`\\\`css
 .pattern {
   background-image: url('tiny-pattern.png');
   background-repeat: repeat;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### background-position
 Sets the starting position of the background image.
-\`\`\`css
+\\\`\\\`\\\`css
 .icon {
   background-image: url('icon.png');
   background-repeat: no-repeat;
   background-position: center top; /* or 50% 0% */
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### background-size
 Specifies the size of the background image.
-- `auto` (default)
-- `cover`: Scales the image to cover the entire container, potentially cropping the image.
-- `contain`: Scales the image to be as large as possible without cropping.
-- `<length>` or `<percentage>`: e.g., `100px 50px` or `50% 25%`.
-\`\`\`css
+- \`auto\` (default)
+- \`cover\`: Scales the image to cover the entire container, potentially cropping the image.
+- \`contain\`: Scales the image to be as large as possible without cropping.
+- \`<length>\` or \`<percentage>\`: e.g., \`100px 50px\` or \`50% 25%\`.
+\\\`\\\`\\\`css
 .hero {
   background-image: url('hero.jpg');
   background-size: cover;
   background-position: center;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### background-attachment
 Sets whether a background image scrolls with the rest of the page or is fixed.
-- `scroll` (default): The background scrolls with the page.
-- `fixed`: The background is fixed relative to the viewport.
-\`\`\`css
+- \`scroll\` (default): The background scrolls with the page.
+- \`fixed\`: The background is fixed relative to the viewport.
+\\\`\\\`\\\`css
 .parallax {
   background-image: url('parallax-bg.jpg');
   background-attachment: fixed;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ## CSS Gradients
-Gradients are treated as images and used with `background-image`.
+Gradients are treated as images and used with \`background-image\`.
 
 ### Linear Gradients
-\`\`\`css
+\\\`\\\`\\\`css
 .gradient-box {
   background-image: linear-gradient(to right, #ff7e5f, #feb47b);
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### Radial Gradients
-\`\`\`css
+\\\`\\\`\\\`css
 .radial-box {
   background-image: radial-gradient(circle, #30cfd0, #330867);
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ## Shorthand and Multiple Backgrounds
 
 ### background (shorthand)
 You can combine all properties into one for cleaner code.
-\`\`\`css
+\\\`\\\`\\\`css
 .shorthand-box {
   background: #f0f0f0 url('image.png') no-repeat center center / cover;
 }
-\`\`\`
+\\\`\\\`\\\`
 
 ### Multiple Backgrounds
 Separate multiple background layers with commas. The first one listed is on top.
-\`\`\`css
+\\\`\\\`\\\`css
 .multi-bg {
   background-image: url('foreground.png'), url('background.jpg');
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: 50%, cover;
 }
-\`\`\`
+\\\`\\\`\\\`
 `,
   keyTerms: [
     { term: "HEX Color", definition: "A six-digit hexadecimal number used to represent colors, e.g., #FFFFFF for white." },
