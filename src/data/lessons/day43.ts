@@ -1,4 +1,3 @@
-
 import { DayLesson } from "../types";
 
 export const day43: DayLesson = {
