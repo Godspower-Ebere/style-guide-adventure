@@ -3,153 +3,116 @@ import { DayLesson } from "../types";
 
 export const day9: DayLesson = {
   day: 9,
-  title: "HTML Forms - Input Types",
+  title: "HTML Forms - Checkboxes and Radio Buttons",
   category: "HTML Forms",
-  description: "Discover the variety of HTML input types and learn how to collect different kinds of user data effectively.",
+  description: "Master selection controls in forms using checkboxes for multiple choices and radio buttons for single selections.",
   learningObjectives: [
-    "Master various HTML input types including text, email, password, and number.",
-    "Understand when to use different input types for optimal user experience.",
-    "Learn about input attributes like placeholder, required, and readonly.",
-    "Create forms that collect different types of user information."
+    "Understand when to use checkboxes vs radio buttons.",
+    "Learn to create grouped radio button selections.",
+    "Master checkbox implementations for multiple selections.",
+    "Practice building forms with various selection controls."
   ],
   detailedExplanation: `
-Today we'll explore the many input types available in HTML forms, each designed for specific types of data collection.
+Selection controls let users make choices from predefined options.
 
-## Basic Form Structure
-Every form starts with the form element:
+## Radio Buttons
+Use radio buttons when users can select only ONE option from a group:
 
-\`\`\`html
+\\\`\\\`\\\`html
+<input type="radio" name="size" value="small" id="small">
+<label for="small">Small</label>
+
+<input type="radio" name="size" value="medium" id="medium">
+<label for="medium">Medium</label>
+
+<input type="radio" name="size" value="large" id="large">
+<label for="large">Large</label>
+\\\`\\\`\\\`
+
+## Checkboxes
+Use checkboxes when users can select MULTIPLE options:
+
+\\\`\\\`\\\`html
+<input type="checkbox" name="toppings" value="cheese" id="cheese">
+<label for="cheese">Cheese</label>
+
+<input type="checkbox" name="toppings" value="pepperoni" id="pepperoni">
+<label for="pepperoni">Pepperoni</label>
+
+<input type="checkbox" name="toppings" value="mushrooms" id="mushrooms">
+<label for="mushrooms">Mushrooms</label>
+\\\`\\\`\\\`
+
+## Key Differences
+- **Radio buttons**: Same \\\`name\\\` attribute groups them together
+- **Checkboxes**: Can have different names or same name for arrays
+- **Default selection**: Use \\\`checked\\\` attribute
+
+## Complete Example
+\\\`\\\`\\\`html
 <form>
-  <!-- Form inputs go here -->
+  <fieldset>
+    <legend>Pizza Size (Choose One)</legend>
+    <input type="radio" name="size" value="small" id="small">
+    <label for="small">Small ($10)</label>
+    
+    <input type="radio" name="size" value="large" id="large" checked>
+    <label for="large">Large ($15)</label>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Toppings (Choose Any)</legend>
+    <input type="checkbox" name="toppings" value="cheese" id="cheese">
+    <label for="cheese">Extra Cheese</label>
+    
+    <input type="checkbox" name="toppings" value="pepperoni" id="pepperoni">
+    <label for="pepperoni">Pepperoni</label>
+  </fieldset>
 </form>
-\`\`\`
-
-## Common Input Types
-
-### Text Input
-\`\`\`html
-<input type="text" name="username" placeholder="Enter your username">
-\`\`\`
-
-### Email Input
-\`\`\`html
-<input type="email" name="email" placeholder="Enter your email">
-\`\`\`
-
-### Password Input
-\`\`\`html
-<input type="password" name="password" placeholder="Enter your password">
-\`\`\`
-
-### Number Input
-\`\`\`html
-<input type="number" name="age" min="1" max="120">
-\`\`\`
-
-### Date Input
-\`\`\`html
-<input type="date" name="birthdate">
-\`\`\`
-
-### Color Input
-\`\`\`html
-<input type="color" name="favorite-color">
-\`\`\`
-
-## Useful Input Attributes
-- **placeholder**: Shows hint text inside the input
-- **required**: Makes the field mandatory
-- **readonly**: Prevents user from editing
-- **disabled**: Disables the input completely
-- **min/max**: Sets limits for number and date inputs
-- **maxlength**: Limits character count for text inputs
-
-## Example Contact Form
-\`\`\`html
-<form>
-  <input type="text" name="name" placeholder="Full Name" required>
-  <input type="email" name="email" placeholder="Email Address" required>
-  <input type="tel" name="phone" placeholder="Phone Number">
-  <input type="date" name="preferred-date">
-</form>
-\`\`\`
-
-## Input Validation
-Different input types provide built-in validation:
-- Email inputs check for valid email format
-- Number inputs only accept numeric values
-- Date inputs provide date pickers
+\\\`\\\`\\\`
     `,
   keyTerms: [
-    { term: "Input Type", definition: "Attribute that specifies what kind of data an input field should accept." },
-    { term: "Placeholder", definition: "Attribute that provides hint text inside an input field." },
-    { term: "Required", definition: "Attribute that makes a form field mandatory to fill out." },
-    { term: "Form Validation", definition: "Process of ensuring user input meets specified criteria before submission." }
+    { term: "Radio Button", definition: "Input type that allows selecting only one option from a group." },
+    { term: "Checkbox", definition: "Input type that allows selecting multiple options independently." },
+    { term: "Fieldset", definition: "Element that groups related form controls together." },
+    { term: "Legend", definition: "Element that provides a caption for a fieldset group." },
+    { term: "Checked Attribute", definition: "Makes a radio button or checkbox selected by default." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Basic Input Types",
+      title: "Pizza Order Form",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'input-types.html' with basic HTML structure.",
-        "Add a form with different input types: text, email, password, number.",
-        "Include appropriate placeholder text for each input.",
-        "Add labels to describe each input field.",
-        "Test each input type in your browser to see how they behave."
+        "Create a pizza ordering form.",
+        "Add radio buttons for size selection.",
+        "Add checkboxes for toppings.",
+        "Include proper labels for all inputs."
       ]
     },
     {
       id: 2,
-      title: "Registration Form",
+      title: "Survey Preferences",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'registration.html' for a user registration form.",
-        "Include inputs for: username, email, password, age, birthdate.",
-        "Add the 'required' attribute to essential fields.",
-        "Use appropriate input types for each field.",
-        "Test form validation by trying to submit empty required fields."
+        "Create a preferences survey form.",
+        "Use radio buttons for age groups.",
+        "Use checkboxes for interests/hobbies.",
+        "Group related options with fieldsets."
       ]
     },
     {
       id: 3,
-      title: "Event Booking Form",
-      type: "classwork",
-      difficulty: "hard",
-      instructions: [
-        "Create 'event-booking.html' for an event registration form.",
-        "Include inputs for: name, email, phone, event date, number of tickets.",
-        "Use min/max attributes for ticket quantity (1-10).",
-        "Add a color picker for t-shirt color preference.",
-        "Make all fields required and test the form thoroughly."
-      ]
-    },
-    {
-      id: 4,
-      title: "Profile Setup Form",
-      type: "homework",
-      difficulty: "medium",
-      instructions: [
-        "Create 'profile-setup.html' for a user profile form.",
-        "Include various input types: text, email, date, number, color, url.",
-        "Add appropriate placeholders and labels for each field.",
-        "Use the 'readonly' attribute for one field (like a generated user ID).",
-        "Test all input types to understand their behavior."
-      ]
-    },
-    {
-      id: 5,
-      title: "Comprehensive Survey Form",
+      title: "Product Customization",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'survey.html' with a detailed survey form.",
-        "Include at least 8 different input types covering all learned types.",
-        "Add validation attributes like min, max, maxlength, and required.",
-        "Create sections for personal info, preferences, and feedback.",
-        "Ensure the form is well-organized and user-friendly."
+        "Create a product customization form.",
+        "Include radio buttons for color, size, style.",
+        "Add checkboxes for optional features.",
+        "Use fieldsets to organize different option groups."
       ]
     }
   ]

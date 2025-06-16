@@ -16,46 +16,46 @@ export const day2: DayLesson = {
 Today we'll focus on the fundamental building blocks of web content: text elements.
 
 ## The Paragraph Tag
-The paragraph tag `<p>` is one of the most commonly used HTML elements. It represents a paragraph of text.
+The paragraph tag \\\`<p>\\\` is one of the most commonly used HTML elements. It represents a paragraph of text.
 
-\`\`\`html
+\\\`\\\`\\\`html
 <p>This is a paragraph of text. It can contain multiple sentences and will be displayed as a block of text with spacing above and below.</p>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Line Breaks and Whitespace
 HTML handles whitespace differently than you might expect:
 - Multiple spaces are collapsed into a single space
 - Line breaks in your code don't create line breaks on the page
-- Use `<br>` tag for line breaks
-- Use `<hr>` tag for horizontal rules (divider lines)
+- Use \\\`<br>\\\` tag for line breaks
+- Use \\\`<hr>\\\` tag for horizontal rules (divider lines)
 
-\`\`\`html
+\\\`\\\`\\\`html
 <p>This is the first line.<br>
 This is the second line.</p>
 <hr>
 <p>This is after a horizontal rule.</p>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Basic Text Formatting
 HTML provides several tags for basic text formatting:
 
-- `<strong>` - Important text (usually displayed as bold)
-- `<em>` - Emphasized text (usually displayed as italic)
-- `<b>` - Bold text (presentational)
-- `<i>` - Italic text (presentational)
-- `<u>` - Underlined text
-- `<small>` - Smaller text
-- `<mark>` - Highlighted text
+- \\\`<strong>\\\` - Important text (usually displayed as bold)
+- \\\`<em>\\\` - Emphasized text (usually displayed as italic)
+- \\\`<b>\\\` - Bold text (presentational)
+- \\\`<i>\\\` - Italic text (presentational)
+- \\\`<u>\\\` - Underlined text
+- \\\`<small>\\\` - Smaller text
+- \\\`<mark>\\\` - Highlighted text
 
-\`\`\`html
+\\\`\\\`\\\`html
 <p>This is <strong>very important</strong> text.</p>
 <p>This is <em>emphasized</em> text.</p>
 <p>You can <mark>highlight</mark> important parts.</p>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Best Practices
-- Use `<strong>` instead of `<b>` for important text
-- Use `<em>` instead of `<i>` for emphasized text
+- Use \\\`<strong>\\\` instead of \\\`<b>\\\` for important text
+- Use \\\`<em>\\\` instead of \\\`<i>\\\` for emphasized text
 - Always close your tags properly
 - Keep paragraphs focused on single topics
     `,

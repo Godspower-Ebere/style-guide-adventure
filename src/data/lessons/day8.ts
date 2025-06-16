@@ -3,154 +3,104 @@ import { DayLesson } from "../types";
 
 export const day8: DayLesson = {
   day: 8,
-  title: "HTML Tables - Advanced Features",
-  category: "HTML Basics",
-  description: "Explore advanced table features including table sections, spanning cells, and captions for better structure and accessibility.",
+  title: "HTML Forms - Introduction and Basic Inputs",
+  category: "HTML Forms",
+  description: "Learn to create interactive forms with various input types for collecting user data effectively.",
   learningObjectives: [
-    "Learn to organize tables using thead, tbody, and tfoot sections.",
-    "Master cell spanning with colspan and rowspan attributes.",
-    "Understand how to add captions and improve table accessibility.",
-    "Create complex table layouts for real-world data presentation."
+    "Understand the purpose and structure of HTML forms.",
+    "Master basic input types: text, email, password, number.",
+    "Learn form attributes and their importance.",
+    "Practice creating functional user input forms."
   ],
   detailedExplanation: `
-Today we'll advance our table skills by learning about table sections and advanced features that make tables more organized and accessible.
+Forms are essential for collecting user input and creating interactive websites.
 
-## Table Sections
-HTML tables can be divided into logical sections:
+## Basic Form Structure
+Every form starts with the form element:
 
-\`\`\`html
-<table>
-  <caption>Monthly Sales Report</caption>
-  <thead>
-    <tr>
-      <th>Month</th>
-      <th>Sales</th>
-      <th>Profit</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>January</td>
-      <td>$10,000</td>
-      <td>$2,000</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <th>Total</th>
-      <th>$10,000</th>
-      <th>$2,000</th>
-    </tr>
-  </tfoot>
-</table>
-\`\`\`
+\\\`\\\`\\\`html
+<form action="/submit" method="post">
+  <!-- Form inputs go here -->
+</form>
+\\\`\\\`\\\`
 
-## Table Section Elements
-- **caption**: Provides a title or description for the table
-- **thead**: Groups header content in a table
-- **tbody**: Groups body content in a table
-- **tfoot**: Groups footer content in a table
+## Common Input Types
+HTML5 provides various input types:
 
-## Cell Spanning
-You can make cells span multiple columns or rows:
+\\\`\\\`\\\`html
+<input type="text" name="username">
+<input type="email" name="email">
+<input type="password" name="password">
+<input type="number" name="age">
+<input type="date" name="birthdate">
+<input type="tel" name="phone">
+<input type="url" name="website">
+\\\`\\\`\\\`
 
-### Colspan Example
-\`\`\`html
-<tr>
-  <td colspan="2">This cell spans 2 columns</td>
-  <td>Regular cell</td>
-</tr>
-\`\`\`
+## Input Attributes
+- \\\`name\\\` - Identifies the input when submitted
+- \\\`placeholder\\\` - Hint text for the user
+- \\\`required\\\` - Makes the field mandatory
+- \\\`maxlength\\\` - Limits character count
+- \\\`min/max\\\` - Sets numeric limits
 
-### Rowspan Example
-\`\`\`html
-<tr>
-  <td rowspan="2">This cell spans 2 rows</td>
-  <td>Cell 1</td>
-</tr>
-<tr>
-  <td>Cell 2</td>
-</tr>
-\`\`\`
+## Complete Form Example
+\\\`\\\`\\\`html
+<form>
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <input type="number" name="age" min="13" max="120">
+  <button type="submit">Submit</button>
+</form>
+\\\`\\\`\\\`
 
-## Accessibility Benefits
-- Table sections help screen readers navigate content
-- Captions provide context for the entire table
-- Proper headers improve understanding for all users
+## Form Methods
+- \\\`GET\\\` - Data appears in URL (for searches)
+- \\\`POST\\\` - Data sent privately (for sensitive info)
     `,
   keyTerms: [
-    { term: "Caption", definition: "Element that provides a title or description for an HTML table." },
-    { term: "Thead", definition: "Table section that groups header rows at the top of a table." },
-    { term: "Tbody", definition: "Table section that contains the main content rows of a table." },
-    { term: "Tfoot", definition: "Table section for footer content, typically containing totals or summaries." },
-    { term: "Colspan", definition: "Attribute that makes a cell span across multiple columns." },
-    { term: "Rowspan", definition: "Attribute that makes a cell span across multiple rows." }
+    { term: "Form", definition: "HTML element that collects user input and sends it to a server." },
+    { term: "Input", definition: "Form element that allows users to enter data." },
+    { term: "Form Action", definition: "The URL where form data is sent when submitted." },
+    { term: "Form Method", definition: "How data is sent: GET (in URL) or POST (in body)." },
+    { term: "Placeholder", definition: "Hint text that appears in an input field." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Add Table Sections",
+      title: "Contact Form",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'table-sections.html' with basic HTML structure.",
-        "Create a table about monthly expenses with caption 'Monthly Budget'.",
-        "Add a thead section with headers: 'Category', 'Amount', 'Notes'.",
-        "Add a tbody section with 5 expense categories.",
-        "Add a tfoot section with a total row.",
-        "Test in browser to see the structured table."
+        "Create a simple contact form.",
+        "Include fields for name, email, and message.",
+        "Add appropriate input types and placeholders.",
+        "Include a submit button."
       ]
     },
     {
       id: 2,
-      title: "Practice Colspan",
+      title: "Registration Form",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'colspan-practice.html' for a course schedule.",
-        "Create a table with days of the week as headers.",
-        "Use colspan to create cells that span multiple days for longer classes.",
-        "Add at least 3 rows with different colspan examples.",
-        "Ensure the table structure remains logical and aligned."
+        "Create a user registration form.",
+        "Include username, email, password, and age fields.",
+        "Use appropriate input types and validation attributes.",
+        "Add required attributes where necessary."
       ]
     },
     {
       id: 3,
-      title: "Master Rowspan",
-      type: "classwork",
-      difficulty: "hard",
-      instructions: [
-        "Create 'rowspan-example.html' for a department directory.",
-        "Create a table with columns: 'Department', 'Employee', 'Position'.",
-        "Use rowspan to group multiple employees under each department.",
-        "Include at least 3 departments with 2-3 employees each.",
-        "Verify that the table displays correctly without overlapping cells."
-      ]
-    },
-    {
-      id: 4,
-      title: "Build a Complex Report Table",
-      type: "homework",
-      difficulty: "medium",
-      instructions: [
-        "Create 'quarterly-report.html' with a comprehensive business report.",
-        "Include caption, thead, tbody, and tfoot sections.",
-        "Use colspan for section headers that span multiple columns.",
-        "Add quarterly data with proper totals in the footer.",
-        "Ensure the table is well-organized and professional-looking."
-      ]
-    },
-    {
-      id: 5,
-      title: "Design a Tournament Bracket Table",
+      title: "Survey Form",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'tournament.html' for a sports tournament display.",
-        "Use colspan and rowspan to create a bracket-style layout.",
-        "Include team names, match results, and advancement paths.",
-        "Add appropriate sections and captions for clarity.",
-        "Challenge: Make the table represent a realistic tournament structure."
+        "Create a comprehensive survey form.",
+        "Include various input types: text, email, number, date.",
+        "Add proper validation and placeholders.",
+        "Organize the form with clear sections."
       ]
     }
   ]

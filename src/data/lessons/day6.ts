@@ -16,41 +16,41 @@ export const day6: DayLesson = {
 Images and media make websites visually appealing and engaging. Today we'll learn how to properly include them in our HTML.
 
 ## The Image Tag
-The `<img>` tag is used to embed images. It's a self-closing tag with several important attributes.
+The \\\`<img>\\\` tag is used to embed images. It's a self-closing tag with several important attributes.
 
-\`\`\`html
+\\\`\\\`\\\`html
 <img src="image.jpg" alt="Description of image">
-\`\`\`
+\\\`\\\`\\\`
 
 ## Essential Image Attributes
 
 ### Src Attribute
 Specifies the path to the image file:
-\`\`\`html
+\\\`\\\`\\\`html
 <!-- Relative path -->
 <img src="images/photo.jpg" alt="My photo">
 
 <!-- Absolute path -->
 <img src="https://example.com/image.jpg" alt="External image">
-\`\`\`
+\\\`\\\`\\\`
 
 ### Alt Attribute
 Provides alternative text for accessibility:
-\`\`\`html
+\\\`\\\`\\\`html
 <img src="sunset.jpg" alt="Beautiful sunset over the ocean">
-\`\`\`
+\\\`\\\`\\\`
 
 ### Width and Height Attributes
 Control image dimensions:
-\`\`\`html
+\\\`\\\`\\\`html
 <img src="logo.png" alt="Company logo" width="200" height="100">
-\`\`\`
+\\\`\\\`\\\`
 
 ### Title Attribute
 Provides additional information (tooltip):
-\`\`\`html
+\\\`\\\`\\\`html
 <img src="product.jpg" alt="Red bicycle" title="Click to view larger image">
-\`\`\`
+\\\`\\\`\\\`
 
 ## Image Formats
 Common web image formats:
@@ -70,7 +70,7 @@ Common web image formats:
 ## Basic Audio and Video
 HTML5 introduced native support for audio and video:
 
-\`\`\`html
+\\\`\\\`\\\`html
 <audio controls>
   <source src="audio.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
@@ -80,7 +80,7 @@ HTML5 introduced native support for audio and video:
   <source src="video.mp4" type="video/mp4">
   Your browser does not support the video element.
 </video>
-\`\`\`
+\\\`\\\`\\\`
     `,
   keyTerms: [
     { term: "Img Tag", definition: "HTML element used to embed images in web pages." },
