@@ -1,145 +1,122 @@
 import { DayLesson } from "../types";
 
-export const day3: DayLesson = {
+export const day3b: DayLesson = {
   day: 3,
-  title: "Headings and Paragraphs: Structuring Webpage Content",
+  title: "HTML Lists: Organizing Information Clearly",
   category: "HTML Basics",
-  description: "Learn how to structure your webpage content using heading tags (<h1> to <h6>) and paragraph tags (<p>). Build organized and readable web pages.",
+  description: "Learn how to create unordered, ordered, and definition lists in HTML to organize information clearly and accessibly.",
   learningObjectives: [
-    "Understand the purpose of headings and paragraphs in HTML.",
-    "Use <h1> to <h6> to create a content hierarchy.",
-    "Use <p> tags to structure blocks of text.",
-    "Apply semantic meaning to text content for better accessibility and SEO.",
-    "Practice building simple structured HTML pages using these elements."
+    "Differentiate between unordered, ordered, and definition lists.",
+    "Use <ul> and <li> to create bullet-point lists.",
+    "Use <ol> and <li> to create numbered lists.",
+    "Use <dl>, <dt>, and <dd> to create term-definition pairs.",
+    "Structure content logically with lists for improved readability."
   ],
   detailedExplanation: `
-## Welcome to Day 3: Headings & Paragraphs
+## HTML Lists Explained
 
-Today’s lesson is all about organizing content using **headings** and **paragraphs** — two of the most commonly used HTML elements.
+Lists make content easy to scan and organize. HTML provides **three types of lists**:
 
-### Step-by-Step Breakdown
-
-#### Step 1: Headings
-- Use <h1> to <h6> to create titles and subtitles.
-- <h1> is the most important (like the main page title).
-- <h6> is the least important (like a footnote or small label).
-- Headings are **semantic** — they help define structure for screen readers and search engines.
-
-#### Step 2: Paragraphs
-- Use the <p> tag to define blocks of text.
-- Paragraphs are great for explanations, descriptions, and storytelling.
-- Browsers automatically add spacing above and below each paragraph.
-
-#### Step 3: Combining Headings and Paragraphs
-- Nest headings and paragraphs inside the <body>.
-- Start with an <h1>, add some <p> tags, then <h2> and more <p>, and so on.
-- Example:
+### 1. Unordered Lists (<ul> and <li>)
+Used for non-sequential items (e.g., shopping list):
 \`\`\`html
-<h1>Main Title</h1>
-<p>This is an introductory paragraph.</p>
-<h2>Subsection</h2>
-<p>More details about the topic.</p>
+<ul>
+  <li>Milk</li>
+  <li>Bread</li>
+  <li>Eggs</li>
+</ul>
 \`\`\`
 
-#### Step 4: Why Structure Matters
-- Headings help visually organize the page.
-- They also help with:
-  - **SEO (Search Engine Optimization)**
-  - **Accessibility for screen readers**
-  - **User experience**
-
-### Code Example
-
+### 2. Ordered Lists (<ol> and <li>)
+Used when order matters (e.g., instructions or rankings):
 \`\`\`html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Page with Headings and Paragraphs</title>
-</head>
-<body>
-
-    <h1>Welcome to My Awesome Page!</h1>
-
-    <p>This is the first paragraph of text on my page. It introduces the main topic we are discussing today.</p>
-
-    <h2>A Subsection Topic</h2>
-
-    <p>This is a paragraph under the subsection heading. It provides more detail about the specific topic introduced by the H2.</p>
-
-    <h3>Even More Detail Here</h3>
-
-    <p>And here is another paragraph, maybe discussing a smaller point related to the previous subsection.</p>
-
-</body>
-</html>
+<ol>
+  <li>Wake up</li>
+  <li>Brush teeth</li>
+  <li>Eat breakfast</li>
+</ol>
 \`\`\`
+
+### 3. Definition Lists (<dl>, <dt>, <dd>)
+Used for glossaries or FAQs:
+\`\`\`html
+<dl>
+  <dt>HTML</dt>
+  <dd>The language used to create web pages.</dd>
+  <dt>CSS</dt>
+  <dd>The language used to style web pages.</dd>
+</dl>
+\`\`\`
+
+### Key Takeaways:
+- Use <ul> when order **doesn't** matter.
+- Use <ol> when order **does** matter.
+- Use <dl> for term-definition formatting.
+- All list items go inside <li> (or <dt>/<dd> for definitions).
 `,
   keyTerms: [
-    { term: "Heading", definition: "A title or subtitle used to structure content, represented by <h1> through <h6> tags." },
-    { term: "Paragraph", definition: "A block of regular text content, represented by the <p> tag." },
-    { term: "Element", definition: "A part of an HTML document made of an opening tag, content, and a closing tag." },
-    { term: "Tag", definition: "The syntax used to define HTML elements, enclosed in angle brackets (e.g., <h1>, <p>)." },
-    { term: "Hierarchy", definition: "The structure created by nesting and ordering headings from <h1> to <h6>." }
+    { term: "<ul>", definition: "Unordered List. Displays bullet-point items." },
+    { term: "<ol>", definition: "Ordered List. Displays numbered items." },
+    { term: "<li>", definition: "List Item. Used inside <ul> or <ol> to define each entry." },
+    { term: "<dl>", definition: "Definition List. Groups terms and their definitions." },
+    { term: "<dt>", definition: "Definition Term. Defines the term in a <dl> list." },
+    { term: "<dd>", definition: "Definition Description. Defines the meaning of the <dt> term." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Your First Heading and Paragraph",
+      title: "Create a Shopping List",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Open your existing HTML file or create a new one.",
-        "Inside <body>, add an <h1> tag with: My First Web Page.",
-        "Add a <p> tag below with: Learning HTML is fun and exciting!",
-        "Save and view in a browser."
+        "Create an HTML file and add an <h2> title: My Shopping List.",
+        "Add a <ul> element and insert at least three <li> items (e.g., Milk, Bread, Eggs).",
+        "Save and open it in a browser to view bullet points."
       ]
     },
     {
       id: 2,
-      title: "Adding More Structure",
+      title: "Morning Routine Ordered List",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Below your first paragraph, add an <h2> with: About This Learning Plan.",
-        "Add a <p> tag with a few sentences about your learning goals.",
-        "Save and refresh to see the added section."
+        "Below your shopping list, add a new <h2>: My Morning Routine.",
+        "Add an <ol> with at least three <li> items (e.g., Wake up, Brush teeth, Eat breakfast).",
+        "Save and preview the list in your browser."
       ]
     },
     {
       id: 3,
-      title: "Using Multiple Paragraphs",
+      title: "Build a Mini Glossary",
       type: "homework",
       difficulty: "easy",
       instructions: [
-        "Find a paragraph with multiple sentences.",
-        "Break it into three separate <p> tags, one for each sentence.",
-        "Save and refresh to see the new spacing between them."
+        "Create an <h2> titled: Programming Basics Glossary.",
+        "Add a <dl> containing at least two <dt> terms with corresponding <dd> definitions.",
+        "Save and preview. Definitions should be indented under terms."
       ]
     },
     {
       id: 4,
-      title: "Experimenting with Heading Levels",
+      title: "Combine Lists: Sandwich Recipe",
       type: "homework",
-      difficulty: "easy",
+      difficulty: "medium",
       instructions: [
-        "Add an <h2> titled 'My Favorite Things'.",
-        "Add <h3>, <h4>, <h5>, and <h6> tags for items like: Learning, Coding, Coffee.",
-        "Observe the size and appearance differences in your browser."
+        "Add an <h2>: Simple Sandwich Recipe.",
+        "Add <h3>: Ingredients, followed by a <ul> with items like bread, peanut butter, etc.",
+        "Add <h3>: Steps, followed by an <ol> listing the preparation instructions.",
+        "Save and test it in the browser."
       ]
     },
     {
       id: 5,
-      title: "Creating a Mini Blog Post",
-      type: "homework",
-      difficulty: "medium",
+      title: "Update Your Shopping List",
+      type: "classwork",
+      difficulty: "easy",
       instructions: [
-        "Clear your <body> content.",
-        "Add an <h1> with: My First Day Learning HTML.",
-        "Add an <h2> with: By [Your Name] on Day 3.",
-        "Add two or more <p> tags describing your experience.",
-        "Add another <h2> titled: Key Learnings.",
-        "Add one or two <p> tags summarizing what you’ve learned.",
-        "Save and view your mini blog in the browser."
+        "Reopen your shopping list from Exercise 1.",
+        "Add one more item (e.g., Toilet paper) as a new <li>.",
+        "Save and refresh to confirm the new item appears."
       ]
     }
   ]
