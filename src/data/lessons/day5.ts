@@ -4,150 +4,153 @@ import { DayLesson } from "../types";
 export const day5: DayLesson = {
   day: 5,
   title: "HTML Links and Navigation",
-  category: "HTML Basics",
-  description: "Learn to create hyperlinks that connect webpages and enable navigation. Master both internal and external linking.",
+  category: "HTML Basics", 
+  description: "Learn to create links between pages and within pages using HTML anchor tags for effective website navigation.",
   learningObjectives: [
-    "Understand how hyperlinks work and their importance on the web.",
-    "Learn to create external links to other websites using the anchor tag.",
-    "Learn to create internal links between pages on your own site.",
-    "Understand link attributes like target and title for better user experience."
+    "Master the anchor tag for creating hyperlinks.",
+    "Learn to link to external websites, other pages, and sections within the same page.",
+    "Understand link attributes like target, rel, and title.",
+    "Create effective navigation structures for websites."
   ],
   detailedExplanation: `
-Links are what make the web "web-like" - they connect pages and sites together, creating the interconnected network we know as the World Wide Web.
+Links are what make the web "world wide" - they connect pages and allow users to navigate between different content.
 
 ## The Anchor Tag
-All links in HTML are created using the anchor tag: a. The most important attribute is href (hypertext reference), which specifies where the link goes.
-
-Basic link structure:
-\`\`\`html
-<a href="destination">Link text that users click</a>
-\`\`\`
-
-## External Links
-External links connect to other websites. Always include the full URL:
+The anchor tag `<a>` creates hyperlinks. The most important attribute is `href`, which specifies the destination.
 
 \`\`\`html
-<a href="https://www.google.com">Visit Google</a>
-<a href="https://www.wikipedia.org">Learn on Wikipedia</a>
+<a href="https://www.example.com">Visit Example.com</a>
 \`\`\`
 
-## Internal Links
-Internal links connect to other pages on your own website. You can use relative paths:
+## Types of Links
 
+### External Links
+Links to other websites:
+\`\`\`html
+<a href="https://www.google.com">Go to Google</a>
+\`\`\`
+
+### Internal Links
+Links to other pages on your site:
 \`\`\`html
 <a href="about.html">About Us</a>
 <a href="contact.html">Contact</a>
 \`\`\`
 
-## Useful Link Attributes
-- **target="_blank"**: Opens link in a new tab or window
-- **title**: Provides additional information (appears on hover)
-
-Example:
+### Anchor Links
+Links to sections within the same page:
 \`\`\`html
-<a href="https://www.example.com" target="_blank" title="Opens in new tab">Visit Example</a>
+<a href="#section1">Go to Section 1</a>
+<!-- Later in the page -->
+<h2 id="section1">Section 1</h2>
 \`\`\`
 
-## Link Best Practices
-1. Use descriptive link text - avoid "click here"
-2. Make it clear when links open in new tabs
-3. Ensure links are accessible and keyboard-navigable
-4. Test all your links to make sure they work
+### Email Links
+Links that open email client:
+\`\`\`html
+<a href="mailto:someone@example.com">Send Email</a>
+\`\`\`
+
+## Link Attributes
+
+### Target Attribute
+Controls where the link opens:
+\`\`\`html
+<a href="https://www.example.com" target="_blank">Open in new tab</a>
+\`\`\`
+
+### Title Attribute
+Provides additional information (tooltip):
+\`\`\`html
+<a href="about.html" title="Learn more about our company">About Us</a>
+\`\`\`
+
+### Rel Attribute
+Describes the relationship between current and linked document:
+\`\`\`html
+<a href="https://external-site.com" rel="noopener">External Link</a>
+\`\`\`
+
+## Navigation Best Practices
+- Use descriptive link text
+- Avoid "click here" or "read more"
+- Group related links together
+- Consider accessibility for screen readers
+- Test all links regularly
     `,
   keyTerms: [
-    { term: "Anchor Tag (a)", definition: "The HTML tag used to create hyperlinks that connect to other pages or websites." },
-    { term: "href Attribute", definition: "The attribute that specifies the destination URL or file path for a hyperlink." },
-    { term: "External Link", definition: "A hyperlink that connects to a page or resource on a different website." },
-    { term: "Internal Link", definition: "A hyperlink that connects to another page within the same website." },
-    { term: "Target Attribute", definition: "An attribute that specifies where to open the linked document (same window, new tab, etc.)." }
+    { term: "Anchor Tag", definition: "The <a> element used to create hyperlinks in HTML." },
+    { term: "Href Attribute", definition: "Specifies the URL or destination of a hyperlink." },
+    { term: "Target Attribute", definition: "Specifies where to open the linked document (_blank, _self, etc.)." },
+    { term: "Internal Link", definition: "A link that points to another page within the same website." },
+    { term: "External Link", definition: "A link that points to a page on a different website." },
+    { term: "Anchor Link", definition: "A link that points to a specific section within the same page." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Create Your First External Link",
+      title: "Create Basic Links",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create a new HTML file with the basic structure.",
-        "Add the title 'My Favorite Websites' to the head section.",
-        "In the body, create an h1 tag and type 'Websites I Visit Often'.",
-        "Below the heading, create a p tag.",
-        "Inside the p tag, type 'I love to search on ' (with a space at the end).",
-        "After that text, add an a tag with href='https://www.google.com'.",
-        "Between the opening and closing a tags, type 'Google'.",
-        "Add a period after the closing a tag.",
-        "Save as 'links.html' and test your link in the browser."
+        "Create a new HTML file called 'links.html'.",
+        "Add the basic HTML structure with title 'Learning Links'.",
+        "Create links to three different websites (Google, YouTube, Wikipedia).",
+        "Make one link open in a new tab using target='_blank'.",
+        "Test all links to ensure they work."
       ]
     },
     {
       id: 2,
-      title: "Add Multiple External Links",
+      title: "Internal Navigation",
       type: "classwork",
-      difficulty: "easy",
+      difficulty: "medium",
       instructions: [
-        "In the same 'links.html' file, add an h2 tag with 'Learning Resources'.",
-        "Create a new p tag below the h2.",
-        "In the p tag, type 'For coding tutorials, I visit '.",
-        "Add an a tag with href='https://www.w3schools.com' and the text 'W3Schools'.",
-        "Add another p tag with 'For videos, I watch '.",
-        "Add an a tag with href='https://www.youtube.com' and the text 'YouTube'.",
-        "Save and test both links in your browser."
+        "Create two HTML files: 'home.html' and 'about.html'.",
+        "In home.html, create a link to about.html.",
+        "In about.html, create a link back to home.html.",
+        "Add some content to both pages to make them distinct.",
+        "Test navigation between the pages."
       ]
     },
     {
       id: 3,
-      title: "Practice Links with Attributes",
+      title: "Page with Anchor Links",
       type: "classwork",
-      difficulty: "medium",
+      difficulty: "hard",
       instructions: [
-        "Create a new file called 'enhanced-links.html' with the basic structure.",
-        "Set the page title to 'Enhanced Links Practice'.",
-        "Create an h1 tag with 'Links with Special Features'.",
-        "Add a p tag and type 'This link opens in a new tab: '.",
-        "Create an a tag with href='https://www.github.com' and target='_blank'.",
-        "Set the link text to 'GitHub'.",
-        "Add another p tag with 'Hover over this link for more info: '.",
-        "Create an a tag with href='https://www.stackoverflow.com' and title='Programming Q&A site'.",
-        "Set the link text to 'Stack Overflow'.",
-        "Save and test the special features of your links."
+        "Create a long HTML page called 'article.html'.",
+        "Add a table of contents at the top with anchor links.",
+        "Create at least 4 sections with unique IDs.",
+        "Link each table of contents item to its corresponding section.",
+        "Add a 'Back to Top' link at the bottom of each section."
       ]
     },
     {
       id: 4,
-      title: "Create Internal Navigation",
+      title: "Personal Portfolio Navigation",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "Create three HTML files: 'home.html', 'about.html', and 'contact.html'.",
-        "In 'home.html', set up the basic structure with title 'Home Page'.",
-        "Add an h1 with 'Welcome to My Website' and a p with some welcome text.",
-        "Create a navigation section with links to the other pages.",
-        "Add an a tag with href='about.html' and text 'About Me'.",
-        "Add another a tag with href='contact.html' and text 'Contact'.",
-        "In 'about.html', create similar structure with title 'About Me' and navigation back to home and contact.",
-        "In 'contact.html', create similar structure with navigation to other pages.",
-        "Test that you can navigate between all three pages."
+        "Create three HTML files: 'index.html', 'portfolio.html', and 'contact.html'.",
+        "Create a navigation menu that appears on all three pages.",
+        "Include links between all pages in the navigation.",
+        "Add an email link in the contact page.",
+        "Ensure consistent navigation across all pages."
       ]
     },
     {
       id: 5,
-      title: "Build a Resource Directory",
+      title: "Complete Website Structure",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create a new file called 'resources.html' with the basic structure.",
-        "Set the page title to 'Web Development Resources'.",
-        "Create an h1 tag with 'Ultimate Web Development Resource Directory'.",
-        "Add an h2 tag with 'Learning Platforms'.",
-        "Create a ul tag and add 4 li tags.",
-        "In each li, create links to: Codecademy, freeCodeCamp, Coursera, and Udemy.",
-        "Use target='_blank' for all external links.",
-        "Add descriptive title attributes to each link.",
-        "Add another h2 with 'Documentation Sites'.",
-        "Create another ul with links to: MDN Web Docs, W3Schools, and CSS-Tricks.",
-        "Add a final h2 with 'Practice Sites'.",
-        "Create a ul with links to: Codepen, JSFiddle, and Repl.it.",
-        "Test all links and make sure they open correctly."
+        "Create a small website with 5 pages: Home, About, Services, Portfolio, Contact.",
+        "Create a consistent navigation menu for all pages.",
+        "Include external links to social media profiles.",
+        "Add anchor links for long pages with multiple sections.",
+        "Include email and phone links where appropriate.",
+        "Test all navigation thoroughly."
       ]
     }
   ]
