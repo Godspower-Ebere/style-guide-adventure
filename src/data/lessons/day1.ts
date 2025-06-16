@@ -1,42 +1,49 @@
-Of course. Here is the new lesson content structured correctly inside the DayLesson TypeScript template.
-
 import { DayLesson } from "../types";
 
 export const day1: DayLesson = {
   day: 1,
-  title: "Introduction to HTML: The Skeleton of the Web",
-  category: "HTML",
-  description: "HTML stands for HyperText Markup Language. Think of it as the skeleton of a webpage. It gives the page its structure and content, like headings, paragraphs, images, and links. Without HTML, you just have raw text.",
+  title: "Getting Started with HTML: The Skeleton of the Web",
+  category: "HTML Basics",
+  description: "Welcome to Day 1! Learn what HTML is, why it's essential for building web pages, and how to use basic tags like <html>, <head>, <title>, and <body> to create your first structured page.",
   learningObjectives: [
-    "Understand the role of HTML as the structure of a webpage.",
-    "Learn what HTML elements (tags) are and how they are written.",
-    "Identify the essential document structure: <!DOCTYPE html>, <html>, <head>, and <body>.",
-    "Differentiate between the <head> (metadata) and <body> (visible content) sections.",
-    "Create and view a basic HTML file in a web browser."
+    "Understand what HTML is and why it's important.",
+    "Recognize the essential structure of an HTML document.",
+    "Learn about key tags such as <!DOCTYPE>, <html>, <head>, <title>, and <body>.",
+    "Differentiate between the visible and metadata parts of a webpage.",
+    "Create a basic HTML file and view it in a web browser."
   ],
-  detailedExplanation: 
-`## Hello and Welcome!
-Welcome to Day 1 of your 100-day journey into web development! Today, we're starting with the absolute foundation: **HTML**.
+  detailedExplanation: `
+## Hello and Welcome to Day 1!
+
+Today we begin our journey into web development by learning the absolute foundation: **HTML** — HyperText Markup Language.
+
+Think of HTML as the **skeleton** of a webpage. It defines what content appears, where, and in what order.
 
 ### Step-by-Step Explanation
 
-#### 1. Understanding HTML's Role
-Imagine building a house. HTML is like the frame, the walls, and the rooms – it defines *what* is there and *where* it is structurally. It tells the browser, "Here's a heading," "Here's a paragraph," "Here's a picture."
+1. **Understanding HTML's Role**  
+   HTML is like the framework of a house. It structures your content: "Here's a heading", "Here's a paragraph", "Here's an image".
 
-#### 2. Introducing HTML Elements (Tags)
-HTML uses "elements" or "tags." These are keywords wrapped in angle brackets, like \`<p>\` or \`<h1>\`. Most elements have an opening tag (\`<tagname>\`) and a closing tag (\`</tagname>\`). The content you want to display goes between them. For example: \`<p>This is a paragraph.</p>\`. The browser reads these tags to understand how to structure the content.
+2. **Introducing HTML Elements (Tags)**  
+   Tags are keywords in angle brackets like \`<p>\` or \`<h1>\`. They typically come in pairs:  
+   \`\`\`html
+   <p>This is a paragraph.</p>
+   \`\`\`  
+   The browser uses these to display your content properly.
 
-#### 3. The Essential HTML Document Structure
-Every basic HTML page needs a standard structure so browsers can process it correctly. This involves a few key tags that act as containers for the whole document.
+3. **Essential HTML Document Structure**  
+   A basic HTML page includes the following:
+   - \`<!DOCTYPE html>\`: Declares you're using HTML5.
+   - \`<html>\`: The root element of the page.
+   - \`<head>\`: Contains metadata (not shown on the page).
+   - \`<title>\`: Sets the browser tab text.
+   - \`<body>\`: Contains all the visible content.
 
-#### 4. The Head and Body Sections
-The main HTML content is split into two major sections: the \`<head>\` and the \`<body>\`.
-*   The **\`<head>\`** section contains information *about* the page (like its title, which appears in the browser tab). This content isn't directly visible on the page itself.
-*   The **\`<body>\`** section contains everything that *is* visible to the user on the page, like text, images, and buttons.
+4. **Head vs. Body**  
+   - The \`<head>\` holds invisible instructions (like the page title and links to CSS).
+   - The \`<body>\` holds what the user sees (like headings and paragraphs).
 
-### Code Example: Basic HTML5 Document
-
-Here is the fundamental structure of every HTML5 document.
+### Code Example
 
 \`\`\`html
 <!DOCTYPE html>
@@ -52,52 +59,71 @@ Here is the fundamental structure of every HTML5 document.
 </html>
 \`\`\`
 
-In this example:
-*   \`<!DOCTYPE html>\` declares the document type.
-*   \`<html>\` is the root element.
-*   \`<head>\` contains the \`<title>\`.
-*   \`<title>\` sets the text "My First Webpage" in the browser tab.
-*   \`<body>\` contains the visible content: an \`<h1>\` (level 1 heading) and a \`<p>\` (paragraph).`,
+This is your basic starting template for any HTML document.
+`,
   keyTerms: [
     { term: "HTML", definition: "HyperText Markup Language. The standard language for creating web pages." },
-    { term: "Element / Tag", definition: "The basic building blocks of HTML, like `<p>` for paragraph or `<h1>` for a main heading. Consists of an opening tag (`<tagname>`) and often a closing tag (`</tagname>`)." },
-    { term: "Opening Tag", definition: "The start of an HTML element, e.g., `<p>`." },
-    { term: "Closing Tag", definition: "The end of an HTML element, marked with a forward slash, e.g., `</p>`." },
-    { term: "Content", definition: "The information placed between the opening and closing tags, e.g., 'This is a paragraph.' in `<p>This is a paragraph.</p>`." },
-    { term: "<!DOCTYPE html>", definition: "A declaration that tells the browser which version of HTML is being used (in this case, HTML5). It's always at the very top." },
-    { term: "<html>", definition: "The root element that wraps all the content on the entire HTML page." },
-    { term: "<head>", definition: "Contains metadata about the HTML document, like its title and links to external resources. Not visible page content." },
-    { term: "<title>", definition: "An element inside `<head>` that sets the title shown in the browser's tab or window title bar." },
-    { term: "<body>", definition: "Contains the visible content of the HTML document. Everything you see on the webpage goes inside this element." }
+    { term: "Element / Tag", definition: "The building blocks of HTML, usually with an opening and closing tag. E.g., <p>...</p>." },
+    { term: "Opening Tag", definition: "The starting tag of an element, such as <p>." },
+    { term: "Closing Tag", definition: "The ending tag of an element, such as </p>." },
+    { term: "Content", definition: "The data between the opening and closing tags of an element." },
+    { term: "<!DOCTYPE html>", definition: "Declares the document is using HTML5." },
+    { term: "<html>", definition: "The root container for the entire HTML document." },
+    { term: "<head>", definition: "Holds metadata about the document, not displayed on the page." },
+    { term: "<title>", definition: "Sets the browser tab or window title for the web page." },
+    { term: "<body>", definition: "Contains the content visible to users when they visit the page." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Create Your First Webpage",
-      type: "homework",
+      title: "Create Your First HTML File",
+      type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create a new folder for your course projects (e.g., 'web-dev-100-days').",
-        "Open a text editor (like VS Code), create a new file, and save it as 'index.html' inside your new folder.",
-        "Type the basic HTML structure from the code example into your file.",
-        "Change the text inside the <title> tag to 'My Awesome Day 1 Page'.",
-        "Change the text inside the <h1> tag to 'My Webpage Content'.",
-        "Change the text inside the <p> tag to 'This is the beginning of my web development journey!'.",
-        "Add a second <p> tag below the first one with the text 'HTML is the structure, and I'm learning it step by step.'.",
-        "Save the file and open it in a web browser to see your creation."
+        "Open your text editor (VS Code, Sublime Text, or Notepad).",
+        "Type the basic HTML structure, but leave the <body> section empty.",
+        "Save the file as index.html in a folder named web-development-100-days."
       ]
     },
     {
       id: 2,
-      title: "Identify HTML Structure",
+      title: "Add a Page Title",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Look at the code example provided in the lesson.",
-        "Which tag defines the page title that appears in the browser tab?",
-        "Which tag contains all the visible content on the page?",
-        "What is the very first line of any HTML5 document always supposed to be?",
-        "Which tag is the root element that wraps all other HTML content?"
+        "Open index.html in your editor.",
+        "Inside <head>, add a <title> with the text 'My Awesome Day 1 Page'.",
+        "Save and open it in your browser. The tab should display the title."
+      ]
+    },
+    {
+      id: 3,
+      title: "Add a Main Heading",
+      type: "classwork",
+      difficulty: "easy",
+      instructions: [
+        "In the <body>, add an <h1> element with the text 'My Webpage Content'.",
+        "Save the file and refresh your browser to see the heading."
+      ]
+    },
+    {
+      id: 4,
+      title: "Add a Paragraph",
+      type: "homework",
+      difficulty: "easy",
+      instructions: [
+        "Below the <h1>, add a <p> with the text: 'This is the beginning of my web development journey!'.",
+        "Save and refresh your browser to see the paragraph."
+      ]
+    },
+    {
+      id: 5,
+      title: "Add Another Paragraph",
+      type: "homework",
+      difficulty: "easy",
+      instructions: [
+        "Below the first <p>, add another one: 'HTML is the structure, and I'm learning it step by step.'.",
+        "Save and refresh to see the updated content."
       ]
     }
   ]
