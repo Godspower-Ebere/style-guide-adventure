@@ -1,103 +1,132 @@
-
 import { DayLesson } from "../types";
 
 export const day1: DayLesson = {
   day: 1,
-  title: "Introduction to HTML - What is HTML?",
+  title: "Introduction to HTML: The Structure of the Web",
   category: "HTML Basics",
-  description: "Learn the fundamentals of HTML and understand how web pages are structured and created.",
+  description: "Start your journey into web development by learning the foundational language of the web: HTML. Discover how to structure content using essential tags and understand the purpose of a basic HTML document.",
   learningObjectives: [
-    "Understand what HTML stands for and its role in web development.",
-    "Learn the basic structure of an HTML document.",
-    "Create your first HTML page with proper syntax.",
-    "Understand the concept of tags, elements, and attributes."
+    "Understand the role of HTML in web development.",
+    "Learn about HTML elements, tags, and document structure.",
+    "Create a basic HTML page using essential tags like <!DOCTYPE>, <html>, <head>, <title>, and <body>.",
+    "Recognize the difference between head and body content.",
+    "Write headings and paragraphs in HTML using <h1> and <p>."
   ],
   detailedExplanation: `
-Welcome to your web development journey! Today we start with HTML - the foundation of every website.
+## Welcome to Day 1: HTML Basics
 
-## What is HTML?
-HTML stands for **HyperText Markup Language**. It's the standard language used to create web pages. Think of HTML as the skeleton of a website - it provides the basic structure and content.
+Today, we're starting with the absolute foundation of web development: **HTML** – HyperText Markup Language.
 
-## Key Concepts:
-- **HyperText**: Text that contains links to other text
-- **Markup**: A way of annotating text to indicate how it should be displayed
-- **Language**: A set of rules and syntax for creating documents
+HTML acts as the **skeleton of a webpage**, providing structure and meaning to content. Without it, you'd just have raw, unformatted text.
 
-## Basic HTML Structure
-Every HTML document follows this basic structure:
+### Step-by-Step Breakdown
 
-\\\`\\\`\\\`html
+1. **HTML's Role**  
+   Think of building a house: HTML is like the frame, the walls, and the rooms. It defines what’s on the page and where it goes.
+
+2. **HTML Elements (Tags)**  
+   HTML uses *tags*, like \`<p>\` or \`<h1>\`. Tags usually come in pairs: an opening tag (\`<tag>\`) and a closing tag (\`</tag>\`). For example:
+   \`\`\`html
+   <p>This is a paragraph.</p>
+   \`\`\`
+
+3. **HTML Document Structure**  
+   Every HTML page needs a basic skeleton:
+   - \`<!DOCTYPE html>\`: Declares the HTML version.
+   - \`<html>\`: Root element for all content.
+   - \`<head>\`: Contains metadata (title, links).
+   - \`<title>\`: Sets the page title shown in the browser tab.
+   - \`<body>\`: Contains everything visible on the page.
+
+4. **Head vs Body**
+   - The \`<head>\` includes information *about* the page.
+   - The \`<body>\` includes the *visible content* (text, images, links, etc.).
+
+### Example HTML Page
+
+\`\`\`html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page Title</title>
+  <title>My First Webpage</title>
 </head>
 <body>
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
+  <h1>Hello, World!</h1>
+  <p>This is my first paragraph on my first webpage.</p>
 </body>
 </html>
-\\\`\\\`\\\`
+\`\`\`
 
-## Understanding HTML Elements
-HTML uses **tags** to mark up content. Tags are enclosed in angle brackets:
-- \\\`<tagname>\\\` - Opening tag
-- \\\`</tagname>\\\` - Closing tag
-- The content between opening and closing tags forms an **element**
+### Summary
 
-## Essential HTML Tags to Remember:
-- \\\`<!DOCTYPE html>\\\` - Declares the document type
-- \\\`<html>\\\` - Root element of the page
-- \\\`<head>\\\` - Contains metadata about the document
-- \\\`<title>\\\` - Sets the page title (shown in browser tab)
-- \\\`<body>\\\` - Contains the visible page content
-    `,
+You’ve just learned how HTML forms the building blocks of every webpage. From setting the document type to displaying headings and paragraphs, these elements are foundational for everything you'll build next.
+`,
   keyTerms: [
-    { term: "HTML", definition: "HyperText Markup Language - the standard language for creating web pages." },
-    { term: "Tag", definition: "Keywords enclosed in angle brackets that define HTML elements." },
-    { term: "Element", definition: "The complete structure consisting of opening tag, content, and closing tag." },
-    { term: "Attribute", definition: "Additional information provided within HTML tags to modify their behavior or appearance." }
+    { term: "HTML", definition: "HyperText Markup Language. The standard language for creating web pages." },
+    { term: "Element / Tag", definition: "HTML building blocks like <p> or <h1>, usually made of an opening tag, content, and a closing tag." },
+    { term: "Opening Tag", definition: "The starting point of an HTML element, e.g., <p>." },
+    { term: "Closing Tag", definition: "The ending part of an HTML element, marked with a slash, e.g., </p>." },
+    { term: "Content", definition: "The text or data placed between the opening and closing tags." },
+    { term: "<!DOCTYPE html>", definition: "Declaration that defines the HTML version; HTML5 is the current standard." },
+    { term: "<html>", definition: "The root element that wraps all content of the page." },
+    { term: "<head>", definition: "Contains metadata about the HTML document, not visible in the page itself." },
+    { term: "<title>", definition: "Specifies the title of the webpage shown in the browser's tab." },
+    { term: "<body>", definition: "Holds the visible content on the web page." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Create Your First HTML Page",
+      title: "Create Your First HTML File",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Open a text editor (like Notepad, VS Code, or any code editor).",
-        "Type the basic HTML structure shown in the lesson.",
-        "Change the title to 'My First Web Page'.",
-        "Change the heading to 'Hello, World!'.",
-        "Change the paragraph to 'This is my first HTML page.'.",
-        "Save the file as 'index.html'.",
-        "Open the file in a web browser to see your page."
+        "Open your text editor and create a new file.",
+        "Copy the basic structure of an HTML page, leaving the <body> empty.",
+        "Save it as index.html inside a folder (e.g., web-development-100-days)."
       ]
     },
     {
       id: 2,
-      title: "Explore HTML Tags",
+      title: "Add a Page Title",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "In the same HTML file, add another paragraph below the first one.",
-        "Add a second heading using the h2 tag.",
-        "Try adding different heading levels (h1, h2, h3) to see the difference.",
-        "Save and refresh your browser to see the changes."
+        "Inside the <head>, add a <title> element.",
+        "Set its content to something like 'My Awesome Day 1 Page'.",
+        "Save and open the file in a browser to see your title in the tab."
       ]
     },
     {
       id: 3,
-      title: "Personal Introduction Page",
-      type: "homework",
-      difficulty: "medium",
+      title: "Add a Main Heading",
+      type: "classwork",
+      difficulty: "easy",
       instructions: [
-        "Create a new HTML file called 'about-me.html'.",
-        "Include the basic HTML structure.",
-        "Set the title to 'About [Your Name]'.",
-        "Create headings and paragraphs to introduce yourself.",
-        "Include information like your name, interests, and goals.",
-        "Use at least 3 different heading levels and multiple paragraphs."
+        "Inside the <body> tags, add an <h1> element.",
+        "Write 'My Webpage Content' inside it.",
+        "Save and refresh your browser to view the heading."
+      ]
+    },
+    {
+      id: 4,
+      title: "Add a Paragraph",
+      type: "homework",
+      difficulty: "easy",
+      instructions: [
+        "Below the <h1>, add a <p> element.",
+        "Write a sentence like 'This is the beginning of my web development journey!'",
+        "Save and refresh the page to see the paragraph appear."
+      ]
+    },
+    {
+      id: 5,
+      title: "Add Another Paragraph",
+      type: "homework",
+      difficulty: "easy",
+      instructions: [
+        "Below the first paragraph, add another <p> tag.",
+        "Write a different message such as 'HTML is the structure, and I'm learning it step by step.'",
+        "Save and refresh to see both paragraphs on your page."
       ]
     }
   ]
