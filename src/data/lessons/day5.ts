@@ -16,60 +16,60 @@ export const day5: DayLesson = {
 Links are what make the web "world wide" - they connect pages and allow users to navigate between different content.
 
 ## The Anchor Tag
-The anchor tag `<a>` creates hyperlinks. The most important attribute is `href`, which specifies the destination.
+The anchor tag \\\`<a>\\\` creates hyperlinks. The most important attribute is \\\`href\\\`, which specifies the destination.
 
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="https://www.example.com">Visit Example.com</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Types of Links
 
 ### External Links
 Links to other websites:
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="https://www.google.com">Go to Google</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Internal Links
 Links to other pages on your site:
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="about.html">About Us</a>
 <a href="contact.html">Contact</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Anchor Links
 Links to sections within the same page:
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="#section1">Go to Section 1</a>
 <!-- Later in the page -->
 <h2 id="section1">Section 1</h2>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Email Links
 Links that open email client:
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="mailto:someone@example.com">Send Email</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Link Attributes
 
 ### Target Attribute
 Controls where the link opens:
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="https://www.example.com" target="_blank">Open in new tab</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Title Attribute
 Provides additional information (tooltip):
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="about.html" title="Learn more about our company">About Us</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Rel Attribute
 Describes the relationship between current and linked document:
-\`\`\`html
+\\\`\\\`\\\`html
 <a href="https://external-site.com" rel="noopener">External Link</a>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Navigation Best Practices
 - Use descriptive link text

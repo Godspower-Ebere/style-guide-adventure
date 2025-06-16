@@ -26,7 +26,7 @@ HTML stands for **HyperText Markup Language**. It's the standard language used t
 ## Basic HTML Structure
 Every HTML document follows this basic structure:
 
-\`\`\`html
+\\\`\\\`\\\`html
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,20 +37,20 @@ Every HTML document follows this basic structure:
     <p>My first paragraph.</p>
 </body>
 </html>
-\`\`\`
+\\\`\\\`\\\`
 
 ## Understanding HTML Elements
 HTML uses **tags** to mark up content. Tags are enclosed in angle brackets:
-- `<tagname>` - Opening tag
-- `</tagname>` - Closing tag
+- \\\`<tagname>\\\` - Opening tag
+- \\\`</tagname>\\\` - Closing tag
 - The content between opening and closing tags forms an **element**
 
 ## Essential HTML Tags to Remember:
-- `<!DOCTYPE html>` - Declares the document type
-- `<html>` - Root element of the page
-- `<head>` - Contains metadata about the document
-- `<title>` - Sets the page title (shown in browser tab)
-- `<body>` - Contains the visible page content
+- \\\`<!DOCTYPE html>\\\` - Declares the document type
+- \\\`<html>\\\` - Root element of the page
+- \\\`<head>\\\` - Contains metadata about the document
+- \\\`<title>\\\` - Sets the page title (shown in browser tab)
+- \\\`<body>\\\` - Contains the visible page content
     `,
   keyTerms: [
     { term: "HTML", definition: "HyperText Markup Language - the standard language for creating web pages." },
