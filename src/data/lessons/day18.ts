@@ -3,261 +3,335 @@ import { DayLesson } from "../types";
 
 export const day18: DayLesson = {
   day: 18,
-  title: "HTML Audio and Video",
-  category: "HTML5 Features",
-  description: "Master HTML5 multimedia elements to embed and control audio and video content in web pages.",
+  title: "CSS Selectors - Targeting Elements Precisely",
+  category: "CSS Basics",
+  description: "Master different types of CSS selectors to target specific elements and create more precise and efficient styles.",
   learningObjectives: [
-    "Learn to embed audio files using the HTML5 audio element.",
-    "Master video embedding with the HTML5 video element.",
-    "Understand multimedia attributes for controls, autoplay, and loops.",
-    "Create accessible multimedia content with fallbacks and captions."
+    "Understand and use element, class, and ID selectors effectively.",
+    "Learn descendant and child selectors for targeting nested elements.",
+    "Master attribute selectors for more specific targeting.",
+    "Understand selector specificity and how it affects styling."
   ],
   detailedExplanation: `
-HTML5 introduced native multimedia support, eliminating the need for plugins like Flash for audio and video content.
+CSS selectors are patterns that determine which HTML elements to style. Understanding selectors is crucial for effective CSS.
 
-## The Audio Element
-The audio element embeds sound content in web pages:
+## Basic Selectors Review
 
-\`\`\`html
-<audio controls>
-  <source src="audio.mp3" type="audio/mpeg">
-  <source src="audio.ogg" type="audio/ogg">
-  Your browser does not support the audio element.
-</audio>
-\`\`\`
+### Universal Selector
+Targets all elements:
+\\\`\\\`\\\`css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+\\\`\\\`\\\`
 
-### Audio Attributes
-- **controls**: Shows play/pause, volume, and progress controls
-- **autoplay**: Automatically starts playing (use carefully!)
-- **loop**: Repeats the audio when it ends
-- **muted**: Starts with audio muted
-- **preload**: How much to buffer (none, metadata, auto)
+### Element Selector
+Targets all elements of a specific type:
+\\\`\\\`\\\`css
+h1 { color: blue; }
+p { font-size: 16px; }
+a { text-decoration: none; }
+\\\`\\\`\\\`
 
-\`\`\`html
-<audio controls loop preload="metadata">
-  <source src="background-music.mp3" type="audio/mpeg">
-  <source src="background-music.wav" type="audio/wav">
-  Audio not supported in your browser.
-</audio>
-\`\`\`
+### Class Selector
+Targets elements with specific class:
+\\\`\\\`\\\`css
+.button { background-color: blue; }
+.highlight { background-color: yellow; }
+.large-text { font-size: 24px; }
+\\\`\\\`\\\`
 
-## The Video Element
-The video element embeds video content:
+### ID Selector
+Targets element with specific ID:
+\\\`\\\`\\\`css
+#header { background-color: navy; }
+#navigation { position: fixed; }
+#footer { text-align: center; }
+\\\`\\\`\\\`
 
-\`\`\`html
-<video width="640" height="360" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.webm" type="video/webm">
-  Your browser does not support the video element.
-</video>
-\`\`\`
+## Combination Selectors
 
-### Video Attributes
-- **width/height**: Set video dimensions
-- **poster**: Image shown before video plays
-- **controls**: Shows video control interface
-- **autoplay**: Automatically starts playing
-- **loop**: Repeats video when finished
-- **muted**: Required for autoplay in most browsers
+### Multiple Selectors
+Apply same styles to multiple elements:
+\\\`\\\`\\\`css
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
 
-\`\`\`html
-<video width="800" height="450" controls poster="thumbnail.jpg">
-  <source src="presentation.mp4" type="video/mp4">
-  <source src="presentation.webm" type="video/webm">
-  <p>Your browser doesn't support HTML5 video. 
-     <a href="presentation.mp4">Download the video</a> instead.
-  </p>
-</video>
-\`\`\`
+.button, .link, .nav-item {
+  text-decoration: none;
+  padding: 10px;
+}
+\\\`\\\`\\\`
 
-## Multiple Source Formats
-Provide multiple formats for better browser compatibility:
+### Descendant Selector (Space)
+Targets elements nested inside other elements:
+\\\`\\\`\\\`css
+/* Targets all p elements inside article elements */
+article p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
 
-\`\`\`html
-<video controls>
-  <source src="video.mp4" type="video/mp4">
-  <source src="video.webm" type="video/webm">
-  <source src="video.ogv" type="video/ogg">
-  <p>Video not supported. Try a modern browser.</p>
-</video>
-\`\`\`
+/* Targets all links inside navigation */
+nav a {
+  color: white;
+  font-weight: bold;
+}
+\\\`\\\`\\\`
 
-## Accessibility with Subtitles
-Add captions and subtitles using the track element:
+**HTML:**
+\\\`\\\`\\\`html
+<article>
+  <p>This paragraph will be styled.</p>
+  <div>
+    <p>This nested paragraph will also be styled.</p>
+  </div>
+</article>
+\\\`\\\`\\\`
 
-\`\`\`html
-<video controls>
-  <source src="lecture.mp4" type="video/mp4">
-  <track kind="subtitles" src="subtitles-en.vtt" srclang="en" label="English">
-  <track kind="subtitles" src="subtitles-es.vtt" srclang="es" label="Spanish">
-  <track kind="captions" src="captions.vtt" srclang="en" label="English Captions" default>
-</video>
-\`\`\`
+### Child Selector (>)
+Targets direct children only:
+\\\`\\\`\\\`css
+/* Only direct li children of ul */
+ul > li {
+  list-style-type: square;
+}
 
-## Responsive Multimedia
-Make audio and video responsive:
+/* Only direct p children of main */
+main > p {
+  font-size: 18px;
+}
+\\\`\\\`\\\`
 
-\`\`\`html
-<style>
-  .responsive-video {
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-  }
-  
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-  }
-  
-  .video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+**HTML:**
+\\\`\\\`\\\`html
+<ul>
+  <li>Direct child - styled</li>
+  <li>Direct child - styled
+    <ul>
+      <li>Nested child - not styled by ul > li</li>
+    </ul>
+  </li>
+</ul>
+\\\`\\\`\\\`
 
-<div class="video-container">
-  <video controls class="responsive-video">
-    <source src="responsive-video.mp4" type="video/mp4">
-  </video>
-</div>
-\`\`\`
+## Attribute Selectors
 
-## Complete Multimedia Page Example
-\`\`\`html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Multimedia Showcase</title>
-  <style>
-    .media-section {
-      margin: 2rem 0;
-      padding: 1rem;
-      border: 1px solid #ddd;
-    }
-    
-    video, audio {
-      width: 100%;
-      max-width: 600px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Multimedia Content Demo</h1>
-  </header>
+### Basic Attribute Selector
+Targets elements with specific attributes:
+\\\`\\\`\\\`css
+/* All elements with title attribute */
+[title] {
+  border-bottom: 1px dotted;
+}
 
-  <main>
-    <section class="media-section">
-      <h2>Featured Video</h2>
-      <video controls poster="video-thumbnail.jpg">
-        <source src="featured-video.mp4" type="video/mp4">
-        <source src="featured-video.webm" type="video/webm">
-        <track kind="subtitles" src="subtitles.vtt" srclang="en" label="English">
-        <p>Your browser doesn't support video playback.</p>
-      </video>
-      <p>This video demonstrates our latest product features.</p>
-    </section>
+/* All inputs with required attribute */
+[required] {
+  border: 2px solid red;
+}
+\\\`\\\`\\\`
 
-    <section class="media-section">
-      <h2>Podcast Episode</h2>
-      <audio controls preload="metadata">
-        <source src="podcast-episode.mp3" type="audio/mpeg">
-        <source src="podcast-episode.ogg" type="audio/ogg">
-        <p>Your browser doesn't support audio playback.</p>
-      </audio>
-      <p>Episode 42: The Future of Web Development</p>
-    </section>
+### Attribute Value Selectors
+\\\`\\\`\\\`css
+/* Exact match */
+[type="text"] {
+  border: 1px solid #ccc;
+}
 
-    <section class="media-section">
-      <h2>Background Ambience</h2>
-      <audio controls loop>
-        <source src="ambient-sounds.mp3" type="audio/mpeg">
-        <p>Relaxing background sounds for focus.</p>
-      </audio>
-    </section>
-  </main>
-</body>
-</html>
-\`\`\`
+/* Contains word */
+[class~="button"] {
+  padding: 10px 20px;
+}
+
+/* Starts with */
+[href^="https"] {
+  color: green;
+}
+
+/* Ends with */
+[href$=".pdf"] {
+  background: url('pdf-icon.png') no-repeat left;
+  padding-left: 20px;
+}
+
+/* Contains substring */
+[href*="google"] {
+  color: #4285f4;
+}
+\\\`\\\`\\\`
+
+## Advanced Selectors
+
+### Adjacent Sibling Selector (+)
+Targets element immediately following another:
+\\\`\\\`\\\`css
+/* p immediately after h2 */
+h2 + p {
+  font-weight: bold;
+  margin-top: 0;
+}
+\\\`\\\`\\\`
+
+### General Sibling Selector (~)
+Targets all siblings after an element:
+\\\`\\\`\\\`css
+/* All p elements after h2 */
+h2 ~ p {
+  color: #666;
+}
+\\\`\\\`\\\`
+
+## Selector Specificity
+CSS applies styles based on specificity rules:
+
+1. **Inline styles** (style attribute) - Highest specificity
+2. **IDs** - High specificity  
+3. **Classes, attributes, pseudo-classes** - Medium specificity
+4. **Elements** - Low specificity
+
+\\\`\\\`\\\`css
+/* Specificity: 0,0,1,1 (1 class, 1 element) */
+p.highlight { color: red; }
+
+/* Specificity: 0,1,0,1 (1 ID, 1 element) */  
+#content p { color: blue; }
+
+/* The ID selector wins - text will be blue */
+\\\`\\\`\\\`
+
+## Practical Examples
+
+### Navigation Styling
+\\\`\\\`\\\`css
+/* Main navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+\\\`\\\`\\\`
+
+### Form Styling
+\\\`\\\`\\\`css
+/* All form inputs */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Required fields */
+input[required] {
+  border-left: 4px solid #ff6b6b;
+}
+
+/* Specific input types */
+input[type="email"] {
+  background: url('email-icon.png') no-repeat right 10px center;
+  padding-right: 35px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+\\\`\\\`\\\`
+
+### Card Component Styling
+\\\`\\\`\\\`css
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.card .button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+\\\`\\\`\\\`
     `,
   keyTerms: [
-    { term: "Audio Element", definition: "HTML5 element for embedding sound content directly in web pages." },
-    { term: "Video Element", definition: "HTML5 element for embedding video content with native browser support." },
-    { term: "Source Element", definition: "Child element that specifies multiple media resources for audio/video elements." },
-    { term: "Track Element", definition: "Element for adding text tracks like subtitles and captions to video content." },
-    { term: "Multimedia Fallback", definition: "Alternative content shown when the browser doesn't support audio/video elements." },
-    { term: "Preload Attribute", definition: "Attribute that controls how much media content to buffer before playing." }
+    { term: "Selector", definition: "A pattern that matches HTML elements to apply styles to them." },
+    { term: "Descendant Selector", definition: "Selects elements nested inside other elements (using space)." },
+    { term: "Child Selector", definition: "Selects direct children of an element (using >)." },
+    { term: "Attribute Selector", definition: "Selects elements based on their attributes or attribute values." },
+    { term: "Specificity", definition: "The weight given to CSS selectors to determine which styles apply." },
+    { term: "Sibling Selector", definition: "Selects elements that share the same parent (+ for adjacent, ~ for general)." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Basic Audio Player",
+      title: "Basic Selector Practice",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'audio-player.html' with a simple audio player.",
-        "Add an audio element with controls enabled.",
-        "Use placeholder audio files or royalty-free music URLs.",
-        "Include fallback text for unsupported browsers.",
-        "Test the audio controls in your browser."
+        "Create 'selector-practice.html' with various HTML elements.",
+        "Add headings, paragraphs, lists, and links.",
+        "Create CSS that styles elements using different selector types.",
+        "Use element selectors, class selectors, and ID selectors.",
+        "Test that all selectors work as expected."
       ]
     },
     {
       id: 2,
-      title: "Video Showcase",
+      title: "Navigation Menu Styling",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'video-showcase.html' with embedded video content.",
-        "Add a video element with poster image and controls.",
-        "Set appropriate width and height dimensions.",
-        "Include multiple source formats for compatibility.",
-        "Add a descriptive paragraph below each video."
+        "Create 'navigation.html' with a complete navigation menu.",
+        "Use nested ul and li elements for the menu structure.",
+        "Apply CSS using descendant selectors to style the navigation.",
+        "Style links differently when they're inside the navigation.",
+        "Use child selectors to target specific menu levels."
       ]
     },
     {
       id: 3,
-      title: "Multimedia Gallery",
-      type: "classwork",
-      difficulty: "hard",
-      instructions: [
-        "Create 'multimedia-gallery.html' with mixed media content.",
-        "Include both audio and video elements on the same page.",
-        "Use different attributes (loop, autoplay, muted) appropriately.",
-        "Make the multimedia elements responsive with CSS.",
-        "Ensure all content has proper fallback messages."
-      ]
-    },
-    {
-      id: 4,
-      title: "Podcast Website",
-      type: "homework",
-      difficulty: "medium",
-      instructions: [
-        "Create 'podcast-site.html' for a podcast show website.",
-        "Include multiple audio episodes with descriptive information.",
-        "Add episode titles, descriptions, and publication dates.",
-        "Use appropriate preload settings for better performance.",
-        "Style the page to look like a professional podcast platform."
-      ]
-    },
-    {
-      id: 5,
-      title: "Educational Video Platform",
+      title: "Form Styling with Attribute Selectors",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'video-learning.html' for an educational platform.",
-        "Include multiple video lessons with different topics.",
-        "Add subtitles or captions using track elements.",
-        "Create a responsive layout that works on different screen sizes.",
-        "Include course progress indicators and lesson descriptions."
+        "Create 'contact-form.html' with a comprehensive contact form.",
+        "Include various input types: text, email, tel, textarea, submit.",
+        "Use attribute selectors to style different input types differently.",
+        "Style required fields with special visual indicators.",
+        "Use descendant selectors to organize form section styling.",
+        "Create a visually appealing and user-friendly form."
       ]
     }
   ]

@@ -3,174 +3,156 @@ import { DayLesson } from "../types";
 
 export const day12: DayLesson = {
   day: 12,
-  title: "HTML Forms - Validation",
+  title: "HTML Forms - Textarea and Advanced Inputs",
   category: "HTML Forms",
-  description: "Learn HTML5 form validation techniques to ensure data quality and provide better user experience with client-side validation.",
+  description: "Learn to create multi-line text inputs and explore advanced HTML5 input types for better user experience.",
   learningObjectives: [
-    "Master HTML5 built-in validation attributes and their usage.",
-    "Understand different validation types: required, pattern, min/max, length.",
-    "Learn to create custom validation messages and user feedback.",
-    "Implement comprehensive form validation for real-world applications."
+    "Master the textarea element for multi-line text input.",
+    "Understand HTML5 input types: date, time, color, range, file.",
+    "Learn input validation attributes and their usage.",
+    "Create comprehensive forms with various input types."
   ],
   detailedExplanation: `
-Today we'll explore HTML5 form validation, which helps ensure users enter valid data before submitting forms.
+Today we'll explore textarea and advanced HTML5 input types that provide better user interfaces.
 
-## Built-in Validation Attributes
+## The Textarea Element
+For multi-line text input, use the textarea element:
 
-### Required Validation
-Makes fields mandatory:
-\`\`\`html
-<input type="text" name="username" required>
+\\\`\\\`\\\`html
+<label for="message">Your Message:</label>
+<textarea id="message" name="message" rows="5" cols="40">
+Default text here (optional)
+</textarea>
+\\\`\\\`\\\`
+
+## Textarea Attributes
+- \\\`rows\\\` - Number of visible text lines
+- \\\`cols\\\` - Visible width in characters  
+- \\\`placeholder\\\` - Hint text
+- \\\`maxlength\\\` - Maximum character limit
+- \\\`required\\\` - Makes field mandatory
+
+## HTML5 Input Types
+
+### Date and Time Inputs
+\\\`\\\`\\\`html
+<input type="date" name="birthday">
+<input type="time" name="appointment">
+<input type="datetime-local" name="event">
+<input type="month" name="expiry">
+<input type="week" name="vacation">
+\\\`\\\`\\\`
+
+### Color Input
+\\\`\\\`\\\`html
+<input type="color" name="theme-color" value="#ff0000">
+\\\`\\\`\\\`
+
+### Range Input (Slider)
+\\\`\\\`\\\`html
+<input type="range" name="volume" min="0" max="100" value="50">
+\\\`\\\`\\\`
+
+### File Input
+\\\`\\\`\\\`html
+<input type="file" name="upload" accept=".jpg,.png,.pdf">
+<input type="file" name="multiple-files" multiple>
+\\\`\\\`\\\`
+
+## Input Validation Attributes
+\\\`\\\`\\\`html
 <input type="email" name="email" required>
-\`\`\`
+<input type="number" name="age" min="18" max="100">
+<input type="text" name="username" pattern="[a-zA-Z0-9]{3,16}">
+<input type="url" name="website" placeholder="https://example.com">
+\\\`\\\`\\\`
 
-### Length Validation
-Controls minimum and maximum character length:
-\`\`\`html
-<input type="text" name="username" minlength="3" maxlength="20">
-<textarea name="message" minlength="10" maxlength="500"></textarea>
-\`\`\`
-
-### Numeric Validation
-Sets ranges for number inputs:
-\`\`\`html
-<input type="number" name="age" min="13" max="120">
-<input type="range" name="rating" min="1" max="10">
-\`\`\`
-
-### Pattern Validation
-Uses regular expressions for custom validation:
-\`\`\`html
-<input type="text" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-       placeholder="123-456-7890">
-\`\`\`
-
-## Input Type Validation
-Different input types provide automatic validation:
-
-\`\`\`html
-<input type="email" name="email">     <!-- Validates email format -->
-<input type="url" name="website">     <!-- Validates URL format -->
-<input type="tel" name="phone">       <!-- For telephone numbers -->
-<input type="date" name="birthdate">  <!--  Ensures valid date -->
-\`\`\`
-
-## Custom Validation Messages
-You can provide custom error messages:
-
-\`\`\`html
-<input type="email" name="email" required 
-       title="Please enter a valid email address">
-
-<input type="text" name="username" pattern="[A-Za-z0-9]{3,20}" 
-       title="Username must be 3-20 characters, letters and numbers only">
-\`\`\`
-
-## Complete Validated Form Example
-\`\`\`html
+## Complete Advanced Form Example
+\\\`\\\`\\\`html
 <form>
-  <label for="name">Full Name:</label>
-  <input type="text" id="name" name="name" required minlength="2">
+  <fieldset>
+    <legend>Personal Information</legend>
+    
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday">
+    
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website">
+  </fieldset>
   
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
+  <fieldset>
+    <legend>Preferences</legend>
+    
+    <label for="theme">Theme Color:</label>
+    <input type="color" id="theme" name="theme">
+    
+    <label for="volume">Volume:</label>
+    <input type="range" id="volume" name="volume" min="0" max="100">
+    
+    <label for="avatar">Profile Picture:</label>
+    <input type="file" id="avatar" name="avatar" accept="image/*">
+  </fieldset>
   
-  <label for="age">Age:</label>
-  <input type="number" id="age" name="age" min="13" max="120" required>
-  
-  <label for="phone">Phone:</label>
-  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-         placeholder="123-456-7890">
+  <label for="bio">Biography:</label>
+  <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
   
   <button type="submit">Submit</button>
 </form>
-\`\`\`
-
-## Validation Benefits
-- Immediate feedback to users
-- Reduces server load by catching errors early
-- Improves user experience
-- Helps maintain data quality
-- Works without JavaScript
-
-## Browser Support
-HTML5 validation is supported by all modern browsers and provides a consistent user experience across platforms.
+\\\`\\\`\\\`
     `,
   keyTerms: [
-    { term: "Required Attribute", definition: "Makes a form field mandatory to fill out before submission." },
-    { term: "Pattern Attribute", definition: "Uses regular expressions to define acceptable input formats." },
-    { term: "Minlength/Maxlength", definition: "Attributes that set minimum and maximum character limits for text inputs." },
-    { term: "Min/Max Attributes", definition: "Set the minimum and maximum values for number and date inputs." },
-    { term: "Client-side Validation", definition: "Form validation that occurs in the browser before data is sent to the server." },
-    { term: "Custom Validation Message", definition: "User-defined error messages that appear when validation fails." }
+    { term: "Textarea", definition: "HTML element for multi-line text input with customizable dimensions." },
+    { term: "HTML5 Input Types", definition: "Advanced input types like date, color, range that provide specialized interfaces." },
+    { term: "Input Validation", definition: "Built-in HTML attributes that validate user input before form submission." },
+    { term: "Accept Attribute", definition: "Specifies which file types are allowed for file input elements." },
+    { term: "Pattern Attribute", definition: "Defines a regular expression that the input value must match." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Basic Form Validation",
+      title: "Message Form with Textarea",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'basic-validation.html' with a simple registration form.",
-        "Add required validation to name, email, and password fields.",
-        "Set minlength of 8 characters for the password field.",
-        "Test by trying to submit the form with empty required fields.",
-        "Observe the browser's default validation messages."
+        "Create 'message-form.html' with a contact form.",
+        "Include name and email inputs.",
+        "Add a large textarea for the message (6 rows, 50 cols).",
+        "Set appropriate labels and placeholders.",
+        "Add submit and reset buttons."
       ]
     },
     {
       id: 2,
-      title: "Number and Date Validation",
+      title: "Event Registration Form",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'number-date-validation.html' for an event registration form.",
-        "Add fields for: name (required), age (13-120), event date (required), tickets (1-10).",
-        "Use appropriate input types and validation attributes.",
-        "Test with invalid values to see validation in action.",
-        "Ensure all validation works as expected."
+        "Create 'event-registration.html' for event signup.",
+        "Include date input for event date selection.",
+        "Add time input for preferred time slot.",
+        "Use number input for attendee count (min: 1, max: 10).",
+        "Add file input for uploading documents.",
+        "Include proper validation attributes."
       ]
     },
     {
       id: 3,
-      title: "Pattern Validation Practice",
-      type: "classwork",
-      difficulty: "hard",
-      instructions: [
-        "Create 'pattern-validation.html' with custom pattern validation.",
-        "Add phone number field with pattern for format: (123) 456-7890.",
-        "Add username field that only allows letters and numbers, 3-15 characters.",
-        "Add zip code field with pattern for 5 digits or 5+4 format.",
-        "Include helpful placeholder text and custom error messages.",
-        "Test each pattern thoroughly."
-      ]
-    },
-    {
-      id: 4,
-      title: "Complete Profile Form",
-      type: "homework",
-      difficulty: "medium",
-      instructions: [
-        "Create 'profile-validation.html' for a comprehensive user profile form.",
-        "Include validation for: name, email, age, phone, website URL, bio.",
-        "Use appropriate input types and validation attributes for each field.",
-        "Set character limits for text areas and text inputs.",
-        "Add custom validation messages using the title attribute.",
-        "Test all validation scenarios thoroughly."
-      ]
-    },
-    {
-      id: 5,
-      title: "Advanced Registration System",
+      title: "User Profile Setup",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'advanced-registration.html' with comprehensive validation.",
-        "Include fields with various validation types: required, pattern, length, range.",
-        "Add password confirmation field (note: this requires custom validation).",
-        "Include terms of service checkbox that must be checked.",
-        "Create detailed validation for username (unique pattern requirements).",
-        "Test edge cases and ensure user-friendly error messages."
+        "Create 'profile-setup.html' for user profile creation.",
+        "Use various HTML5 inputs: text, email, date, color, range, file.",
+        "Add textarea for bio section.",
+        "Include proper validation and required fields.",
+        "Organize form with fieldsets and legends.",
+        "Style form to be user-friendly and accessible."
       ]
     }
   ]

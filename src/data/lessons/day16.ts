@@ -3,187 +3,224 @@ import { DayLesson } from "../types";
 
 export const day16: DayLesson = {
   day: 16,
-  title: "HTML Semantic Elements - Footer",
+  title: "HTML Semantic Elements - Footer and Complete Layout",
   category: "Advanced HTML",
-  description: "Master the footer element to create meaningful page conclusions with proper semantic structure and accessibility.",
+  description: "Master the footer element and learn to create complete semantic page layouts using all HTML5 structural elements.",
   learningObjectives: [
-    "Understand the purpose and proper use of footer elements.",
-    "Learn to create page footers with essential information and navigation.",
-    "Master sectioning content footers for articles and sections.",
-    "Build accessible footer structures with proper semantic meaning."
+    "Understand the purpose and proper use of the footer element.",
+    "Learn to create footers for different contexts (page, section, article).",
+    "Master complete semantic page layouts.",
+    "Build accessible and well-structured web pages."
   ],
   detailedExplanation: `
-Today we'll complete our semantic elements journey by mastering the footer element, which provides closure and additional information.
+Today we'll complete our semantic HTML knowledge with the footer element and learn to build complete layouts.
 
 ## The Footer Element
-The footer element represents concluding information for its nearest sectioning content or sectioning root.
-
-\`\`\`html
-<!-- Page footer -->
-<footer>
-  <p>&copy; 2024 My Website. All rights reserved.</p>
-  <nav>
-    <a href="#privacy">Privacy Policy</a> |
-    <a href="#terms">Terms of Service</a>
-  </nav>
-</footer>
-\`\`\`
-
-## Types of Footers
+The footer element represents the footer of its nearest sectioning content or sectioning root.
 
 ### Page Footer
-The main footer at the bottom of the page:
-
-\`\`\`html
+\\\`\\\`\\\`html
 <body>
   <header>...</header>
   <main>...</main>
   
   <footer>
-    <div>
-      <h3>Contact Information</h3>
-      <p>Email: info@company.com</p>
-      <p>Phone: (555) 123-4567</p>
-    </div>
-    
-    <div>
-      <h3>Quick Links</h3>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    
-    <div>
-      <p>&copy; 2024 Company Name. All rights reserved.</p>
-    </div>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#terms">Terms of Service</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <p>Follow us on social media</p>
   </footer>
 </body>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Article Footer
-Footers for individual articles:
-
-\`\`\`html
+\\\`\\\`\\\`html
 <article>
   <header>
     <h2>Article Title</h2>
-    <p>By Author Name</p>
   </header>
   
-  <p>Article content goes here...</p>
+  <p>Article content...</p>
   
   <footer>
-    <p>Published: <time>March 15, 2024</time></p>
-    <p>Tags: <a href="#tech">Technology</a>, <a href="#web">Web Development</a></p>
-    <p>Share: <a href="#">Facebook</a> | <a href="#">Twitter</a></p>
+    <p>Published: <time datetime="2024-01-15">January 15, 2024</time></p>
+    <p>Author: <strong>Jane Doe</strong></p>
+    <p>Tags: technology, web development</p>
+    <p><a href="#comments">Leave a comment</a></p>
   </footer>
 </article>
-\`\`\`
+\\\`\\\`\\\`
 
 ### Section Footer
-Footers for content sections:
-
-\`\`\`html
+\\\`\\\`\\\`html
 <section>
-  <h2>Product Reviews</h2>
-  <p>Latest reviews from our customers...</p>
+  <h2>Product Features</h2>
+  <p>Our product offers amazing features...</p>
   
   <footer>
-    <p>Want to submit a review? <a href="#contact">Contact us</a></p>
-    <p>Last updated: <time>March 10, 2024</time></p>
+    <p>Last updated: <time datetime="2024-01-10">January 10, 2024</time></p>
+    <p><a href="#learn-more">Learn more about features</a></p>
   </footer>
 </section>
-\`\`\`
+\\\`\\\`\\\`
 
-## Common Footer Content
-- Copyright information
-- Contact details
-- Site navigation links
-- Social media links
-- Legal information (privacy policy, terms)
-- Company information
-- Publication dates and authorship
-
-## Complete Website Structure
-\`\`\`html
+## Complete Semantic Layout Structure
+\\\`\\\`\\\`html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Complete Semantic Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Semantic Layout</title>
 </head>
 <body>
+  <!-- Page Header -->
   <header>
-    <h1>TechBlog</h1>
+    <h1>Company Name</h1>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#articles">Articles</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Main Content Area -->
   <main>
-    <article>
-      <header>
-        <h2>The Future of Web Development</h2>
-        <p>By Tech Writer | <time>2024-03-15</time></p>
-      </header>
+    <!-- Hero Section -->
+    <section id="hero">
+      <h2>Welcome to Our Website</h2>
+      <p>We provide excellent services...</p>
+    </section>
+
+    <!-- Blog Articles -->
+    <section id="blog">
+      <h2>Latest Blog Posts</h2>
       
-      <section>
-        <h3>Emerging Technologies</h3>
-        <p>New technologies are shaping...</p>
-      </section>
-      
-      <footer>
-        <p>Categories: Web Development, Technology</p>
-        <p>Read time: 5 minutes</p>
-      </footer>
-    </article>
-    
-    <aside>
-      <h3>Related Articles</h3>
-      <ul>
-        <li><a href="#">HTML5 Features</a></li>
-        <li><a href="#">CSS Grid Guide</a></li>
-      </ul>
-    </aside>
+      <article>
+        <header>
+          <h3>First Blog Post</h3>
+          <p>Posted on <time datetime="2024-01-15">January 15, 2024</time></p>
+        </header>
+        
+        <p>This is the content of our first blog post...</p>
+        
+        <section>
+          <h4>Key Points</h4>
+          <ul>
+            <li>Point one</li>
+            <li>Point two</li>
+          </ul>
+        </section>
+        
+        <footer>
+          <p>Author: John Smith</p>
+          <p>Categories: Web Design, Tips</p>
+        </footer>
+      </article>
+
+      <article>
+        <header>
+          <h3>Second Blog Post</h3>
+          <p>Posted on <time datetime="2024-01-12">January 12, 2024</time></p>
+        </header>
+        
+        <p>Content of the second post...</p>
+        
+        <footer>
+          <p>Author: Jane Doe</p>
+          <p>Categories: Development, Tutorials</p>
+        </footer>
+      </article>
+    </section>
   </main>
 
-  <footer>
+  <!-- Sidebar Content -->
+  <aside>
     <section>
-      <h3>About TechBlog</h3>
-      <p>Your source for web development news and tutorials.</p>
-    </section>
-    
-    <section>
-      <h3>Contact</h3>
-      <p>Email: hello@techblog.com</p>
-      <p>Follow us: <a href="#">Twitter</a> | <a href="#">LinkedIn</a></p>
-    </section>
-    
-    <section>
-      <p>&copy; 2024 TechBlog. All rights reserved.</p>
+      <h3>Quick Links</h3>
       <nav>
-        <a href="#privacy">Privacy</a> | 
-        <a href="#terms">Terms</a>
+        <ul>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
       </nav>
     </section>
+
+    <section>
+      <h3>Newsletter Signup</h3>
+      <form>
+        <label for="email">Subscribe to our newsletter:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </aside>
+
+  <!-- Page Footer -->
+  <footer>
+    <section>
+      <h3>Contact Information</h3>
+      <address>
+        <p>123 Business St.<br>
+        City, State 12345<br>
+        Phone: <a href="tel:+1234567890">(123) 456-7890</a><br>
+        Email: <a href="mailto:info@company.com">info@company.com</a></p>
+      </address>
+    </section>
+
+    <section>
+      <h3>Follow Us</h3>
+      <nav>
+        <ul>
+          <li><a href="#facebook">Facebook</a></li>
+          <li><a href="#twitter">Twitter</a></li>
+          <li><a href="#linkedin">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section>
+      <h3>Legal</h3>
+      <nav>
+        <ul>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+          <li><a href="#cookies">Cookie Policy</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <p>&copy; 2024 Company Name. All rights reserved.</p>
   </footer>
 </body>
 </html>
-\`\`\`
+\\\`\\\`\\\`
+
+## Footer Best Practices
+- Include copyright information
+- Add contact details or links
+- Provide navigation for important pages
+- Include social media links
+- Add legal links (privacy, terms)
+- Keep footer content relevant and useful
+- Use proper semantic structure within footer
     `,
   keyTerms: [
-    { term: "Footer Element", definition: "Semantic element that represents concluding information for a page or section." },
-    { term: "Sectioning Content", definition: "HTML elements that define the scope of headers, footers, and heading hierarchy." },
-    { term: "Page Footer", definition: "The main footer element that appears at the bottom of a web page." },
-    { term: "Article Footer", definition: "Footer element that provides concluding information for a specific article." },
-    { term: "Legal Information", definition: "Important legal content like copyright notices, terms of service, and privacy policies." }
+    { term: "Footer Element", definition: "Semantic element representing the footer of a section, article, or page." },
+    { term: "Sectioning Content", definition: "Elements that define the scope of headers and footers (article, section, nav, aside)." },
+    { term: "Address Element", definition: "Element for contact information related to the nearest article or body element." },
+    { term: "Semantic Layout", definition: "Page structure using HTML5 semantic elements for meaningful content organization." },
+    { term: "Document Structure", definition: "The hierarchical organization of content using semantic HTML elements." }
   ],
   exercises: [
     {
@@ -192,11 +229,11 @@ Footers for content sections:
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'simple-footer.html' with basic page structure.",
-        "Add header with site title and main content area.",
-        "Create a footer with copyright information and current year.",
-        "Include 2-3 footer navigation links.",
-        "Test that the footer appears at the bottom of the page."
+        "Create 'page-footer.html' with basic page structure.",
+        "Add header with site title and navigation.",
+        "Include main content with a few paragraphs.",
+        "Create footer with copyright, contact link, and social links.",
+        "Test that all links are properly structured."
       ]
     },
     {
@@ -205,50 +242,25 @@ Footers for content sections:
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'article-footer.html' with a complete article structure.",
-        "Write an article about a topic you're interested in.",
-        "Add an article header with title and author information.",
-        "Include an article footer with publication date and tags.",
-        "Add a separate page footer with site information."
+        "Create 'article-footer.html' with a complete article.",
+        "Include article header with title and publication date.",
+        "Add substantial content with multiple sections.",
+        "Create article footer with author, tags, and related links.",
+        "Add page footer separately from article footer."
       ]
     },
     {
       id: 3,
-      title: "Multi-Section Footer",
-      type: "classwork",
-      difficulty: "hard",
-      instructions: [
-        "Create 'complex-footer.html' with comprehensive footer structure.",
-        "Build a footer with multiple sections: About, Contact, Links.",
-        "Include social media links and contact information.",
-        "Add proper navigation within the footer.",
-        "Ensure the footer is well-organized and accessible."
-      ]
-    },
-    {
-      id: 4,
-      title: "Business Website Footer",
-      type: "homework",
-      difficulty: "medium",
-      instructions: [
-        "Create 'business-footer.html' for a professional business website.",
-        "Design a comprehensive footer with company information.",
-        "Include sections for services, contact info, and legal pages.",
-        "Add social media links and newsletter signup call-to-action.",
-        "Make the footer look professional with CSS styling."
-      ]
-    },
-    {
-      id: 5,
-      title: "Complete Semantic Website",
+      title: "Complete Website Layout",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'semantic-complete.html' using all learned semantic elements.",
-        "Build a complete website with header, nav, main, articles, sections, asides, and footer.",
-        "Each semantic element should be used appropriately and meaningfully.",
-        "Include multiple articles with their own footers.",
-        "Create a comprehensive page footer with all essential business information."
+        "Create 'complete-layout.html' using all semantic elements.",
+        "Build a business website with header, nav, main, aside, and footer.",
+        "Include multiple articles with their own headers and footers.",
+        "Add comprehensive page footer with multiple sections.",
+        "Ensure proper nesting and semantic structure throughout.",
+        "Include contact information using the address element."
       ]
     }
   ]
