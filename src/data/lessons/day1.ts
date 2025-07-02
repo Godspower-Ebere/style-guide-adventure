@@ -1,3 +1,4 @@
+
 import { DayLesson } from "../types";
 
 export const day1: DayLesson = {
@@ -27,36 +28,36 @@ HTML stands for HyperText Markup Language, but don't let that fancy name intimid
 
 Let me walk you through this step by step, because once you understand this concept, everything else will click into place.
 
-**First, let's talk about HTML elements** - these are your building tools. They look like this: \`<p>\` or \`<h1>\`. Notice those angle brackets? Those tell the browser "Hey, this is an instruction, not regular text."
+**First, let's talk about HTML elements** - these are your building tools. They look like this: \\\`<p>\\\` or \\\`<h1>\\\`. Notice those angle brackets? Those tell the browser "Hey, this is an instruction, not regular text."
 
 Most HTML elements come in pairs - they have an opening tag and a closing tag. Think of them like parentheses in a sentence, but for your webpage:
 
-\`\`\`html
+\\\`\\\`\\\`html
 <p>This is a paragraph that the browser will display.</p>
-\`\`\`
+\\\`\\\`\\\`
 
-The \`<p>\` says "start a paragraph here" and the \`</p>\` says "okay, the paragraph ends here." Simple, right?
+The \\\`<p>\\\` says "start a paragraph here" and the \\\`</p>\\\` says "okay, the paragraph ends here." Simple, right?
 
 **Now, let's build your first HTML document structure**
 
 Every HTML document - and I mean every single one - follows the same basic pattern. It's like a recipe that never changes:
 
-1. **\`<!DOCTYPE html>\`** - This is like saying "Hey browser, I'm using modern HTML5, so get ready!"
-2. **\`<html>\`** - This wraps everything else, like the outer walls of your house
-3. **\`<head>\`** - This is the "behind the scenes" area where you put information about your page
-4. **\`<title>\`** - This sets what appears in your browser tab (you know, that little text up there!)
-5. **\`<body>\`** - This is where all your visible content lives
+1. **\\\`<!DOCTYPE html>\\\`** - This is like saying "Hey browser, I'm using modern HTML5, so get ready!"
+2. **\\\`<html>\\\`** - This wraps everything else, like the outer walls of your house
+3. **\\\`<head>\\\`** - This is the "behind the scenes" area where you put information about your page
+4. **\\\`<title>\\\`** - This sets what appears in your browser tab (you know, that little text up there!)
+5. **\\\`<body>\\\`** - This is where all your visible content lives
 
 **Here's something important to understand** - there are two main sections in every HTML document:
 
-- The **\`<head>\`** section is like the blueprint of your house. It contains important information that the browser needs to know, but visitors won't see it directly on the page.
-- The **\`<body>\`** section is like the actual rooms of your house - this is where all the content that people will see and interact with goes.
+- The **\\\`<head>\\\`** section is like the blueprint of your house. It contains important information that the browser needs to know, but visitors won't see it directly on the page.
+- The **\\\`<body>\\\`** section is like the actual rooms of your house - this is where all the content that people will see and interact with goes.
 
 ### Let Me Show You Your First HTML Document
 
 Here's what a complete HTML document looks like. Don't worry if it seems like a lot at first - we'll break it down together:
 
-\`\`\`html
+\\\`\\\`\\\`html
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,16 +69,16 @@ Here's what a complete HTML document looks like. Don't worry if it seems like a 
   <p>This is my first paragraph on my first webpage.</p>
 </body>
 </html>
-\`\`\`
+\\\`\\\`\\\`
 
 Look at that! You're looking at a complete, working webpage. When you save this as an HTML file and open it in your browser, you'll see "Hello, World!" as a big heading, followed by a paragraph underneath.
 
 **Here's what each part does:**
-- The \`<!DOCTYPE html>\` tells the browser we're using modern HTML
-- Everything is wrapped in \`<html>\` tags
-- The \`<head>\` contains our page title (which shows up in the browser tab)
-- The \`<body>\` contains what visitors actually see
-- That \`<!-- -->\` thing? That's a comment - the browser ignores it, but it helps you remember things!
+- The \\\`<!DOCTYPE html>\\\` tells the browser we're using modern HTML
+- Everything is wrapped in \\\`<html>\\\` tags
+- The \\\`<head>\\\` contains our page title (which shows up in the browser tab)
+- The \\\`<body>\\\` contains what visitors actually see
+- That \\\`<!-- -->\\\` thing? That's a comment - the browser ignores it, but it helps you remember things!
 
 This structure will be your template for every single webpage you create. Pretty cool, right?
 `,

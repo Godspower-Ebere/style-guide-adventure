@@ -1,3 +1,4 @@
+
 import { DayLesson } from "../types";
 
 export const day2: DayLesson = {
@@ -15,13 +16,13 @@ export const day2: DayLesson = {
   detailedExplanation: `
 ## Welcome Back to Day 2!
 
-I'm so glad you're back! Yesterday, you built your first complete HTML document and learned about the basic structure. Today, we're going to focus on something that might seem invisible but is absolutely crucial - the \`<head>\` section of your HTML document.
+I'm so glad you're back! Yesterday, you built your first complete HTML document and learned about the basic structure. Today, we're going to focus on something that might seem invisible but is absolutely crucial - the \\\`<head>\\\` section of your HTML document.
 
 ### Let Me Explain What the <head> Section Really Is
 
-Think of your HTML document like a theater production. The \`<body>\` section is what the audience sees - the actors, the set, the performance. But the \`<head>\` section? That's like everything that happens backstage to make the show possible - the lighting instructions, the sound setup, the program notes that tell people what they're about to see.
+Think of your HTML document like a theater production. The \\\`<body>\\\` section is what the audience sees - the actors, the set, the performance. But the \\\`<head>\\\` section? That's like everything that happens backstage to make the show possible - the lighting instructions, the sound setup, the program notes that tell people what they're about to see.
 
-The \`<head>\` section is where you put all the **metadata** - which is just a fancy word for "information about your webpage." This information doesn't show up on the actual page, but it's essential for making your website work properly.
+The \\\`<head>\\\` section is where you put all the **metadata** - which is just a fancy word for "information about your webpage." This information doesn't show up on the actual page, but it's essential for making your website work properly.
 
 ### Here's Why the <head> Section Is So Important
 
@@ -32,25 +33,25 @@ Let me walk you through this with a real-world example. When you visit a website
 - "What should I show in the browser tab?"
 - "Are there any external stylesheets or scripts I need to load?"
 
-All of these questions get answered by the information you put in the \`<head>\` section. Without it, your webpage might look broken, display weird characters, or not work properly on mobile devices.
+All of these questions get answered by the information you put in the \\\`<head>\\\` section. Without it, your webpage might look broken, display weird characters, or not work properly on mobile devices.
 
 ### Let's Break Down What Goes Inside the <head>
 
-I want to show you the most important elements you'll be using in the \`<head>\` section:
+I want to show you the most important elements you'll be using in the \\\`<head>\\\` section:
 
-**The \`<title>\` element** - This is probably the most visible effect of the \`<head>\` section. Whatever you put inside \`<title>\` tags shows up in your browser tab. It's also what search engines use as the clickable headline in search results!
+**The \\\`<title>\\\` element** - This is probably the most visible effect of the \\\`<head>\\\` section. Whatever you put inside \\\`<title>\\\` tags shows up in your browser tab. It's also what search engines use as the clickable headline in search results!
 
 **Meta tags** - These are special tags that provide information about your document. The two most important ones you'll use are:
-- \`<meta charset="UTF-8">\` - This tells the browser how to handle text characters, ensuring things like accented letters, emojis, and special symbols display correctly
-- \`<meta name="viewport" content="width=device-width, initial-scale=1.0">\` - This is crucial for mobile responsiveness. It tells mobile browsers to display your page at the right size instead of trying to shrink a desktop version
+- \\\`<meta charset="UTF-8">\\\` - This tells the browser how to handle text characters, ensuring things like accented letters, emojis, and special symbols display correctly
+- \\\`<meta name="viewport" content="width=device-width, initial-scale=1.0">\\\` - This is crucial for mobile responsiveness. It tells mobile browsers to display your page at the right size instead of trying to shrink a desktop version
 
-**Comments** - You can also add comments in the \`<head>\` section using \`<!-- comment text -->\`. These are notes for yourself or other developers that browsers completely ignore.
+**Comments** - You can also add comments in the \\\`<head>\\\` section using \\\`<!-- comment text -->\\\`. These are notes for yourself or other developers that browsers completely ignore.
 
 ### Let Me Show You a Professional HTML Head Structure
 
-Here's what a proper, professional \`<head>\` section looks like - this is the template you'll want to use for every website you build:
+Here's what a proper, professional \\\`<head>\\\` section looks like - this is the template you'll want to use for every website you build:
 
-\`\`\`html
+\\\`\\\`\\\`html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,20 +65,20 @@ Here's what a proper, professional \`<head>\` section looks like - this is the t
     <p>Look at the title in the browser tab above!</p>
 </body>
 </html>
-\`\`\`
+\\\`\\\`\\\`
 
 **Let me explain each line:**
-- \`<html lang="en">\` - I added the lang attribute to tell browsers this content is in English
-- \`<meta charset="UTF-8">\` - This ensures all text displays correctly, including emojis and international characters
-- \`<meta name="viewport"...>\` - This makes your page look good on mobile devices
-- \`<title>\` - This shows up in the browser tab and search results
+- \\\`<html lang="en">\\\` - I added the lang attribute to tell browsers this content is in English
+- \\\`<meta charset="UTF-8">\\\` - This ensures all text displays correctly, including emojis and international characters
+- \\\`<meta name="viewport"...>\\\` - This makes your page look good on mobile devices
+- \\\`<title>\\\` - This shows up in the browser tab and search results
 - The comment helps you (and other developers) understand what's happening in your code
 
 This structure is so standard that you'll see it in virtually every modern website. Once you memorize this pattern, you'll be able to start any HTML project with confidence!
 
 ### Here's What's Really Cool About This
 
-Once you save this file and open it in your browser, you'll immediately see the power of the \`<head>\` section. The browser tab will show your title, the page will display properly on mobile devices, and all your text will render correctly. It might seem like magic, but it's just good HTML structure doing its job!
+Once you save this file and open it in your browser, you'll immediately see the power of the \\\`<head>\\\` section. The browser tab will show your title, the page will display properly on mobile devices, and all your text will render correctly. It might seem like magic, but it's just good HTML structure doing its job!
 `,
   keyTerms: [
     { term: "HTML Head", definition: "The behind-the-scenes section of your HTML document that contains all the information browsers need to display your page correctly. Think of it as the instruction manual for your webpage." },
