@@ -37,6 +37,7 @@ Geolocation enables awesome features like:
 
 Always check if the user's browser supports geolocation:
 
+\`\`\`html
 <script>
 if (navigator.geolocation) {
     console.log("Great! Geolocation is supported in this browser.");
@@ -46,11 +47,13 @@ if (navigator.geolocation) {
     // Provide alternative options
 }
 </script>
+\`\`\`
 
 ## Getting the User's Current Position
 
 The main method is getCurrentPosition() - think of it as asking "Where am I right now?"
 
+\`\`\`html
 <script>
 // Basic usage
 navigator.geolocation.getCurrentPosition(
@@ -69,11 +72,13 @@ navigator.geolocation.getCurrentPosition(
     }
 );
 </script>
+\`\`\`
 
 ## Understanding the Position Object
 
 When geolocation succeeds, you get a position object packed with useful information:
 
+\`\`\`html
 <script>
 function showDetailedPosition(position) {
     const coords = position.coords;
@@ -102,11 +107,13 @@ function showDetailedPosition(position) {
 
 navigator.geolocation.getCurrentPosition(showDetailedPosition);
 </script>
+\`\`\`
 
 ## Handling Geolocation Errors
 
 Not everything always goes smoothly - users might deny permission, or their location might be unavailable:
 
+\`\`\`html
 <script>
 function handleLocationError(error) {
     let errorMessage = "An unknown error occurred.";
@@ -137,11 +144,13 @@ function askUserForManualLocation() {
     }
 }
 </script>
+\`\`\`
 
 ## Watching Position Changes
 
 For apps that need to track movement (like fitness apps or navigation), use watchPosition():
 
+\`\`\`html
 <script>
 let watchId;
 let positionCount = 0;
@@ -183,11 +192,13 @@ function updateMapLocation(lat, lng) {
     console.log("Map updated to show: " + lat + ", " + lng);
 }
 </script>
+\`\`\`
 
 ## Geolocation Options
 
 You can fine-tune how geolocation works:
 
+\`\`\`html
 <script>
 const locationOptions = {
     enableHighAccuracy: true,    // Use GPS if available (more accurate but slower)
@@ -201,12 +212,15 @@ navigator.geolocation.getCurrentPosition(
     locationOptions
 );
 </script>
+\`\`\`
 
 ## Complete Real-World Example - Local Weather App
 
 Let me show you a practical application:
 
-<html>
+\`\`\`html
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -442,6 +456,7 @@ Let me show you a practical application:
     </script>
 </body>
 </html>
+\`\`\`
 
 ## Privacy and Security Considerations
 
@@ -464,6 +479,7 @@ Let me show you a practical application:
 ## Real-World Applications
 
 ### Store Locator
+\`\`\`html
 <script>
 function findNearbyStores(position) {
     const userLat = position.coords.latitude;
@@ -493,8 +509,10 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
     return R * c;
 }
 </script>
+\`\`\`
 
 ### Weather by Location
+\`\`\`html
 <script>
 function getWeatherByLocation(position) {
     const lat = position.coords.latitude;
@@ -505,6 +523,7 @@ function getWeatherByLocation(position) {
     // fetch('https://api.weather.com/...')
 }
 </script>
+\`\`\`
 
 Geolocation opens up amazing possibilities for creating location-aware web applications. Remember to always respect user privacy, handle errors gracefully, and provide real value in exchange for location access. The key is to make users feel comfortable sharing their location by being transparent about how you'll use it!
     `,
