@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 export const Footer = () => {
-  return (
-    <footer className="bg-muted py-12">
+  return <footer className="bg-muted py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -37,11 +34,8 @@ export const Footer = () => {
           </div>
         </div>
         <div className="border-t mt-8 pt-8 text-center">
-          <p className="text-muted-foreground text-sm">
-            © 2024 Learning Platform. All rights reserved.
-          </p>
+          <p className="text-muted-foreground text-sm">© 2025 Learning Platform. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
