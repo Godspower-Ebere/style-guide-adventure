@@ -49,7 +49,7 @@ if (navigator.geolocation) {
 
 ## Getting the User's Current Position
 
-The main method is `getCurrentPosition()` - think of it as asking "Where am I right now?"
+The main method is getCurrentPosition() - think of it as asking "Where am I right now?"
 
 <script>
 // Basic usage
@@ -140,7 +140,7 @@ function askUserForManualLocation() {
 
 ## Watching Position Changes
 
-For apps that need to track movement (like fitness apps or navigation), use `watchPosition()`:
+For apps that need to track movement (like fitness apps or navigation), use watchPosition():
 
 <script>
 let watchId;
@@ -206,8 +206,7 @@ navigator.geolocation.getCurrentPosition(
 
 Let me show you a practical application:
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
