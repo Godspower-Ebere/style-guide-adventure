@@ -13,256 +13,606 @@ export const day20: DayLesson = {
     "Handle geolocation errors and provide fallback options."
   ],
   detailedExplanation: `
-The HTML5 Geolocation API allows web applications to access the user's geographical location with their permission.
+Ready to make your websites location-aware? The HTML5 Geolocation API is like giving your website a GPS system - it can help you find where your users are located (with their permission, of course!). This opens up amazing possibilities for creating personalized, location-based experiences.
 
-## Checking Geolocation Support
-Always check if geolocation is supported:
+## What is Geolocation?
 
-\`\`\`html
+Think about all the apps on your phone that ask "Allow access to your location?" - that's geolocation in action! The HTML5 Geolocation API lets websites request the user's geographical position using:
+- **GPS** (most accurate, mainly on mobile devices)
+- **Wi-Fi positioning** (triangulation from Wi-Fi networks)
+- **IP address** (least accurate, but always available)
+- **Cell tower triangulation** (on mobile devices)
+
+## Why Use Geolocation?
+
+Geolocation enables awesome features like:
+- **Local business finder** - "Find pizza shops near me"
+- **Weather apps** - Show weather for current location
+- **Fitness tracking** - Track running routes
+- **Emergency services** - Quick location sharing
+- **Delivery services** - Auto-fill address forms
+- **Social media** - Location-based posts and check-ins
+
+## Checking for Geolocation Support
+
+Always check if the user's browser supports geolocation:
+
 <script>
 if (navigator.geolocation) {
-  console.log("Geolocation is supported");
+    console.log("Great! Geolocation is supported in this browser.");
+    // We can use geolocation features
 } else {
-  console.log("Geolocation is not supported");
+    console.log("Sorry, geolocation is not supported by this browser.");
+    // Provide alternative options
 }
 </script>
-\`\`\`
 
-## Getting Current Position
-Use getCurrentPosition() to get the user's location:
+## Getting the User's Current Position
 
-\`\`\`html
+The main method is `getCurrentPosition()` - think of it as asking "Where am I right now?"
+
 <script>
+// Basic usage
 navigator.geolocation.getCurrentPosition(
-  function(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log("Latitude: " + latitude);
-    console.log("Longitude: " + longitude);
-  },
-  function(error) {
-    console.log("Error: " + error.message);
-  }
+    function(position) {
+        // Success! We got the location
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        
+        console.log("You are at:");
+        console.log("Latitude: " + latitude);
+        console.log("Longitude: " + longitude);
+    },
+    function(error) {
+        // Something went wrong
+        console.log("Error getting location: " + error.message);
+    }
 );
 </script>
-\`\`\`
 
-## Position Object Properties
-The position object contains various location data:
+## Understanding the Position Object
 
-\`\`\`html
+When geolocation succeeds, you get a position object packed with useful information:
+
 <script>
-function showPosition(position) {
-  const coords = position.coords;
-  console.log("Latitude: " + coords.latitude);
-  console.log("Longitude: " + coords.longitude);
-  console.log("Accuracy: " + coords.accuracy + " meters");
-  console.log("Altitude: " + coords.altitude);
-  console.log("Speed: " + coords.speed);
-  console.log("Timestamp: " + position.timestamp);
+function showDetailedPosition(position) {
+    const coords = position.coords;
+    
+    console.log("=== Your Location Details ===");
+    console.log("Latitude: " + coords.latitude + "°");
+    console.log("Longitude: " + coords.longitude + "°");
+    console.log("Accuracy: " + coords.accuracy + " meters");
+    
+    // These might be null if not available
+    if (coords.altitude !== null) {
+        console.log("Altitude: " + coords.altitude + " meters");
+        console.log("Altitude accuracy: " + coords.altitudeAccuracy + " meters");
+    }
+    
+    if (coords.heading !== null) {
+        console.log("Heading: " + coords.heading + "° (0=North, 90=East)");
+    }
+    
+    if (coords.speed !== null) {
+        console.log("Speed: " + coords.speed + " m/s");
+    }
+    
+    console.log("Timestamp: " + new Date(position.timestamp));
+}
+
+navigator.geolocation.getCurrentPosition(showDetailedPosition);
+</script>
+
+## Handling Geolocation Errors
+
+Not everything always goes smoothly - users might deny permission, or their location might be unavailable:
+
+<script>
+function handleLocationError(error) {
+    let errorMessage = "An unknown error occurred.";
+    
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            errorMessage = "User denied the request for Geolocation. 🚫";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            errorMessage = "Location information is unavailable. 📍❌";
+            break;
+        case error.TIMEOUT:
+            errorMessage = "The request to get user location timed out. ⏰";
+            break;
+    }
+    
+    console.log("Geolocation Error: " + errorMessage);
+    
+    // Provide fallback options
+    askUserForManualLocation();
+}
+
+function askUserForManualLocation() {
+    const city = prompt("Since we couldn't get your location automatically, which city are you in?");
+    if (city) {
+        console.log("Thanks! Using " + city + " as your location.");
+        // Use a geocoding service to convert city name to coordinates
+    }
 }
 </script>
-\`\`\`
-
-## Error Handling
-Handle different types of geolocation errors:
-
-\`\`\`html
-<script>
-function handleError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      console.log("User denied the request for Geolocation.");
-      break;
-    case error.POSITION_UNAVAILABLE:
-      console.log("Location information is unavailable.");
-      break;
-    case error.TIMEOUT:
-      console.log("The request to get user location timed out.");
-      break;
-    default:
-      console.log("An unknown error occurred.");
-      break;
-  }
-}
-</script>
-\`\`\`
 
 ## Watching Position Changes
-Monitor location changes with watchPosition():
 
-\`\`\`html
+For apps that need to track movement (like fitness apps or navigation), use `watchPosition()`:
+
 <script>
-const watchId = navigator.geolocation.watchPosition(
-  function(position) {
-    console.log("New position: " + position.coords.latitude + ", " + position.coords.longitude);
-  },
-  function(error) {
-    console.log("Watch error: " + error.message);
-  }
-);
+let watchId;
+let positionCount = 0;
 
-// Stop watching
-navigator.geolocation.clearWatch(watchId);
+function startWatchingLocation() {
+    watchId = navigator.geolocation.watchPosition(
+        function(position) {
+            positionCount++;
+            console.log("Position Update #" + positionCount);
+            console.log("New location: " + position.coords.latitude + ", " + position.coords.longitude);
+            console.log("Accuracy: " + position.coords.accuracy + " meters");
+            
+            // Update your app with the new position
+            updateMapLocation(position.coords.latitude, position.coords.longitude);
+        },
+        function(error) {
+            console.log("Watch error: " + error.message);
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 60000
+        }
+    );
+    
+    console.log("Started watching location. Watch ID: " + watchId);
+}
+
+function stopWatchingLocation() {
+    if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
+        console.log("Stopped watching location.");
+        watchId = null;
+    }
+}
+
+function updateMapLocation(lat, lng) {
+    // This would update your map or UI with the new location
+    console.log("Map updated to show: " + lat + ", " + lng);
+}
 </script>
-\`\`\`
 
-## Complete Geolocation Example
-\`\`\`html
+## Geolocation Options
+
+You can fine-tune how geolocation works:
+
+<script>
+const locationOptions = {
+    enableHighAccuracy: true,    // Use GPS if available (more accurate but slower)
+    timeout: 10000,             // Wait up to 10 seconds for a result
+    maximumAge: 300000          // Accept cached location up to 5 minutes old
+};
+
+navigator.geolocation.getCurrentPosition(
+    successCallback,
+    errorCallback,
+    locationOptions
+);
+</script>
+
+## Complete Real-World Example - Local Weather App
+
+Let me show you a practical application:
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Geolocation Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Location Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        button {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #00a085;
+        }
+        
+        button:disabled {
+            background: #636e72;
+            cursor: not-allowed;
+        }
+        
+        .location-info, .error-message {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .error-message {
+            background: rgba(231, 76, 60, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .coordinates {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <h1>HTML5 Geolocation</h1>
-  <button onclick="getLocation()">Get My Location</button>
-  <p id="demo"></p>
-  
-  <script>
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-      } else {
-        document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-    
-    function showPosition(position) {
-      document.getElementById("demo").innerHTML = 
-        "Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude +
-        "<br>Accuracy: " + position.coords.accuracy + " meters";
-    }
-    
-    function showError(error) {
-      switch(error.code) {
-        case error.PERMISSION_DENIED:
-          document.getElementById("demo").innerHTML = "User denied the request for Geolocation.";
-          break;
-        case error.POSITION_UNAVAILABLE:
-          document.getElementById("demo").innerHTML = "Location information is unavailable.";
-          break;
-        case error.TIMEOUT:
-          document.getElementById("demo").innerHTML = "The request to get user location timed out.";
-          break;
-        default:
-          document.getElementById("demo").innerHTML = "An unknown error occurred.";
-          break;
-      }
-    }
-  </script>
+    <div class="container">
+        <h1>🌍 My Location Finder</h1>
+        <p>Discover your current location and get local information!</p>
+        
+        <div class="controls">
+            <button onclick="getCurrentLocation()">📍 Get My Location</button>
+            <button onclick="startWatching()">👁️ Start Watching</button>
+            <button onclick="stopWatching()">⏹️ Stop Watching</button>
+            <button onclick="clearResults()">🧹 Clear Results</button>
+        </div>
+        
+        <div id="status"></div>
+        <div id="locationInfo"></div>
+        <div id="watchInfo"></div>
+    </div>
+
+    <script>
+        let watchId = null;
+        let watchCount = 0;
+
+        // Check if geolocation is supported
+        if (!navigator.geolocation) {
+            document.getElementById('status').innerHTML = 
+                '<div class="error-message">❌ Geolocation is not supported by this browser.</div>';
+        }
+
+        function getCurrentLocation() {
+            document.getElementById('status').innerHTML = 
+                '<div class="loading">🔍 Getting your location...</div>';
+            
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 60000
+            };
+
+            navigator.geolocation.getCurrentPosition(
+                showPosition,
+                showError,
+                options
+            );
+        }
+
+        function showPosition(position) {
+            const coords = position.coords;
+            const timestamp = new Date(position.timestamp);
+            
+            let html = '<div class="location-info">';
+            html += '<h3>📍 Your Current Location</h3>';
+            html += '<p><strong>Latitude:</strong> ' + coords.latitude.toFixed(6) + '°</p>';
+            html += '<p><strong>Longitude:</strong> ' + coords.longitude.toFixed(6) + '°</p>';
+            html += '<p><strong>Accuracy:</strong> ' + Math.round(coords.accuracy) + ' meters</p>';
+            
+            if (coords.altitude !== null) {
+                html += '<p><strong>Altitude:</strong> ' + Math.round(coords.altitude) + ' meters</p>';
+            }
+            
+            if (coords.speed !== null) {
+                html += '<p><strong>Speed:</strong> ' + Math.round(coords.speed * 3.6) + ' km/h</p>';
+            }
+            
+            html += '<p><strong>Time:</strong> ' + timestamp.toLocaleString() + '</p>';
+            
+            html += '<div class="coordinates">';
+            html += 'Google Maps: <a href="https://maps.google.com/?q=' + coords.latitude + ',' + coords.longitude + '" target="_blank" style="color: #74b9ff;">View on Map</a>';
+            html += '</div>';
+            
+            html += '</div>';
+            
+            document.getElementById('locationInfo').innerHTML = html;
+            document.getElementById('status').innerHTML = '<div class="location-info">✅ Location found successfully!</div>';
+        }
+
+        function showError(error) {
+            let errorMessage = '';
+            
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorMessage = "❌ You denied the request for location access. Please enable location services and try again.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage = "📍❌ Location information is unavailable. Check your internet connection or try again later.";
+                    break;
+                case error.TIMEOUT:
+                    errorMessage = "⏰ Location request timed out. Please try again.";
+                    break;
+                default:
+                    errorMessage = "❓ An unknown error occurred while retrieving your location.";
+                    break;
+            }
+            
+            document.getElementById('status').innerHTML = 
+                '<div class="error-message">' + errorMessage + '</div>';
+        }
+
+        function startWatching() {
+            if (watchId !== null) {
+                document.getElementById('status').innerHTML = 
+                    '<div class="error-message">👁️ Already watching your location!</div>';
+                return;
+            }
+
+            watchCount = 0;
+            document.getElementById('watchInfo').innerHTML = '';
+            document.getElementById('status').innerHTML = 
+                '<div class="loading">👁️ Started watching your location...</div>';
+
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 15000,
+                maximumAge: 30000
+            };
+
+            watchId = navigator.geolocation.watchPosition(
+                function(position) {
+                    watchCount++;
+                    const coords = position.coords;
+                    const timestamp = new Date(position.timestamp);
+                    
+                    let html = document.getElementById('watchInfo').innerHTML;
+                    html += '<div class="location-info">';
+                    html += '<h4>📍 Position Update #' + watchCount + '</h4>';
+                    html += '<p>Lat: ' + coords.latitude.toFixed(6) + '°, ';
+                    html += 'Lng: ' + coords.longitude.toFixed(6) + '°</p>';
+                    html += '<p>Accuracy: ' + Math.round(coords.accuracy) + 'm | ';
+                    html += 'Time: ' + timestamp.toLocaleTimeString() + '</p>';
+                    html += '</div>';
+                    
+                    document.getElementById('watchInfo').innerHTML = html;
+                    document.getElementById('status').innerHTML = 
+                        '<div class="location-info">👁️ Watching location (Update #' + watchCount + ')</div>';
+                },
+                function(error) {
+                    document.getElementById('status').innerHTML = 
+                        '<div class="error-message">👁️❌ Watch error: ' + error.message + '</div>';
+                },
+                options
+            );
+        }
+
+        function stopWatching() {
+            if (watchId !== null) {
+                navigator.geolocation.clearWatch(watchId);
+                watchId = null;
+                document.getElementById('status').innerHTML = 
+                    '<div class="location-info">⏹️ Stopped watching location.</div>';
+            } else {
+                document.getElementById('status').innerHTML = 
+                    '<div class="error-message">⏹️ Not currently watching location.</div>';
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('locationInfo').innerHTML = '';
+            document.getElementById('watchInfo').innerHTML = '';
+            document.getElementById('status').innerHTML = '';
+            if (watchId !== null) {
+                stopWatching();
+            }
+        }
+
+        // Show initial message
+        document.getElementById('status').innerHTML = 
+            '<div class="location-info">👋 Welcome! Click "Get My Location" to start.</div>';
+    </script>
 </body>
 </html>
-\`\`\`
+
+## Privacy and Security Considerations
+
+### User Permission is Required
+- Browsers will always ask users for permission
+- Users can deny or revoke permission at any time
+- Always provide fallback options when permission is denied
+
+### HTTPS is Often Required
+- Many browsers require HTTPS for geolocation to work
+- This protects user privacy and prevents man-in-the-middle attacks
+
+### Best Practices
+1. **Ask permission respectfully** - Explain why you need location data
+2. **Provide value** - Make sure location features genuinely help users
+3. **Handle errors gracefully** - Always have fallback options
+4. **Don't store unnecessarily** - Only keep location data as long as needed
+5. **Be transparent** - Tell users how you'll use their location data
+
+## Real-World Applications
+
+### Store Locator
+<script>
+function findNearbyStores(position) {
+    const userLat = position.coords.latitude;
+    const userLng = position.coords.longitude;
+    
+    // In a real app, you'd query your database
+    const stores = [
+        {name: "Downtown Store", lat: userLat + 0.01, lng: userLng + 0.01},
+        {name: "Mall Location", lat: userLat - 0.02, lng: userLng + 0.015}
+    ];
+    
+    stores.forEach(store => {
+        const distance = calculateDistance(userLat, userLng, store.lat, store.lng);
+        console.log(store.name + " is " + distance.toFixed(2) + " km away");
+    });
+}
+
+function calculateDistance(lat1, lng1, lat2, lng2) {
+    // Haversine formula for calculating distance between two points
+    const R = 6371; // Earth's radius in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+}
+</script>
+
+### Weather by Location
+<script>
+function getWeatherByLocation(position) {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    
+    // In a real app, you'd call a weather API
+    console.log("Getting weather for coordinates: " + lat + ", " + lng);
+    // fetch('https://api.weather.com/...')
+}
+</script>
+
+Geolocation opens up amazing possibilities for creating location-aware web applications. Remember to always respect user privacy, handle errors gracefully, and provide real value in exchange for location access. The key is to make users feel comfortable sharing their location by being transparent about how you'll use it!
     `,
   keyTerms: [
-    { term: "Geolocation API", definition: "HTML5 API that allows web applications to access the user's geographical location." },
+    { term: "Geolocation API", definition: "HTML5 API that allows web applications to access the user's geographical location with permission." },
     { term: "getCurrentPosition()", definition: "Method to retrieve the user's current geographical position once." },
-    { term: "watchPosition()", definition: "Method to continuously monitor the user's location changes." },
-    { term: "Position Object", definition: "Object containing geographical coordinates and related information." },
-    { term: "Permission Denied", definition: "Error type when user refuses to share location data." }
+    { term: "watchPosition()", definition: "Method to continuously monitor the user's location changes over time." },
+    { term: "Position Object", definition: "Object containing geographical coordinates and related information like accuracy and timestamp." },
+    { term: "Permission Denied", definition: "Error type when user refuses to share location data with the web application." },
+    { term: "Location Accuracy", definition: "Measurement in meters indicating how precise the location data is." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Basic Geolocation Check",
+      title: "Basic Location Detection",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'geolocation-check.html' with complete HTML5 structure.",
-        "Add an h1 heading with text 'Geolocation Support Test'.",
-        "Create a paragraph with id='support-status' to display the result.",
-        "Write a script that checks if navigator.geolocation is available.",
-        "If geolocation is supported, display 'Your browser supports geolocation!' in the paragraph.",
-        "If not supported, display 'Geolocation is not supported by your browser.' in the paragraph.",
-        "Add a button with text 'Check Support' that calls a function to perform this check.",
-        "Test the page in your browser and verify the correct message appears."
+        "Create 'basic-location.html' with complete HTML5 structure.",
+        "Add a heading 'My Location Finder' and a button labeled 'Get My Location'.",
+        "Create a div with id='locationDisplay' to show location results.",
+        "Write JavaScript to check if navigator.geolocation is supported in the browser.",
+        "If supported, display a message saying 'Geolocation is available!'.",
+        "If not supported, display 'Geolocation is not supported by your browser.'",
+        "Add click event to the button that calls navigator.geolocation.getCurrentPosition().",
+        "Display latitude and longitude in the locationDisplay div when location is found.",
+        "Test the functionality in your browser and handle the permission prompt."
       ]
     },
     {
       id: 2,
-      title: "Get Current Location",
+      title: "Location with Error Handling",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'current-location.html' with proper HTML5 document structure.",
-        "Add a heading 'My Current Location' and a button with text 'Get Location'.",
-        "Create a div with id='location-info' to display location results.",
-        "Write a JavaScript function that uses navigator.geolocation.getCurrentPosition().",
-        "In the success callback function, extract latitude and longitude from position.coords.",
-        "Display the coordinates in the location-info div with proper labels.",
-        "Also display the accuracy in meters from position.coords.accuracy.",
-        "Create an error callback function that handles geolocation errors.",
-        "Display appropriate error messages for different error types (permission denied, unavailable, timeout).",
-        "Add the onclick event to the button to call your location function.",
-        "Test the functionality and handle the permission prompt appropriately."
+        "Create 'location-with-errors.html' with proper HTML5 document structure.",
+        "Add interface elements: title, 'Get Location' button, and result display area.",
+        "Implement getCurrentPosition() with both success and error callback functions.",
+        "In success callback, display latitude, longitude, and accuracy information.",
+        "Create comprehensive error handling for all three error types: PERMISSION_DENIED, POSITION_UNAVAILABLE, TIMEOUT.",
+        "Display user-friendly error messages explaining what went wrong and possible solutions.",
+        "Add timestamp information showing when the location was obtained.",
+        "Include a 'Clear Results' button to reset the display area.",
+        "Style the interface with CSS to distinguish between success and error messages.",
+        "Test all scenarios: allowing location, denying permission, and handling timeouts."
       ]
     },
     {
       id: 3,
-      title: "Enhanced Location Display",
+      title: "Location Tracking Application",
       type: "classwork",
       difficulty: "hard",
       instructions: [
-        "Create 'enhanced-location.html' with complete HTML structure.",
-        "Add a comprehensive interface with multiple buttons and display areas.",
-        "Create buttons for: 'Get Current Location', 'Start Watching Location', 'Stop Watching'.",
-        "Add separate div elements to display: current location, location history, and status messages.",
-        "Implement getCurrentPosition() with detailed position information display.",
-        "Show latitude, longitude, accuracy, altitude (if available), speed (if available), and timestamp.",
-        "Implement watchPosition() to continuously monitor location changes.",
-        "Store a history of location updates in an array and display them in a list format.",
-        "Add proper error handling for all geolocation operations with user-friendly messages.",
-        "Include a counter showing how many location updates have been received.",
-        "Implement clearWatch() functionality to stop location monitoring.",
-        "Style the interface with basic HTML formatting to make it readable and organized.",
-        "Test all functionality including starting/stopping location watching."
+        "Create 'location-tracker.html' for continuous location monitoring.",
+        "Design interface with buttons: 'Get Current Location', 'Start Tracking', 'Stop Tracking', 'Clear History'.",
+        "Implement getCurrentPosition() for one-time location requests.",
+        "Add watchPosition() functionality for continuous location monitoring.",
+        "Display current location with coordinates, accuracy, and timestamp.",
+        "Create a location history section that logs all position updates.",
+        "Add a counter showing total number of location updates received.",
+        "Include options to configure tracking settings (high accuracy, timeout values).",
+        "Implement proper error handling for both getCurrentPosition and watchPosition.",
+        "Style the application with CSS to create a professional tracking interface.",
+        "Test all functionality including starting/stopping tracking and clearing history."
       ]
     },
     {
       id: 4,
-      title: "Location-Based Information",
+      title: "Location-Based Services App",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "Create 'location-info.html' that provides useful information based on user location.",
-        "Set up a clean interface with a title 'Location-Based Services'.",
-        "Add a button to get the user's current location with permission handling.",
-        "Display the coordinates with labels and include the accuracy information.",
-        "Calculate and display the user's approximate address format (just show coordinates for now).",
-        "Add a section that shows the timestamp of when the location was obtained.",
-        "Include information about the altitude and speed if available from the geolocation data.",
-        "Create a 'Location History' section that stores and displays the last 5 location requests.",
-        "Add a button to clear the location history.",
-        "Implement comprehensive error handling with user-friendly messages for all error scenarios.",
-        "Include a section explaining what geolocation is and why permission is needed.",
-        "Add a privacy notice explaining that location data is not stored or transmitted.",
-        "Test the application thoroughly and ensure it gracefully handles permission denial."
+        "Create 'location-services.html' for a comprehensive location-based application.",
+        "Build an attractive interface with multiple sections for different location features.",
+        "Implement current location display with detailed information (coordinates, accuracy, altitude if available).",
+        "Add a 'Find Nearby' simulation that shows mock nearby places based on current location.",
+        "Create a distance calculator that calculates distance between current location and a set destination.",
+        "Include a location sharing feature that generates a Google Maps link for the current position.",
+        "Add location history with timestamps that stores the last 10 location requests.",
+        "Implement comprehensive error handling with user-friendly messages and recovery options.",
+        "Include privacy information explaining how location data is used (not stored/transmitted).",
+        "Style the application professionally with responsive design principles.",
+        "Test thoroughly including permission scenarios and error conditions."
       ]
     },
     {
       id: 5,
-      title: "Advanced Location Tracker",
+      title: "Advanced Geolocation Dashboard",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'location-tracker.html' as a comprehensive location tracking application.",
-        "Design a professional interface with multiple sections for different functionality.",
-        "Implement both getCurrentPosition() and watchPosition() with full error handling.",
-        "Create a real-time location display that updates automatically when tracking is enabled.",
-        "Add a location log that records all position updates with timestamps.",
-        "Implement options to configure the geolocation settings (timeout, maximumAge, enableHighAccuracy).",
-        "Create a statistics section showing: total updates received, average accuracy, time elapsed.",
-        "Add functionality to export location data as a formatted text summary.",
-        "Include a map coordinates section that shows location in degrees, minutes, seconds format.",
-        "Implement distance calculation between consecutive location updates (using basic coordinate math).",
-        "Add visual indicators showing tracking status (active/inactive) and connection quality based on accuracy.",
-        "Create a settings panel where users can adjust tracking frequency and accuracy requirements.",
+        "Create 'geolocation-dashboard.html' as a comprehensive location tracking and analysis tool.",
+        "Design a professional dashboard layout with multiple panels for different geolocation features.",
+        "Implement both getCurrentPosition() and watchPosition() with advanced configuration options.",
+        "Create a real-time location display that updates automatically when tracking is active.",
+        "Add a detailed location log with timestamps, accuracy ratings, and movement detection.",
+        "Implement location analytics: average accuracy, total distance traveled, time spent tracking.",
+        "Create a settings panel where users can adjust geolocation options (accuracy, timeout, cache settings).",
+        "Add export functionality to download location data as formatted text or JSON.",
+        "Include a map integration section that generates links to various mapping services (Google, Apple, OpenStreetMap).",
+        "Implement advanced error handling with retry mechanisms and fallback options.",
+        "Add location comparison features that calculate distances and bearing between multiple positions.",
+        "Create visual indicators for location quality (accuracy levels) and tracking status.",
         "Include comprehensive help documentation explaining all features and privacy considerations.",
-        "Add local storage functionality to remember user preferences (not location data for privacy).",
-        "Test extensively with different scenarios: permission denial, location unavailable, timeout conditions.",
-        "Ensure the application is fully functional and provides a professional user experience."
+        "Add local storage functionality to save user preferences and location history (with user consent).",
+        "Test extensively with different scenarios: various accuracy settings, long-term tracking, error conditions.",
+        "Ensure the application works well on both desktop and mobile devices with responsive design."
       ]
     }
   ]
