@@ -135,10 +135,10 @@ Here's how to create a simple image gallery:
     </audio>
 
 **Audio Attributes:**
-- `controls` - Shows play/pause/volume controls
-- `autoplay` - Starts playing automatically (avoid this!)
-- `loop` - Repeats the audio
-- `preload` - How much to load initially ("auto", "metadata", "none")
+- controls - Shows play/pause/volume controls
+- autoplay - Starts playing automatically (avoid this!)
+- loop - Repeats the audio
+- preload - How much to load initially ("auto", "metadata", "none")
 
 ### Adding Video Content
 
@@ -158,127 +158,11 @@ Here's how to create a simple image gallery:
     </video>
 
 **Video Attributes:**
-- `controls` - Shows video controls
-- `poster` - Image shown before video plays
-- `autoplay` - Starts automatically (use carefully!)
-- `loop` - Repeats the video
-- `muted` - Starts muted (required for autoplay)
-
-### Real-World Example: Complete Portfolio Page
-
-Here's how images and media work together:
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Sarah Johnson - Digital Designer Portfolio</title>
-    </head>
-    <body>
-      <!-- Header with Logo -->
-      <header>
-        <img src="logo.png" alt="Sarah Johnson Design Logo" width="150" height="50">
-        <h1>Sarah Johnson</h1>
-        <p>Digital Designer & Creative Professional</p>
-      </header>
-
-      <!-- Hero Section -->
-      <section>
-        <img src="hero-image.jpg" alt="Creative workspace with design tools and colorful artwork" style="width: 100%; height: 400px; object-fit: cover;">
-        <h2>Welcome to My Creative World</h2>
-        <p>I create beautiful, functional designs that help businesses connect with their audiences.</p>
-      </section>
-
-      <!-- About Section with Photo -->
-      <section>
-        <h2>About Me</h2>
-        <figure>
-          <img src="sarah-photo.jpg" alt="Sarah Johnson smiling in her design studio" width="250" height="300">
-          <figcaption>Sarah in her design studio</figcaption>
-        </figure>
-        <p>With over 8 years of experience in digital design, I've helped dozens of businesses create memorable brand experiences.</p>
-      </section>
-
-      <!-- Portfolio Gallery -->
-      <section>
-        <h2>Featured Work</h2>
-        
-        <figure>
-          <img src="project-brand-identity.jpg" alt="Modern logo design and brand identity system" width="400" height="300">
-          <figcaption>Brand Identity Design for Tech Startup</figcaption>
-        </figure>
-
-        <figure>
-          <img src="project-website.jpg" alt="Clean, modern website design on laptop screen" width="400" height="300">
-          <figcaption>Responsive Website Design</figcaption>
-        </figure>
-
-        <figure>
-          <img src="project-mobile-app.jpg" alt="Mobile app interface showing clean, user-friendly design" width="400" height="300">
-          <figcaption>Mobile App User Interface</figcaption>
-        </figure>
-      </section>
-
-      <!-- Process Video -->
-      <section>
-        <h2>My Design Process</h2>
-        <video controls width="640" height="360" poster="process-video-poster.jpg">
-          <source src="design-process.mp4" type="video/mp4">
-          <source src="design-process.webm" type="video/webm">
-          <p>Your browser doesn't support video. <a href="design-process.mp4">Download the video</a> instead.</p>
-        </video>
-        <p>Watch this behind-the-scenes look at how I approach each design project.</p>
-      </section>
-
-      <!-- Client Testimonials with Photos -->
-      <section>
-        <h2>What Clients Say</h2>
-        
-        <figure>
-          <img src="client-john.jpg" alt="John Smith, CEO of TechCorp" width="100" height="100">
-          <blockquote>
-            <p>"Sarah's designs transformed our brand. Our website conversions increased by 40%!"</p>
-            <figcaption>John Smith, CEO of TechCorp</figcaption>
-          </blockquote>
-        </figure>
-
-        <figure>
-          <img src="client-maria.jpg" alt="Maria Rodriguez, Marketing Director" width="100" height="100">
-          <blockquote>
-            <p>"Professional, creative, and always delivers on time. Highly recommended!"</p>
-            <figcaption>Maria Rodriguez, Marketing Director</figcaption>
-          </blockquote>
-        </figure>
-      </section>
-
-      <!-- Contact Section -->
-      <section>
-        <h2>Let's Work Together</h2>
-        <p>Ready to elevate your brand? I'd love to hear about your project!</p>
-        <p>Email: <a href="mailto:sarah@sarahdesigns.com">sarah@sarahdesigns.com</a></p>
-        <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
-        
-        <!-- Social Media Icons -->
-        <div>
-          <a href="https://instagram.com/sarahdesigns" target="_blank">
-            <img src="instagram-icon.png" alt="Follow me on Instagram" width="32" height="32">
-          </a>
-          <a href="https://behance.net/sarahdesigns" target="_blank">
-            <img src="behance-icon.png" alt="View my Behance portfolio" width="32" height="32">
-          </a>
-          <a href="https://linkedin.com/in/sarahdesigns" target="_blank">
-            <img src="linkedin-icon.png" alt="Connect on LinkedIn" width="32" height="32">
-          </a>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer>
-        <p>&copy; 2024 Sarah Johnson Design. All rights reserved.</p>
-      </footer>
-    </body>
-    </html>
+- controls - Shows video controls
+- poster - Image shown before video plays
+- autoplay - Starts automatically (use carefully!)
+- loop - Repeats the video
+- muted - Starts muted (required for autoplay)
 
 ### Best Practices for Images and Media
 
@@ -293,8 +177,8 @@ Here's how images and media work together:
 - Keep descriptions concise but informative
 
 **3. Use Descriptive Filenames**
-Good: `team-meeting-conference-room.jpg`
-Bad: `IMG_001.jpg`
+Good: team-meeting-conference-room.jpg
+Bad: IMG_001.jpg
 
 **4. Consider Loading Performance**
 - Don't make images larger than necessary
@@ -304,7 +188,7 @@ Bad: `IMG_001.jpg`
 **5. Make Media Accessible**
 - Provide captions for videos
 - Include transcripts for audio content
-- Use the `poster` attribute for videos
+- Use the poster attribute for videos
 
 **6. Test on Different Devices**
 - Ensure images scale properly on mobile
@@ -314,7 +198,6 @@ Bad: `IMG_001.jpg`
 ### Image Organization Tips
 
 **Folder Structure:**
-```
 website/
 ├── index.html
 ├── images/
@@ -324,13 +207,12 @@ website/
 │   └── icons/
 ├── videos/
 └── audio/
-```
 
 **Naming Convention:**
 - Use lowercase letters
 - Use hyphens instead of spaces
-- Be descriptive: `hero-banner-home.jpg`
-- Include dimensions if needed: `logo-200x50.png`
+- Be descriptive: hero-banner-home.jpg
+- Include dimensions if needed: logo-200x50.png
 
 Images and media transform websites from simple text documents into engaging, visual experiences. Master these elements, and you'll be able to create websites that truly capture and hold your audience's attention!
 `,

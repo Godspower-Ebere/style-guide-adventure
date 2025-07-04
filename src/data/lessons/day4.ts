@@ -158,7 +158,7 @@ This creates a complex structure: main destinations (unordered), specific cities
       <li>The Godfather</li>
     </ol>
 
-The `start` attribute begins numbering at 5, and `reversed` counts backwards!
+The start attribute begins numbering at 5, and reversed counts backwards!
 
 **Different Numbering Types:**
 
@@ -171,11 +171,11 @@ The `start` attribute begins numbering at 5, and `reversed` counts backwards!
 This creates: A. First point, B. Second point, C. Third point
 
 Other options:
-- `type="1"` - Numbers (default): 1, 2, 3
-- `type="A"` - Uppercase letters: A, B, C  
-- `type="a"` - Lowercase letters: a, b, c
-- `type="I"` - Uppercase Roman numerals: I, II, III
-- `type="i"` - Lowercase Roman numerals: i, ii, iii
+- type="1" - Numbers (default): 1, 2, 3
+- type="A" - Uppercase letters: A, B, C  
+- type="a" - Lowercase letters: a, b, c
+- type="I" - Uppercase Roman numerals: I, II, III
+- type="i" - Lowercase Roman numerals: i, ii, iii
 
 ### Building a Navigation Menu with Lists
 
@@ -198,90 +198,6 @@ Here's how professional websites create navigation menus:
     </nav>
 
 This creates a professional navigation menu with a dropdown submenu under "Services"!
-
-### Real-World Example: Complete Product Page
-
-Here's how lists work together in a real website:
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>UltraBook Pro - Laptop Specifications</title>
-    </head>
-    <body>
-      <h1>UltraBook Pro Laptop</h1>
-      
-      <h2>Key Features</h2>
-      <ul>
-        <li>Lightning-fast performance</li>
-        <li>All-day battery life</li>
-        <li>Ultra-lightweight design</li>
-        <li>Stunning 4K display</li>
-        <li>Military-grade durability</li>
-      </ul>
-      
-      <h2>Setup Instructions</h2>
-      <ol>
-        <li>Unbox your new UltraBook Pro</li>
-        <li>Connect the power adapter</li>
-        <li>Press the power button</li>
-        <li>Follow the on-screen setup wizard</li>
-        <li>Create your user account</li>
-        <li>Install software updates</li>
-        <li>Start exploring your new laptop!</li>
-      </ol>
-      
-      <h2>Technical Specifications</h2>
-      <dl>
-        <dt>Processor</dt>
-        <dd>Intel Core i7-12700H (12 cores, up to 4.7 GHz)</dd>
-        
-        <dt>Memory</dt>
-        <dd>16GB DDR5 RAM (expandable to 32GB)</dd>
-        
-        <dt>Storage</dt>
-        <dd>1TB PCIe SSD</dd>
-        
-        <dt>Display</dt>
-        <dd>15.6" 4K OLED touchscreen (3840 x 2160)</dd>
-        
-        <dt>Graphics</dt>
-        <dd>NVIDIA GeForce RTX 4060 (8GB VRAM)</dd>
-        
-        <dt>Battery Life</dt>
-        <dd>Up to 12 hours of typical use</dd>
-      </dl>
-      
-      <h2>Available Models</h2>
-      <ul>
-        <li>Basic Model - $1,299
-          <ul>
-            <li>8GB RAM</li>
-            <li>512GB SSD</li>
-            <li>Integrated Graphics</li>
-          </ul>
-        </li>
-        <li>Pro Model - $1,799
-          <ul>
-            <li>16GB RAM</li>
-            <li>1TB SSD</li>
-            <li>Dedicated Graphics</li>
-          </ul>
-        </li>
-        <li>Max Model - $2,299
-          <ul>
-            <li>32GB RAM</li>
-            <li>2TB SSD</li>
-            <li>Premium Graphics</li>
-          </ul>
-        </li>
-      </ul>
-    </body>
-    </html>
-
-See how each type of list serves a different purpose in organizing the information!
 
 ### Best Practices for HTML Lists
 
