@@ -3,295 +3,402 @@ import { DayLesson } from "../types";
 
 export const day4: DayLesson = {
   day: 4,
-  title: "HTML Lists - Organizing Information Clearly",
+  title: "HTML Lists - Organizing Information Like a Pro",
   category: "HTML Basics",
-  description: "Welcome to day 4! Today we're going to learn one of the most useful tools in HTML - lists! Whether you're creating a shopping list, a menu for your restaurant website, or step-by-step instructions, lists help organize information in a way that's easy to scan and understand. You'll master both bulleted and numbered lists!",
+  description: "Hey there! Today we're going to learn about HTML lists - one of the most useful tools for organizing information on your websites. Whether you're creating navigation menus, shopping lists, step-by-step instructions, or organizing any kind of content, lists will become your best friend!",
   learningObjectives: [
-    "Understand when to use ordered lists vs unordered lists for maximum impact",
-    "Master the <ul> and <ol> elements to create professional-looking lists",
-    "Learn to use <li> elements effectively for individual list items",
-    "Discover how to nest lists inside other lists for complex information structures",
-    "Practice creating real-world lists like menus, instructions, and content outlines"
+    "Master the three types of HTML lists: unordered, ordered, and description lists",
+    "Learn when to use <ul> vs <ol> for different types of content",
+    "Understand how to create nested lists for complex information hierarchies", 
+    "Discover advanced list techniques like custom numbering and styling",
+    "Practice building real-world list structures like navigation menus and content outlines"
   ],
   detailedExplanation: `
-## Welcome to Day 4 - Let's Get Organized!
+## Welcome to Day 4 - Mastering HTML Lists!
 
-Hey there! I'm excited you're back for day 4. By now, you've built complete HTML pages, learned about the important head section, and made your text look great with formatting. Today, we're tackling something that will make your content incredibly organized and easy to read - HTML lists!
+Great job making it this far! You've learned HTML structure, the <head> section, and text formatting. Today we're diving into something that will make your content much more organized and readable - HTML lists!
 
-### Why Lists Are Your Best Friend in Web Development
+### Why Lists Are So Important on the Web
 
-Think about how you organize information in real life. When you go grocery shopping, do you write everything in one long paragraph? Of course not! You create a list. When you give someone directions, you break it down into steps. When you're outlining the features of a product, you list them out clearly.
+Think about how often you see lists in everyday life - shopping lists, to-do lists, menus, instructions, rankings. Lists help us organize information in a way that's easy to scan and understand. The same is true for websites!
 
-The same principle applies to websites. Lists help your visitors quickly scan information, understand hierarchies, and find what they're looking for without getting overwhelmed by walls of text.
+Lists are everywhere on the web:
+- Navigation menus (those links at the top of websites)
+- Product features and specifications  
+- Step-by-step tutorials and recipes
+- Blog post archives
+- Social media feeds
+- Search results
 
-### The Two Types of HTML Lists You'll Use Constantly
+Learning to create effective lists will make your websites more professional and user-friendly.
 
-HTML gives us two main types of lists, and choosing the right one makes a huge difference:
+### The Three Types of HTML Lists
 
-**Unordered Lists (\\\`<ul>\\\`)** - These are perfect when the order doesn't matter. Think of them as bulleted lists. Use them for:
-- Features of a product
-- List of services you offer
+HTML gives us three different types of lists, each perfect for different situations:
+
+**1. Unordered Lists (<ul>)** - For items where order doesn't matter
+**2. Ordered Lists (<ol>)** - For items where sequence is important  
+**3. Description Lists (<dl>)** - For term and definition pairs
+
+Let me show you each one with real examples:
+
+### Unordered Lists - When Order Doesn't Matter
+
+Unordered lists use the <ul> element with <li> (list item) elements inside:
+
+    <h2>My Favorite Hobbies</h2>
+    <ul>
+      <li>Reading books</li>
+      <li>Playing guitar</li>
+      <li>Cooking new recipes</li>
+      <li>Hiking in nature</li>
+      <li>Photography</li>
+    </ul>
+
+This creates a bulleted list where the order of hobbies doesn't really matter - they're all equally favorite!
+
+**Perfect for:**
+- Lists of features or benefits
+- Shopping lists
 - Navigation menus
-- Ingredients in a recipe (where order doesn't affect the outcome)
+- Tags or categories
+- Team member names
 
-**Ordered Lists (\\\`<ol>\\\`)** - These are perfect when sequence matters. They automatically number your items. Use them for:
+### Ordered Lists - When Sequence Matters
+
+Ordered lists use the <ol> element with <li> elements inside:
+
+    <h2>How to Make Perfect Coffee</h2>
+    <ol>
+      <li>Heat water to 200°F (just below boiling)</li>
+      <li>Grind coffee beans to medium coarseness</li>
+      <li>Add 2 tablespoons of ground coffee to filter</li>
+      <li>Pour hot water slowly over grounds</li>
+      <li>Wait 4 minutes for brewing to complete</li>
+      <li>Serve immediately and enjoy!</li>
+    </ol>
+
+This creates a numbered list where the order is crucial - you can't make good coffee by doing these steps in the wrong order!
+
+**Perfect for:**
 - Step-by-step instructions
+- Recipes
 - Rankings or top 10 lists
-- Tutorial steps
-- Any process where order is important
+- Process flows
+- Timelines
 
-### Let's Build Your First Lists
+### Description Lists - For Terms and Definitions
 
-Here's the basic structure you'll use over and over again:
+Description lists use three elements: <dl> (description list), <dt> (description term), and <dd> (description definition):
 
-**Unordered List Example:**
-\\\`\\\`\\\`html
-<h2>My Favorite Hobbies</h2>
-<ul>
-    <li>Reading mystery novels</li>
-    <li>Playing guitar</li>
-    <li>Hiking in the mountains</li>
-    <li>Cooking new recipes</li>
-</ul>
-\\\`\\\`\\\`
+    <h2>Web Development Terms</h2>
+    <dl>
+      <dt>HTML</dt>
+      <dd>HyperText Markup Language - the structure of web pages</dd>
+      
+      <dt>CSS</dt>
+      <dd>Cascading Style Sheets - controls the appearance and layout</dd>
+      
+      <dt>JavaScript</dt>
+      <dd>Programming language that adds interactivity to websites</dd>
+    </dl>
 
-**Ordered List Example:**
-\\\`\\\`\\\`html
-<h2>How to Make Perfect Coffee</h2>
-<ol>
-    <li>Grind your coffee beans fresh</li>
-    <li>Heat water to 200°F</li>
-    <li>Add coffee to your French press</li>
-    <li>Pour hot water over the grounds</li>
-    <li>Steep for 4 minutes</li>
-    <li>Press down slowly and serve</li>
-</ol>
-\\\`\\\`\\\`
+**Perfect for:**
+- Glossaries and dictionaries
+- FAQ sections
+- Product specifications
+- Contact information
+- Metadata displays
 
-Notice how in the unordered list, I could rearrange the hobbies in any order and it would still make sense. But in the coffee instructions, the order is crucial - you can't press the French press before adding the water!
+### Nested Lists - Lists Inside Lists
 
-### The Magic of Nested Lists
+You can put lists inside other lists to create hierarchical structures:
 
-Here's where lists get really powerful - you can put lists inside other lists! This is perfect for creating outlines, multi-level menus, or organizing complex information.
-
-\\\`\\\`\\\`html
-<h2>My Web Development Learning Plan</h2>
-<ul>
-    <li>HTML Basics
-        <ol>
-            <li>Document structure</li>
-            <li>Text formatting</li>
-            <li>Lists and organization</li>
-            <li>Links and navigation</li>
-        </ol>
-    </li>
-    <li>CSS Styling
+    <h2>My Travel Plans</h2>
+    <ul>
+      <li>Europe Trip
         <ul>
-            <li>Colors and fonts</li>
-            <li>Layout and positioning</li>
-            <li>Responsive design</li>
+          <li>Paris, France
+            <ol>
+              <li>Visit the Eiffel Tower</li>
+              <li>See the Louvre Museum</li>
+              <li>Walk along the Seine River</li>
+            </ol>
+          </li>
+          <li>Rome, Italy
+            <ol>
+              <li>Tour the Colosseum</li>
+              <li>Visit Vatican City</li>
+              <li>Eat authentic Italian pizza</li>
+            </ol>
+          </li>
         </ul>
-    </li>
-    <li>JavaScript Programming
-        <ol>
-            <li>Variables and functions</li>
-            <li>DOM manipulation</li>
-            <li>Event handling</li>
-        </ol>
-    </li>
-</ul>
-\\\`\\\`\\\`
-
-See how I mixed unordered and ordered lists? The main topics don't need to be in any particular order, but within HTML Basics and JavaScript, the learning sequence matters.
-
-### Real-World Examples That'll Inspire You
-
-Let me show you how professional websites use lists:
-
-**Restaurant Menu:**
-\\\`\\\`\\\`html
-<h2>Appetizers</h2>
-<ul>
-    <li>Spinach and Artichoke Dip - $8.99</li>
-    <li>Buffalo Chicken Wings - $12.99</li>
-    <li>Loaded Potato Skins - $9.99</li>
-</ul>
-
-<h2>Main Courses</h2>
-<ul>
-    <li>Grilled Salmon
+      </li>
+      <li>Asian Adventure
         <ul>
-            <li>Served with rice pilaf</li>
-            <li>Seasonal vegetables</li>
-            <li>Lemon butter sauce</li>
+          <li>Tokyo, Japan</li>
+          <li>Seoul, South Korea</li>
+          <li>Bangkok, Thailand</li>
         </ul>
-    </li>
-</ul>
-\\\`\\\`\\\`
+      </li>
+    </ul>
 
-**Tutorial Steps:**
-\\\`\\\`\\\`html
-<h2>Setting Up Your First Website</h2>
-<ol>
-    <li>Choose a domain name</li>
-    <li>Select a web hosting provider</li>
-    <li>Install a content management system
-        <ol>
-            <li>Download the software</li>
-            <li>Upload files to your server</li>
-            <li>Run the installation wizard</li>
-        </ol>
-    </li>
-    <li>Customize your site design</li>
-    <li>Add your content</li>
-    <li>Launch your website!</li>
-</ol>
-\\\`\\\`\\\`
+This creates a complex structure: main destinations (unordered), specific cities (unordered), and activities in each city (ordered).
 
-### Pro Tips for Better Lists
+### Advanced List Techniques
 
-**Be consistent with your formatting** - If you capitalize the first word of each list item, do it for all items in that list.
+**Custom Numbering with Ordered Lists:**
 
-**Keep list items parallel** - If your first item starts with a verb ("Download the app"), make sure the others do too ("Install the software", "Create your account").
+    <h2>Top 5 Movies (Starting from #5)</h2>
+    <ol start="5" reversed>
+      <li>The Matrix</li>
+      <li>Inception</li>
+      <li>The Dark Knight</li>
+      <li>Pulp Fiction</li>
+      <li>The Godfather</li>
+    </ol>
 
-**Don't make lists too long** - If you have more than 7-10 items, consider breaking them into multiple lists with subheadings.
+The `start` attribute begins numbering at 5, and `reversed` counts backwards!
 
-**Use descriptive list content** - Instead of "Thing 1, Thing 2", write meaningful descriptions that actually help your readers.
+**Different Numbering Types:**
 
-The beauty of HTML lists is that they're semantic - screen readers and search engines understand that these are organized pieces of information, which makes your site more accessible and SEO-friendly. Plus, they're incredibly easy to style with CSS later on!
+    <ol type="A">
+      <li>First point</li>
+      <li>Second point</li>
+      <li>Third point</li>
+    </ol>
+
+This creates: A. First point, B. Second point, C. Third point
+
+Other options:
+- `type="1"` - Numbers (default): 1, 2, 3
+- `type="A"` - Uppercase letters: A, B, C  
+- `type="a"` - Lowercase letters: a, b, c
+- `type="I"` - Uppercase Roman numerals: I, II, III
+- `type="i"` - Lowercase Roman numerals: i, ii, iii
+
+### Building a Navigation Menu with Lists
+
+Here's how professional websites create navigation menus:
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services
+          <ul>
+            <li><a href="#web-design">Web Design</a></li>
+            <li><a href="#seo">SEO Services</a></li>
+            <li><a href="#marketing">Digital Marketing</a></li>
+          </ul>
+        </li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+This creates a professional navigation menu with a dropdown submenu under "Services"!
+
+### Real-World Example: Complete Product Page
+
+Here's how lists work together in a real website:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>UltraBook Pro - Laptop Specifications</title>
+    </head>
+    <body>
+      <h1>UltraBook Pro Laptop</h1>
+      
+      <h2>Key Features</h2>
+      <ul>
+        <li>Lightning-fast performance</li>
+        <li>All-day battery life</li>
+        <li>Ultra-lightweight design</li>
+        <li>Stunning 4K display</li>
+        <li>Military-grade durability</li>
+      </ul>
+      
+      <h2>Setup Instructions</h2>
+      <ol>
+        <li>Unbox your new UltraBook Pro</li>
+        <li>Connect the power adapter</li>
+        <li>Press the power button</li>
+        <li>Follow the on-screen setup wizard</li>
+        <li>Create your user account</li>
+        <li>Install software updates</li>
+        <li>Start exploring your new laptop!</li>
+      </ol>
+      
+      <h2>Technical Specifications</h2>
+      <dl>
+        <dt>Processor</dt>
+        <dd>Intel Core i7-12700H (12 cores, up to 4.7 GHz)</dd>
+        
+        <dt>Memory</dt>
+        <dd>16GB DDR5 RAM (expandable to 32GB)</dd>
+        
+        <dt>Storage</dt>
+        <dd>1TB PCIe SSD</dd>
+        
+        <dt>Display</dt>
+        <dd>15.6" 4K OLED touchscreen (3840 x 2160)</dd>
+        
+        <dt>Graphics</dt>
+        <dd>NVIDIA GeForce RTX 4060 (8GB VRAM)</dd>
+        
+        <dt>Battery Life</dt>
+        <dd>Up to 12 hours of typical use</dd>
+      </dl>
+      
+      <h2>Available Models</h2>
+      <ul>
+        <li>Basic Model - $1,299
+          <ul>
+            <li>8GB RAM</li>
+            <li>512GB SSD</li>
+            <li>Integrated Graphics</li>
+          </ul>
+        </li>
+        <li>Pro Model - $1,799
+          <ul>
+            <li>16GB RAM</li>
+            <li>1TB SSD</li>
+            <li>Dedicated Graphics</li>
+          </ul>
+        </li>
+        <li>Max Model - $2,299
+          <ul>
+            <li>32GB RAM</li>
+            <li>2TB SSD</li>
+            <li>Premium Graphics</li>
+          </ul>
+        </li>
+      </ul>
+    </body>
+    </html>
+
+See how each type of list serves a different purpose in organizing the information!
+
+### Best Practices for HTML Lists
+
+**1. Choose the right list type:**
+- Unordered for items where sequence doesn't matter
+- Ordered for step-by-step processes
+- Description lists for term-definition pairs
+
+**2. Keep list items parallel:**
+All items should be similar in structure and length when possible.
+
+**3. Use nested lists sparingly:**
+Too many levels can be confusing - usually stick to 2-3 levels maximum.
+
+**4. Write meaningful list items:**
+Each item should be clear and complete.
+
+**5. Consider your audience:**
+Structure lists in the way that makes most sense for your users.
+
+Lists are fundamental building blocks of well-organized web content. Master them, and your websites will be much more professional and user-friendly!
 `,
   keyTerms: [
-    { term: "Unordered List (<ul>)", definition: "Creates a bulleted list where the order of items doesn't matter. Perfect for features, menus, or any collection where sequence isn't important." },
-    { term: "Ordered List (<ol>)", definition: "Creates a numbered list where the sequence of items is important. Ideal for instructions, rankings, or step-by-step processes." },
-    { term: "List Item (<li>)", definition: "Defines individual items within both ordered and unordered lists. Each <li> element represents one point or step in your list." },
-    { term: "Nested Lists", definition: "Lists placed inside other lists to create hierarchical information structures. Great for outlines, multi-level menus, or complex organization." },
-    { term: "Semantic HTML", definition: "HTML that conveys meaning about content structure, not just appearance. Search engines and screen readers understand lists as organized information." },
-    { term: "List Hierarchy", definition: "The structure created when lists contain sub-lists, showing relationships between different levels of information." }
+    { term: "Unordered List", definition: "A list where the order of items doesn't matter, created with <ul> and <li> tags, typically displayed with bullet points." },
+    { term: "Ordered List", definition: "A numbered list where the sequence of items is important, created with <ol> and <li> tags." },
+    { term: "Description List", definition: "A list of terms and their definitions, created with <dl>, <dt>, and <dd> tags." },
+    { term: "List Item", definition: "Individual items within a list, created with the <li> tag." },
+    { term: "Nested Lists", definition: "Lists placed inside other lists to create hierarchical structures and sub-categories." },
+    { term: "Navigation Menu", definition: "A list of links that helps users move around a website, typically created using unordered lists." },
+    { term: "Description Term", definition: "The term being defined in a description list, created with the <dt> tag." },
+    { term: "Description Definition", definition: "The definition of a term in a description list, created with the <dd> tag." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Create Your First Unordered List",
+      title: "Create Your First HTML Lists",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create a new HTML file called 'my-lists.html' with the complete document structure.",
+        "Create a new HTML file called 'my-lists.html' with complete document structure.",
         "Set the title to 'Learning HTML Lists'.",
-        "In the body, insert 'My Favorite Things' in <h1> tags.",
-        "Create a subheading: Insert 'Things I Love' in <h2> tags.",
-        "Below the heading, create a <ul> element.",
-        "Inside the <ul>, add your first list item: Insert 'Pizza with extra cheese' in <li> tags.",
-        "Add a second list item: Insert 'Watching movies on rainy days' in <li> tags.",
-        "Add a third list item: Insert 'Learning new skills online' in <li> tags.",
-        "Add a fourth list item: Insert 'Spending time with friends and family' in <li> tags.",
-        "Save the file and open it in your browser to see your bulleted list."
+        "Create an unordered list of your 5 favorite foods using <ul> and <li> tags.",
+        "Add a heading 'My Favorite Foods' using <h2> before the list.",
+        "Create an ordered list of 5 steps to get ready in the morning using <ol> and <li> tags.",
+        "Add a heading 'My Morning Routine' using <h2> before the ordered list.",
+        "Save and open in your browser to see both types of lists displayed."
       ]
     },
     {
       id: 2,
-      title: "Build an Ordered List for Instructions",
+      title: "Build a Recipe with Organized Lists",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "In your my-lists.html file, add a new heading: Insert 'How to Make the Perfect Cup of Tea' in <h2> tags.",
-        "Below the heading, create an <ol> element.",
-        "Add the first step: Insert 'Fill your kettle with fresh, cold water' in <li> tags.",
-        "Add the second step: Insert 'Bring the water to a rolling boil' in <li> tags.",
-        "Add the third step: Insert 'Warm your teapot by rinsing it with hot water' in <li> tags.",
-        "Add the fourth step: Insert 'Add one teaspoon of tea leaves per cup, plus one for the pot' in <li> tags.",
-        "Add the fifth step: Insert 'Pour the boiling water over the tea leaves' in <li> tags.",
-        "Add the sixth step: Insert 'Let the tea steep for 3-5 minutes' in <li> tags.",
-        "Add the seventh step: Insert 'Strain the tea into cups and enjoy!' in <li> tags.",
-        "Save and refresh your browser to see your numbered instruction list."
+        "Create 'recipe-lists.html' with full HTML structure.",
+        "Set the title to 'Chocolate Chip Cookie Recipe'.",
+        "Add the main heading 'Homemade Chocolate Chip Cookies' using <h1>.",
+        "Create an unordered list of ingredients with heading 'Ingredients' using <h2>.",
+        "Include at least 6 ingredients like 'flour', 'sugar', 'eggs', 'butter', 'chocolate chips', 'vanilla extract'.",
+        "Create an ordered list of cooking steps with heading 'Instructions' using <h2>.",
+        "Include at least 6 steps from mixing ingredients to baking and cooling.",
+        "Save and test that the recipe is well-organized with proper list formatting."
       ]
     },
     {
       id: 3,
-      title: "Practice Nested Lists with a Learning Plan",
+      title: "Create a Nested List Structure",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create a new file called 'learning-plan.html' with complete HTML structure.",
-        "Set the title to 'My Web Development Learning Journey'.",
-        "Create the main heading: Insert 'My Web Development Learning Plan' in <h1> tags.",
-        "Create a <ul> for the main topics.",
-        "Add the first main topic: Insert 'HTML Fundamentals' in <li> tags.",
-        "Inside that <li> element (after the text), create a nested <ol>.",
-        "In the nested list, add: Insert 'Document structure and basic tags' in <li> tags.",
-        "Add: Insert 'Text formatting and organization' in <li> tags.",
-        "Add: Insert 'Lists and navigation elements' in <li> tags.",
-        "Close the nested <ol> and add another main <li>: Insert 'CSS Styling' in <li> tags.",
-        "Inside the CSS <li>, create another nested <ul>.",
-        "Add: Insert 'Colors, fonts, and basic styling' in <li> tags.",
-        "Add: Insert 'Layout and positioning techniques' in <li> tags.",
-        "Add: Insert 'Responsive design for mobile devices' in <li> tags.",
-        "Save and review your nested list structure in the browser."
+        "Create 'nested-lists.html' with complete HTML structure.",
+        "Set the title to 'My Education Plan'.",
+        "Add main heading 'My Learning Journey' using <h1>.",
+        "Create an unordered list with 3 main subjects: 'Web Development', 'Design', 'Business'.",
+        "Under 'Web Development', create a nested unordered list with: 'HTML', 'CSS', 'JavaScript'.",
+        "Under 'Design', create a nested unordered list with: 'Color Theory', 'Typography', 'Layout'.",
+        "Under 'Business', create a nested unordered list with: 'Marketing', 'Finance', 'Management'.",
+        "Save and verify that the nested structure displays correctly with proper indentation."
       ]
     },
     {
       id: 4,
-      title: "Build a Restaurant Menu with Multiple List Types",
+      title: "Build a Complete Restaurant Menu",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "Create a new file called 'restaurant-menu.html' with full HTML structure.",
-        "Set the title to 'Bella Vista Restaurant - Menu'.",
-        "Create the restaurant header: Insert 'Bella Vista Restaurant' in <h1> tags.",
-        "Add a subtitle: Insert 'Authentic Italian Cuisine' in <h2> tags.",
-        "Create the appetizers section: Insert 'Appetizers' in <h2> tags.",
-        "Create a <ul> for appetizers and add these items:",
-        "Insert 'Bruschetta - Fresh tomatoes, basil, and garlic on toasted bread - $8.99' in <li> tags.",
-        "Insert 'Calamari Fritti - Crispy fried squid with marinara sauce - $12.99' in <li> tags.",
-        "Insert 'Antipasto Platter - Selection of cured meats, cheeses, and olives - $15.99' in <li> tags.",
-        "Add main courses section: Insert 'Main Courses' in <h2> tags.",
-        "Create a <ul> for main courses:",
-        "Insert 'Spaghetti Carbonara - Traditional Roman pasta with eggs, cheese, and pancetta - $18.99' in <li> tags.",
-        "Insert 'Chicken Parmigiana - Breaded chicken breast with marinara and mozzarella - $22.99' in <li> tags.",
-        "Add desserts: Insert 'Desserts' in <h2> tags.",
-        "Create a <ul> for desserts with at least 3 items of your choice.",
-        "Save and review your complete restaurant menu with properly organized lists."
+        "Create 'restaurant-menu.html' with full HTML structure.",
+        "Set the title to 'Mario's Italian Restaurant - Menu'.",
+        "Add restaurant name 'Mario's Italian Restaurant' using <h1>.",
+        "Create three menu sections using <h2>: 'Appetizers', 'Main Courses', 'Desserts'.",
+        "Under 'Appetizers', create an unordered list with at least 4 items and prices.",
+        "Under 'Main Courses', create an unordered list with at least 6 items and prices.",
+        "Under 'Desserts', create an unordered list with at least 3 items and prices.",
+        "Add a 'Daily Specials' section using <h2> with an ordered list ranking the top 3 specials.",
+        "Include a footer with restaurant hours using a description list format.",
+        "Save and review your complete restaurant menu with proper list organization."
       ]
     },
     {
       id: 5,
-      title: "Create a Comprehensive Project Planning Document",
+      title: "Create a Complex Project Planning Page",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create a new file called 'project-plan.html' with complete HTML structure.",
-        "Set the title to 'Website Redesign Project Plan'.",
-        "Create the main heading: Insert 'Website Redesign Project Plan' in <h1> tags.",
-        "Add project overview: Insert 'Project Overview' in <h2> tags.",
-        "Create a <ul> for project goals:",
-        "Insert 'Improve user experience and navigation' in <li> tags.",
-        "Insert 'Update visual design to modern standards' in <li> tags.",
-        "Insert 'Optimize for mobile devices' in <li> tags.",
-        "Add phases section: Insert 'Project Phases' in <h2> tags.",
-        "Create an <ol> for the main phases:",
-        "First phase: Insert 'Discovery and Planning' in <li> tags.",
-        "Inside this <li>, create a nested <ul> with these sub-tasks:",
-        "Insert 'Conduct user research and interviews' in <li> tags.",
-        "Insert 'Analyze current website performance' in <li> tags.",
-        "Insert 'Define project requirements and scope' in <li> tags.",
-        "Second phase: Insert 'Design and Development' in <li> tags.",
-        "Inside this <li>, create a nested <ol> for sequential steps:",
-        "Insert 'Create wireframes and mockups' in <li> tags.",
-        "Insert 'Design visual elements and branding' in <li> tags.",
-        "Insert 'Develop HTML, CSS, and functionality' in <li> tags.",
-        "Insert 'Integrate content management system' in <li> tags.",
-        "Third phase: Insert 'Testing and Launch' in <li> tags.",
-        "Inside this <li>, create a nested <ul>:",
-        "Insert 'Cross-browser compatibility testing' in <li> tags.",
-        "Insert 'Mobile responsiveness testing' in <li> tags.",
-        "Insert 'User acceptance testing' in <li> tags.",
-        "Insert 'Deploy to production server' in <li> tags.",
-        "Add timeline section: Insert 'Project Timeline' in <h2> tags.",
-        "Create an <ol> for timeline milestones:",
-        "Insert 'Week 1-2: Complete discovery phase' in <li> tags.",
-        "Insert 'Week 3-6: Design and development work' in <li> tags.",
-        "Insert 'Week 7-8: Testing and refinements' in <li> tags.",
-        "Insert 'Week 9: Final launch and deployment' in <li> tags.",
-        "Save and open in your browser to see your comprehensive project plan with multiple levels of nested lists demonstrating complex information organization."
+        "Create 'project-plan.html' with complete HTML structure.",
+        "Set the title to 'Website Development Project Plan'.",
+        "Add main heading 'Website Development Project' using <h1>.",
+        "Create 'Project Phases' section using <h2> with an ordered list of 4 phases: 'Planning', 'Design', 'Development', 'Launch'.",
+        "Under each phase, create nested unordered lists with specific tasks:",
+        "Planning: 'Research competitors', 'Define requirements', 'Create timeline', 'Set budget'",
+        "Design: 'Create wireframes', 'Design mockups', 'Choose color scheme', 'Select fonts'",
+        "Development: 'Set up HTML structure', 'Add CSS styling', 'Implement JavaScript', 'Test functionality'",
+        "Launch: 'Upload to server', 'Test live site', 'Announce launch', 'Monitor performance'",
+        "Add 'Team Responsibilities' section using <h2> with a description list showing team member roles.",
+        "Include at least 4 team members with their specific responsibilities.",
+        "Add 'Project Timeline' section using <h2> with an ordered list of milestones with dates.",
+        "Save and test that your complex nested list structure displays properly and is easy to follow."
       ]
     }
   ]
