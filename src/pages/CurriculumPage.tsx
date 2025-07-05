@@ -13,19 +13,30 @@ type DayLessonType = ReturnType<typeof getAllLessons>[number];
 const CurriculumPage = () => {
     const lessons = getAllLessons();
 
-    // Filter to show only advanced topics
-    const advancedCategories = [
+    // Filter to show HTML through JavaScript topics
+    const webDevCategories = [
+        'HTML Basics',
+        'HTML Forms',
+        'Advanced HTML',
+        'HTML5 Features',
+        'CSS Basics',
+        'CSS Layouts',
+        'Advanced CSS',
+        'CSS Grid & Flexbox',
+        'Responsive Design',
+        'CSS Animations',
+        'JavaScript Basics',
         'JavaScript Advanced',
-        'Asynchronous JavaScript', 
+        'Asynchronous JavaScript',
         'Web APIs',
         'Modern JavaScript'
     ];
 
-    const advancedLessons = lessons.filter(lesson => 
-        advancedCategories.includes(lesson.category)
+    const webDevLessons = lessons.filter(lesson => 
+        webDevCategories.includes(lesson.category)
     );
 
-    const groupedLessons = advancedLessons.reduce((acc, lesson) => {
+    const groupedLessons = webDevLessons.reduce((acc, lesson) => {
         const category = lesson.category;
         if (!acc[category]) {
             acc[category] = [];
@@ -41,6 +52,17 @@ const CurriculumPage = () => {
     });
 
     const categories = {
+        'HTML Basics': 'bg-blue-100 text-blue-800',
+        'HTML Forms': 'bg-purple-100 text-purple-800',
+        'Advanced HTML': 'bg-red-100 text-red-800',
+        'HTML5 Features': 'bg-cyan-100 text-cyan-800',
+        'CSS Basics': 'bg-green-100 text-green-800',
+        'CSS Layouts': 'bg-orange-100 text-orange-800',
+        'Advanced CSS': 'bg-indigo-100 text-indigo-800',
+        'CSS Grid & Flexbox': 'bg-emerald-100 text-emerald-800',
+        'Responsive Design': 'bg-pink-100 text-pink-800',
+        'CSS Animations': 'bg-yellow-100 text-yellow-800',
+        'JavaScript Basics': 'bg-teal-100 text-teal-800',
         'JavaScript Advanced': 'bg-fuchsia-100 text-fuchsia-800',
         'Asynchronous JavaScript': 'bg-sky-100 text-sky-800',
         'Web APIs': 'bg-lime-100 text-lime-800',
@@ -54,14 +76,14 @@ const CurriculumPage = () => {
                 <div className="container mx-auto px-4 md:px-6 py-12">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-4">
-                            Advanced JavaScript Curriculum
+                            Web Development Curriculum
                         </h1>
                         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-                            Master advanced JavaScript concepts, asynchronous programming, and modern web APIs with our comprehensive advanced course content.
+                            Complete journey from HTML basics through CSS styling to JavaScript programming. Master web development step by step.
                         </p>
                         <div className="mt-6 flex justify-center">
                             <Badge variant="secondary" className="text-sm px-4 py-2">
-                                {advancedLessons.length} Advanced Lessons Available
+                                {webDevLessons.length} Lessons Available
                             </Badge>
                         </div>
                     </div>
@@ -97,10 +119,10 @@ const CurriculumPage = () => {
                         ))}
                     </div>
 
-                    {advancedLessons.length === 0 && (
+                    {webDevLessons.length === 0 && (
                         <div className="text-center py-12">
-                            <h3 className="text-xl font-semibold mb-2">No Advanced Lessons Available</h3>
-                            <p className="text-muted-foreground">Advanced content is currently being developed.</p>
+                            <h3 className="text-xl font-semibold mb-2">No Lessons Available</h3>
+                            <p className="text-muted-foreground">Content is currently being developed.</p>
                         </div>
                     )}
                 </div>
