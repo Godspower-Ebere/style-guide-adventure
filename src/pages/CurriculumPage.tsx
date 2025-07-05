@@ -13,18 +13,21 @@ type DayLessonType = ReturnType<typeof getAllLessons>[number];
 const CurriculumPage = () => {
     const lessons = getAllLessons();
 
-    // Filter to show HTML through JavaScript topics
-    const webDevCategories = [
+    // Filter to show HTML, CSS, and JavaScript topics in learning order
+    const learningCategories = [
+        // HTML Topics (Foundation)
         'HTML Basics',
         'HTML Forms',
         'Advanced HTML',
         'HTML5 Features',
+        // CSS Topics (Styling)
         'CSS Basics',
         'CSS Layouts',
         'Advanced CSS',
         'CSS Grid & Flexbox',
         'Responsive Design',
         'CSS Animations',
+        // JavaScript Topics (Programming)
         'JavaScript Basics',
         'JavaScript Advanced',
         'Asynchronous JavaScript',
@@ -32,11 +35,11 @@ const CurriculumPage = () => {
         'Modern JavaScript'
     ];
 
-    const webDevLessons = lessons.filter(lesson => 
-        webDevCategories.includes(lesson.category)
+    const curriculumLessons = lessons.filter(lesson => 
+        learningCategories.includes(lesson.category)
     );
 
-    const groupedLessons = webDevLessons.reduce((acc, lesson) => {
+    const groupedLessons = curriculumLessons.reduce((acc, lesson) => {
         const category = lesson.category;
         if (!acc[category]) {
             acc[category] = [];
@@ -45,11 +48,10 @@ const CurriculumPage = () => {
         return acc;
     }, {} as Record<string, DayLessonType[]>);
 
-    const sortedCategories = Object.keys(groupedLessons).sort((a, b) => {
-        const firstLessonA = groupedLessons[a].reduce((prev, curr) => prev.day < curr.day ? prev : curr);
-        const firstLessonB = groupedLessons[b].reduce((prev, curr) => prev.day < curr.day ? prev : curr);
-        return firstLessonA.day - firstLessonB.day;
-    });
+    // Sort categories in learning order
+    const sortedCategories = learningCategories.filter(category => 
+        groupedLessons[category] && groupedLessons[category].length > 0
+    );
 
     const categories = {
         'HTML Basics': 'bg-blue-100 text-blue-800',
@@ -76,14 +78,17 @@ const CurriculumPage = () => {
                 <div className="container mx-auto px-4 md:px-6 py-12">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-4">
-                            Web Development Curriculum
+                            Complete Web Development Journey
                         </h1>
                         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-                            Complete journey from HTML basics through CSS styling to JavaScript programming. Master web development step by step.
+                            Master web development from the ground up: Start with HTML structure, enhance with CSS styling, and bring it to life with JavaScript programming.
                         </p>
-                        <div className="mt-6 flex justify-center">
+                        <div className="mt-6 flex justify-center gap-4">
                             <Badge variant="secondary" className="text-sm px-4 py-2">
-                                {webDevLessons.length} Lessons Available
+                                {curriculumLessons.length} Total Lessons
+                            </Badge>
+                            <Badge variant="outline" className="text-sm px-4 py-2">
+                                HTML → CSS → JavaScript
                             </Badge>
                         </div>
                     </div>
@@ -91,7 +96,14 @@ const CurriculumPage = () => {
                     <div className="space-y-12">
                         {sortedCategories.map(category => (
                             <section key={category}>
-                                <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-primary">{category}</h2>
+                                <div className="flex items-center mb-6">
+                                    <h2 className="text-3xl font-bold pb-2 border-b-2 border-primary flex-1">
+                                        {category}
+                                    </h2>
+                                    <Badge className={categories[category]} variant="secondary">
+                                        {groupedLessons[category].length} lessons
+                                    </Badge>
+                                </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     {groupedLessons[category].sort((a, b) => a.day - b.day).map(lesson => (
                                         <Link key={lesson.day} to={`/day/${lesson.day}`} className="block group">
@@ -108,7 +120,7 @@ const CurriculumPage = () => {
                                                         </Badge>
                                                     </div>
                                                     <div className="mt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                                                        Open Lesson <BookOpen className="ml-1 h-4 w-4" />
+                                                        Start Learning <BookOpen className="ml-1 h-4 w-4" />
                                                     </div>
                                                 </CardContent>
                                             </Card>
@@ -119,10 +131,10 @@ const CurriculumPage = () => {
                         ))}
                     </div>
 
-                    {webDevLessons.length === 0 && (
+                    {curriculumLessons.length === 0 && (
                         <div className="text-center py-12">
                             <h3 className="text-xl font-semibold mb-2">No Lessons Available</h3>
-                            <p className="text-muted-foreground">Content is currently being developed.</p>
+                            <p className="text-muted-foreground">Curriculum content is currently being developed.</p>
                         </div>
                     )}
                 </div>
