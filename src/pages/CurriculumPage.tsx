@@ -13,7 +13,19 @@ type DayLessonType = ReturnType<typeof getAllLessons>[number];
 const CurriculumPage = () => {
     const lessons = getAllLessons();
 
-    const groupedLessons = lessons.reduce((acc, lesson) => {
+    // Filter to show only advanced topics
+    const advancedCategories = [
+        'JavaScript Advanced',
+        'Asynchronous JavaScript', 
+        'Web APIs',
+        'Modern JavaScript'
+    ];
+
+    const advancedLessons = lessons.filter(lesson => 
+        advancedCategories.includes(lesson.category)
+    );
+
+    const groupedLessons = advancedLessons.reduce((acc, lesson) => {
         const category = lesson.category;
         if (!acc[category]) {
             acc[category] = [];
@@ -28,6 +40,13 @@ const CurriculumPage = () => {
         return firstLessonA.day - firstLessonB.day;
     });
 
+    const categories = {
+        'JavaScript Advanced': 'bg-fuchsia-100 text-fuchsia-800',
+        'Asynchronous JavaScript': 'bg-sky-100 text-sky-800',
+        'Web APIs': 'bg-lime-100 text-lime-800',
+        'Modern JavaScript': 'bg-rose-100 text-rose-800',
+    };
+
     return (
         <div className="flex flex-col min-h-screen bg-background text-foreground">
             <Header />
@@ -35,11 +54,16 @@ const CurriculumPage = () => {
                 <div className="container mx-auto px-4 md:px-6 py-12">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-4">
-                            Full 100-Day Curriculum
+                            Advanced JavaScript Curriculum
                         </h1>
                         <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-                            Explore every topic in our comprehensive JavaScript course, from basic concepts to advanced techniques.
+                            Master advanced JavaScript concepts, asynchronous programming, and modern web APIs with our comprehensive advanced course content.
                         </p>
+                        <div className="mt-6 flex justify-center">
+                            <Badge variant="secondary" className="text-sm px-4 py-2">
+                                {advancedLessons.length} Advanced Lessons Available
+                            </Badge>
+                        </div>
                     </div>
 
                     <div className="space-y-12">
@@ -55,7 +79,12 @@ const CurriculumPage = () => {
                                                     <Badge variant="outline">Day {lesson.day}</Badge>
                                                 </CardHeader>
                                                 <CardContent className="flex-grow flex flex-col justify-between">
-                                                    <p className="text-sm text-muted-foreground line-clamp-2">{lesson.description}</p>
+                                                    <div>
+                                                        <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{lesson.description}</p>
+                                                        <Badge className={categories[lesson.category]} variant="secondary">
+                                                            {lesson.category}
+                                                        </Badge>
+                                                    </div>
                                                     <div className="mt-4 flex items-center text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                                                         Open Lesson <BookOpen className="ml-1 h-4 w-4" />
                                                     </div>
@@ -67,6 +96,13 @@ const CurriculumPage = () => {
                             </section>
                         ))}
                     </div>
+
+                    {advancedLessons.length === 0 && (
+                        <div className="text-center py-12">
+                            <h3 className="text-xl font-semibold mb-2">No Advanced Lessons Available</h3>
+                            <p className="text-muted-foreground">Advanced content is currently being developed.</p>
+                        </div>
+                    )}
                 </div>
             </main>
             <Footer />
