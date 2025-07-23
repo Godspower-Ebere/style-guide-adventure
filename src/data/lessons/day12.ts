@@ -3,289 +3,375 @@ import { DayLesson } from "../types";
 
 export const day12: DayLesson = {
   day: 12,
-  title: "HTML Forms - Textarea and Advanced Inputs",
-  category: "HTML Forms",
-  description: "Learn to create multi-line text inputs and explore advanced HTML5 input types for better user experience.",
+  title: "CSS Introduction and Syntax",
+  category: "CSS Basics",
+  description: "Learn the fundamentals of CSS - what it is, how it works, and the basic syntax for styling web pages.",
   learningObjectives: [
-    "Master the textarea element for multi-line text input.",
-    "Understand HTML5 input types: date, time, color, range, file.",
-    "Learn input validation attributes and their usage.",
-    "Create comprehensive forms with various input types."
+    "Understand what CSS is and why it's essential for web development.",
+    "Learn the basic CSS syntax: selectors, properties, and values.",
+    "Discover different ways to add CSS to HTML: inline, internal, and external.",
+    "Write your first CSS rules to style HTML elements."
   ],
   detailedExplanation: `
-Hey there! Ready to take your forms to the next level? Today we're diving into some really cool form elements that will make your websites feel modern and professional. We're talking about textareas for longer text and those fancy HTML5 input types you see on great websites.
+Welcome to the exciting world of CSS! If HTML is the skeleton of your webpage, then CSS is the skin, muscles, and clothing that makes it beautiful and functional. CSS stands for Cascading Style Sheets, and it's what transforms plain HTML into visually stunning websites.
 
-## The Textarea Element - For When One Line Isn't Enough
+## What is CSS?
 
-You know how sometimes a single text input just isn't enough? Like when you're writing a review, leaving a comment, or describing something in detail? That's where textarea comes to the rescue!
+CSS is a stylesheet language that describes how HTML elements should be displayed. Think of it as the designer's toolkit for the web. While HTML provides the structure and content, CSS controls:
 
-<label for="message">Tell us about yourself:</label>
-<textarea id="message" name="message" rows="5" cols="50">
-You can put default text here if you want...
-</textarea>
+- **Colors** - Background colors, text colors, border colors
+- **Layout** - How elements are positioned and sized
+- **Typography** - Font families, sizes, weights, and spacing
+- **Spacing** - Margins, padding, and gaps between elements
+- **Visual effects** - Shadows, gradients, animations, and more
 
-Let me break down what's happening here:
-- **rows**: How many lines tall the textarea should be
-- **cols**: How many characters wide it should be
-- The text between the tags becomes the default content
+## Basic CSS Syntax
 
-## Making Textareas User-Friendly
+CSS follows a simple but powerful syntax pattern:
 
-Here's how to make your textareas even better:
+\`\`\`css
+selector {
+  property: value;
+  property: value;
+}
+\`\`\`
 
-<label for="feedback">Your feedback:</label>
-<textarea 
-    id="feedback" 
-    name="feedback" 
-    rows="6" 
-    cols="50"
-    placeholder="Please share your thoughts here..."
-    maxlength="500"
-    required>
-</textarea>
+Let me break this down:
+- **Selector**: Tells CSS which HTML elements to style
+- **Property**: What aspect of the element you want to change
+- **Value**: How you want to change it
+- **Declaration**: A property-value pair
+- **Rule**: A selector with one or more declarations
 
-Those attributes are super helpful:
-- **placeholder**: Shows hint text when empty
-- **maxlength**: Limits how much they can type
-- **required**: Makes the field mandatory
+### Your First CSS Rule
 
-## HTML5 Input Types - The Game Changers
+\`\`\`css
+h1 {
+  color: blue;
+  font-size: 24px;
+}
+\`\`\`
 
-Now, let's talk about these amazing HTML5 input types that make forms so much better!
+This rule says: "Find all h1 elements and make their text blue and 24 pixels in size."
 
-### Date and Time Inputs
+## CSS Selectors - Targeting Elements
 
-Remember the old days when users had to type dates manually? Those days are over!
+### Element Selector
+Targets all elements of a specific type:
+\`\`\`css
+p {
+  color: green;
+}
+\`\`\`
 
-<label for="birthday">Your birthday:</label>
-<input type="date" id="birthday" name="birthday">
+### Class Selector
+Targets elements with a specific class attribute (uses a dot):
+\`\`\`css
+.highlight {
+  background-color: yellow;
+}
+\`\`\`
 
-<label for="appointment">Appointment time:</label>
-<input type="time" id="appointment" name="appointment">
+### ID Selector
+Targets a single element with a specific ID (uses a hash):
+\`\`\`css
+#header {
+  font-size: 32px;
+}
+\`\`\`
 
-<label for="meeting">Meeting date and time:</label>
-<input type="datetime-local" id="meeting" name="meeting">
+## Three Ways to Add CSS to HTML
 
-<label for="graduation">Graduation month:</label>
-<input type="month" id="graduation" name="graduation">
+### 1. Inline CSS (Not Recommended)
+CSS written directly in the HTML element's style attribute:
+\`\`\`html
+<p style="color: red; font-size: 16px;">This text is red and 16px.</p>
+\`\`\`
 
-<label for="vacation">Vacation week:</label>
-<input type="week" id="vacation" name="vacation">
+### 2. Internal CSS
+CSS written inside a \`<style>\` tag in the HTML document's \`<head>\`:
+\`\`\`html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p {
+      color: blue;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <p>This paragraph will be blue and use Arial font.</p>
+</body>
+</html>
+\`\`\`
 
-How cool is that? The browser provides native date/time pickers!
+### 3. External CSS (Best Practice)
+CSS written in a separate .css file and linked to the HTML:
 
-### Color Input - Let Users Pick Colors
+**styles.css:**
+\`\`\`css
+p {
+  color: purple;
+  line-height: 1.6;
+}
+\`\`\`
 
-Want users to choose a color? There's an input for that!
+**index.html:**
+\`\`\`html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <p>This paragraph will be purple with 1.6 line height.</p>
+</body>
+</html>
+\`\`\`
 
-<label for="theme-color">Choose your theme color:</label>
-<input type="color" id="theme-color" name="theme-color" value="#ff0000">
+## CSS Properties and Values
 
-This opens the system color picker - so professional!
+CSS has hundreds of properties! Here are some fundamental ones:
 
-### Range Input - Sliders for Numbers
+### Text Properties
+\`\`\`css
+p {
+  color: #333333;           /* Text color */
+  font-size: 16px;          /* Size of text */
+  font-family: Arial;       /* Font to use */
+  font-weight: bold;        /* Thickness of text */
+  text-align: center;       /* Alignment */
+}
+\`\`\`
 
-Sliders are perfect for ratings, volume controls, or any numeric range:
+### Background Properties
+\`\`\`css
+body {
+  background-color: #f0f0f0;
+  background-image: url('pattern.jpg');
+}
+\`\`\`
 
-<label for="volume">Volume level:</label>
-<input type="range" id="volume" name="volume" min="0" max="100" value="50">
+### Spacing Properties
+\`\`\`css
+div {
+  margin: 20px;        /* Space outside the element */
+  padding: 15px;       /* Space inside the element */
+}
+\`\`\`
 
-<label for="satisfaction">How satisfied are you? (1-10):</label>
-<input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5">
+## CSS Values and Units
 
-### File Input - For Uploads
+CSS values can be expressed in different units:
 
-File uploads are essential for modern web apps:
+### Absolute Units
+- **px** (pixels): Fixed size - \`font-size: 16px;\`
+- **pt** (points): Mainly for print - \`font-size: 12pt;\`
 
-<label for="resume">Upload your resume:</label>
-<input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+### Relative Units
+- **%** (percentage): Relative to parent - \`width: 50%;\`
+- **em**: Relative to element's font size - \`margin: 1.5em;\`
+- **rem**: Relative to root font size - \`padding: 2rem;\`
 
-<label for="photos">Select multiple photos:</label>
-<input type="file" id="photos" name="photos" multiple accept="image/*">
+### Color Values
+\`\`\`css
+/* Named colors */
+color: red;
+color: blue;
 
-The **accept** attribute filters what file types users can select, and **multiple** allows multiple files.
+/* Hexadecimal */
+color: #ff0000;  /* Red */
+color: #0000ff;  /* Blue */
 
-## Input Validation - Built Right In
+/* RGB */
+color: rgb(255, 0, 0);     /* Red */
+color: rgba(255, 0, 0, 0.5); /* Red with 50% opacity */
 
-HTML5 gives us amazing validation without JavaScript:
+/* HSL */
+color: hsl(0, 100%, 50%);     /* Red */
+color: hsla(0, 100%, 50%, 0.5); /* Red with 50% opacity */
+\`\`\`
 
-<label for="email">Your email:</label>
-<input type="email" id="email" name="email" required>
+## Real-World Example
 
-<label for="website">Your website:</label>
-<input type="url" id="website" name="website" placeholder="https://example.com">
+Let's create a simple webpage with CSS styling:
 
-<label for="age">Your age:</label>
-<input type="number" id="age" name="age" min="13" max="120" required>
-
-<label for="username">Username (3-16 characters, letters and numbers only):</label>
-<input type="text" id="username" name="username" pattern="[a-zA-Z0-9]{3,16}" required>
-
-Look at those validation attributes:
-- **type="email"**: Validates email format
-- **type="url"**: Validates URL format
-- **min/max**: Sets number ranges
-- **pattern**: Uses regular expressions for custom validation
-
-## Complete Real-World Example
-
-Let me show you how all this comes together in a real profile setup form:
-
+\`\`\`html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Complete Profile Setup</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First CSS Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+      font-size: 36px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    
+    p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    
+    .highlight {
+      background-color: #ffeb3b;
+      padding: 5px;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Create Your Profile</h1>
-    <form>
-        <fieldset>
-            <legend>Personal Information</legend>
-            
-            <label for="fullname">Full Name:</label>
-            <input type="text" id="fullname" name="fullname" required>
-            
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone">
-            
-            <label for="birthday">Date of Birth:</label>
-            <input type="date" id="birthday" name="birthday">
-            
-            <label for="website">Personal Website:</label>
-            <input type="url" id="website" name="website" placeholder="https://yoursite.com">
-        </fieldset>
-        
-        <fieldset>
-            <legend>Preferences</legend>
-            
-            <label for="theme">Favorite Color:</label>
-            <input type="color" id="theme" name="theme" value="#3498db">
-            
-            <label for="notifications">Notification Frequency:</label>
-            <input type="range" id="notifications" name="notifications" min="0" max="5" value="3">
-            
-            <label for="avatar">Profile Picture:</label>
-            <input type="file" id="avatar" name="avatar" accept="image/*">
-        </fieldset>
-        
-        <label for="bio">Tell us about yourself:</label>
-        <textarea id="bio" name="bio" rows="5" cols="50" 
-                  placeholder="Share a bit about your interests, background, or goals..." 
-                  maxlength="500"></textarea>
-        
-        <button type="submit">Create Profile</button>
-        <button type="reset">Start Over</button>
-    </form>
+  <div class="container">
+    <h1>Welcome to CSS!</h1>
+    <p>This is a paragraph with some <span class="highlight">highlighted text</span>.</p>
+    <p>CSS makes our web pages beautiful and functional.</p>
+  </div>
 </body>
 </html>
+\`\`\`
 
-## Pro Tips for Modern Forms
+## CSS Comments
 
-1. **Use the right input type** - It improves user experience dramatically
-2. **Add placeholder text** - Guide users on what to enter
-3. **Set appropriate limits** - Use min, max, maxlength wisely
-4. **Group related fields** - Use fieldset and legend for organization
-5. **Test on mobile** - These input types work great on phones and tablets
-6. **Provide clear labels** - Always connect labels to inputs properly
+You can add comments to your CSS to document your code:
+\`\`\`css
+/* This is a single-line comment */
 
-The beauty of these HTML5 input types is that they gracefully degrade - if a browser doesn't support them, they just act like regular text inputs. But in modern browsers, they provide amazing user experiences!
+/*
+  This is a
+  multi-line comment
+*/
+
+h1 {
+  color: blue; /* This changes the text color to blue */
+}
+\`\`\`
+
+## Best Practices for Beginners
+
+1. **Use external CSS files** - Keep your CSS separate from HTML
+2. **Use meaningful class names** - \`.navigation\` instead of \`.blue-box\`
+3. **Organize your CSS** - Group related styles together
+4. **Use comments** - Document complex or important styles
+5. **Test in different browsers** - Make sure your styles work everywhere
+6. **Start simple** - Master the basics before moving to advanced techniques
+
+## Common Beginner Mistakes to Avoid
+
+1. **Forgetting the semicolon** - Every CSS declaration needs a semicolon
+2. **Missing closing braces** - Every opening \`{\` needs a closing \`}\`
+3. **Wrong selector syntax** - Classes use \`.\` and IDs use \`#\`
+4. **Overusing inline styles** - They're hard to maintain and override
+5. **Not organizing code** - Keep related styles together
+
+CSS is incredibly powerful, and this is just the beginning! As you practice, you'll discover more properties and techniques that will help you create amazing designs. Remember, the best way to learn CSS is by experimenting and building real projects.
     `,
   keyTerms: [
-    { term: "Textarea", definition: "HTML element for multi-line text input with customizable dimensions and character limits." },
-    { term: "HTML5 Input Types", definition: "Advanced input types like date, color, range that provide specialized user interfaces." },
-    { term: "Input Validation", definition: "Built-in HTML attributes that validate user input before form submission." },
-    { term: "Accept Attribute", definition: "Specifies which file types are allowed for file input elements." },
-    { term: "Pattern Attribute", definition: "Defines a regular expression that the input value must match for validation." }
+    { term: "CSS", definition: "Cascading Style Sheets - a stylesheet language used to describe the presentation of HTML documents." },
+    { term: "Selector", definition: "A pattern used to select HTML elements that you want to style." },
+    { term: "Property", definition: "A characteristic of an HTML element that you want to change, such as color or font-size." },
+    { term: "Value", definition: "The setting you want to apply to a CSS property." },
+    { term: "Declaration", definition: "A single line of CSS that includes a property and its value." },
+    { term: "Rule", definition: "A complete CSS statement that includes a selector and one or more declarations." },
+    { term: "External CSS", definition: "CSS code written in a separate .css file and linked to HTML documents." },
+    { term: "Class Selector", definition: "A selector that targets elements with a specific class attribute, written with a dot prefix." },
+    { term: "ID Selector", definition: "A selector that targets a single element with a specific ID attribute, written with a hash prefix." }
   ],
   exercises: [
     {
       id: 1,
-      title: "Contact Form with Textarea",
+      title: "First CSS Styling",
       type: "classwork",
       difficulty: "easy",
       instructions: [
-        "Create 'contact-form.html' with proper HTML5 structure.",
-        "Add a heading 'Contact Us' and create a contact form.",
-        "Include text inputs for name and email with proper labels.",
-        "Add a textarea for the message with 6 rows and 50 columns.",
-        "Set a placeholder text in the textarea saying 'Please describe your inquiry...'",
-        "Add a maxlength of 300 characters to the textarea.",
-        "Include submit and reset buttons.",
-        "Test the form and verify the textarea behaves correctly."
+        "Create a new HTML file called 'my-first-css.html' with proper HTML5 structure.",
+        "Add a heading (h1) with your name and a paragraph about yourself.",
+        "Create a <style> section in the <head> of your document.",
+        "Style the h1 to have a blue color and center alignment.",
+        "Style the paragraph to have a gray color and larger font size (18px).",
+        "Test your page in a browser to see the styling applied."
       ]
     },
     {
       id: 2,
-      title: "Event Registration with Date/Time",
+      title: "External CSS File",
       type: "classwork",
       difficulty: "medium",
       instructions: [
-        "Create 'event-registration.html' for event signup.",
-        "Add form fields for participant name and email.",
-        "Include a date input for preferred event date.",
-        "Add a time input for preferred start time.",
-        "Create a number input for number of attendees (min: 1, max: 10).",
-        "Add a file input for uploading identification (accept PDF only).",
-        "Include proper labels and validation attributes for all fields.",
-        "Add a textarea for special requirements or comments.",
-        "Test all input types and their validation behavior."
+        "Create an HTML file called 'portfolio.html' with sections for your bio, skills, and contact info.",
+        "Create a separate CSS file called 'styles.css'.",
+        "Link the CSS file to your HTML using the <link> tag.",
+        "Style the body to have a light background color and better font.",
+        "Create a class called 'section' and apply it to your main content areas.",
+        "Style the sections with padding, margins, and background colors.",
+        "Test that your external CSS is working properly."
       ]
     },
     {
       id: 3,
-      title: "Advanced Profile Form",
+      title: "CSS Selectors Practice",
       type: "classwork",
       difficulty: "hard",
       instructions: [
-        "Create 'advanced-profile.html' with comprehensive form elements.",
-        "Use various HTML5 inputs: text, email, date, color, range, file, url.",
-        "Add a large textarea for biography section with character counter concept.",
-        "Include a color input for theme preference.",
-        "Add range inputs for skill levels in different areas (1-10 scale).",
-        "Create file input for profile picture with image format restrictions.",
-        "Use proper validation attributes throughout (required, min, max, pattern).",
-        "Organize form sections with fieldsets and legends.",
-        "Test all functionality and ensure proper validation works."
+        "Create an HTML page with various elements: headings, paragraphs, lists, and divs.",
+        "Add classes and IDs to different elements strategically.",
+        "Create CSS rules using element selectors (h1, p, ul).",
+        "Create CSS rules using class selectors (.highlight, .important).",
+        "Create CSS rules using ID selectors (#header, #footer).",
+        "Apply different colors, fonts, and spacing to demonstrate each selector type.",
+        "Ensure each selector type is clearly working and affecting the right elements."
       ]
     },
     {
       id: 4,
-      title: "Job Application Form",
+      title: "Personal Website with CSS",
       type: "homework",
       difficulty: "medium",
       instructions: [
-        "Create 'job-application.html' for a complete job application system.",
-        "Include personal information section with text, email, tel, and date inputs.",
-        "Add work experience textarea with adequate size for detailed descriptions.",
-        "Include salary expectation with number input and appropriate min/max values.",
-        "Add file upload for resume (accept PDF and DOC formats).",
-        "Create availability section with date inputs for start date.",
-        "Include URL input for portfolio or LinkedIn profile.",
-        "Add range inputs for self-assessment of various skills.",
-        "Ensure all fields have proper validation and user-friendly error handling."
+        "Create a complete personal website with multiple HTML pages (home, about, contact).",
+        "Create a comprehensive external CSS file that styles all pages consistently.",
+        "Use a variety of CSS properties: colors, fonts, spacing, backgrounds.",
+        "Implement proper CSS organization with comments and logical grouping.",
+        "Use classes and IDs effectively to target specific elements.",
+        "Create a cohesive design that looks professional and polished.",
+        "Test your website in multiple browsers to ensure consistency."
       ]
     },
     {
       id: 5,
-      title: "Creative Portfolio Submission",
+      title: "CSS Style Guide Creation",
       type: "homework",
       difficulty: "hard",
       instructions: [
-        "Create 'portfolio-submission.html' for creative professionals.",
-        "Design a comprehensive form using all advanced input types covered.",
-        "Include multiple file upload for portfolio pieces (images, PDFs).",
-        "Add date inputs for project completion dates and availability.",
-        "Create color inputs for brand color preferences.",
-        "Include range sliders for experience levels in different creative areas.",
-        "Add large textareas for project descriptions and creative philosophy.",
-        "Use URL inputs for social media and portfolio website links.",
-        "Implement proper form structure with fieldsets for different sections.",
-        "Add comprehensive validation and ensure excellent user experience.",
-        "Test thoroughly across different browsers and document any differences.",
-        "Style the form with CSS to make it visually appealing and professional."
+        "Create a comprehensive style guide page that demonstrates CSS fundamentals.",
+        "Include examples of all basic selectors (element, class, ID) with explanations.",
+        "Show different color value formats (hex, rgb, hsl, named colors).",
+        "Demonstrate various font properties and text styling options.",
+        "Create examples of spacing with margins and padding.",
+        "Include a section showing CSS units (px, em, rem, %) in action.",
+        "Document your CSS with detailed comments explaining each technique.",
+        "Make the style guide visually appealing and easy to navigate.",
+        "Include a table of contents with links to each section.",
+        "Add code examples alongside visual demonstrations for each concept."
       ]
     }
   ]

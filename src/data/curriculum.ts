@@ -4,49 +4,54 @@ import { detailedLessons } from "./lessons";
 
 export const curriculum: DayLesson[] = detailedLessons;
 
-// Generate remaining days with HTML topics first, then CSS
+// Generate remaining days with HTML topics first, then CSS, then JavaScript
 export const generateRemainingDays = (): DayLesson[] => {
   const htmlTopics = [
-    "HTML Tables - Basic Structure", "HTML Tables - Advanced Features", "HTML Forms - Input Types",
-    "HTML Forms - Buttons and Labels", "HTML Forms - Select and Options", "HTML Forms - Validation",
-    "HTML Semantic Elements - Header and Nav", "HTML Semantic Elements - Main and Section", 
-    "HTML Semantic Elements - Article and Aside", "HTML Semantic Elements - Footer",
-    "HTML5 New Elements", "HTML Audio and Video", "HTML Canvas Basics", "HTML Geolocation",
-    "HTML Local Storage", "HTML Drag and Drop", "HTML Web Workers", "HTML Accessibility",
-    "HTML Meta Tags and SEO", "HTML Character Encoding"
+    // Days 1-11 are covered by detailed lessons
   ];
 
   const cssTopics = [
-    "CSS Introduction and Syntax", "CSS Selectors - Basic", "CSS Selectors - Advanced", 
-    "CSS Colors and Backgrounds", "CSS Fonts and Text", "CSS Box Model", "CSS Margins and Padding",
-    "CSS Borders and Outlines", "CSS Display Property", "CSS Position", "CSS Float and Clear",
-    "CSS Flexbox Basics", "CSS Flexbox Advanced", "CSS Grid Basics", "CSS Grid Advanced",
-    "CSS Responsive Design", "CSS Media Queries", "CSS Transitions", "CSS Animations",
-    "CSS Transform", "CSS Variables", "CSS Pseudo-classes", "CSS Pseudo-elements",
-    "CSS Z-index and Stacking", "CSS Overflow and Clipping", "CSS Filters and Effects",
-    "CSS Layout Techniques",  "CSS Preprocessing", "CSS Frameworks", "CSS Best Practices"
+    // Days 12-15 are covered by detailed lessons (CSS Introduction, Selectors, Colors, etc.)
+    "CSS Selectors - Advanced", "CSS Colors and Backgrounds", "CSS Fonts and Text", 
+    "CSS Box Model", "CSS Margins and Padding", "CSS Borders and Outlines", 
+    "CSS Display Property", "CSS Position", "CSS Float and Clear", "CSS Flexbox Basics", 
+    "CSS Flexbox Advanced", "CSS Grid Basics", "CSS Grid Advanced", "CSS Responsive Design", 
+    "CSS Media Queries", "CSS Transitions", "CSS Animations", "CSS Transform", 
+    "CSS Variables", "CSS Pseudo-classes", "CSS Pseudo-elements", "CSS Z-index and Stacking", 
+    "CSS Overflow and Clipping", "CSS Filters and Effects", "CSS Layout Techniques", 
+    "CSS Preprocessing", "CSS Frameworks", "CSS Best Practices"
   ];
 
-  const allTopics = [...htmlTopics, ...cssTopics];
+  const jsTopics = [
+    "JavaScript Basics", "JavaScript Variables and Data Types", "JavaScript Functions", 
+    "JavaScript Objects and Arrays", "JavaScript DOM Manipulation", "JavaScript Events", 
+    "JavaScript Conditionals and Loops", "JavaScript Error Handling", "JavaScript Modules", 
+    "JavaScript Advanced", "Asynchronous JavaScript", "JavaScript Promises", 
+    "JavaScript Async/Await", "JavaScript Fetch API", "Web APIs", "JavaScript ES6+", 
+    "JavaScript Closures", "JavaScript Prototypes", "JavaScript Classes", "Modern JavaScript"
+  ];
+
+  const allTopics = [...cssTopics, ...jsTopics];
 
   const categories: Array<DayLesson['category']> = [
     'HTML Basics', 'HTML Forms', 'Advanced HTML', 'HTML5 Features', 
     'CSS Basics', 'CSS Layouts', 'Advanced CSS', 'CSS Grid & Flexbox', 
-    'Responsive Design', 'CSS Animations'
+    'Responsive Design', 'CSS Animations', 'JavaScript Basics', 'JavaScript Advanced', 
+    'Asynchronous JavaScript', 'Web APIs', 'Modern JavaScript'
   ];
 
   const remainingDays: DayLesson[] = [];
   
-  for (let day = 7; day <= 100; day++) {
-    const topicIndex = (day - 7) % allTopics.length;
+  for (let day = 16; day <= 100; day++) {
+    const topicIndex = (day - 16) % allTopics.length;
     let categoryIndex;
     
-    // First 20 days (7-26) focus on HTML
-    if (day <= 26) {
-      categoryIndex = day <= 16 ? 0 : (day <= 21 ? 1 : (day <= 24 ? 2 : 3)); // HTML categories
+    // Days 16-45 focus on CSS (continuing from day 12-15)
+    if (day <= 45) {
+      categoryIndex = 4 + ((day - 16) % 6); // CSS categories (4-9)
     } else {
-      // Days 27-100 focus on CSS
-      categoryIndex = 4 + ((day - 27) % 6); // CSS categories
+      // Days 46-100 focus on JavaScript
+      categoryIndex = 10 + ((day - 46) % 5); // JavaScript categories (10-14)
     }
     
     remainingDays.push({
@@ -86,7 +91,7 @@ export const generateRemainingDays = (): DayLesson[] => {
           instructions: [
             "Build upon your previous exercise.",
             "Expand your example by adding more complexity as shown in the detailed explanation.",
-            `Try to combine ${allTopics[topicIndex]} with other HTML/CSS techniques you have learned.`,
+            `Try to combine ${allTopics[topicIndex]} with other techniques you have learned.`,
             "Verify everything works correctly and looks good."
           ]
         },

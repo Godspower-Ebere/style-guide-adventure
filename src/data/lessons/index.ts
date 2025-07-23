@@ -11,8 +11,10 @@ import { day8 } from "./day8";
 import { day9 } from "./day9";
 import { day10 } from "./day10";
 import { day11 } from "./day11";
+import { day12 } from "./day12";
 import { day13 } from "./day13";
 import { day14 } from "./day14";
+import { day15 } from "./day15";
 import { day31 } from "./day31";
 import { day32 } from "./day32";
 import { day62 } from "./day62";
@@ -54,8 +56,10 @@ export const detailedLessons: DayLesson[] = [
   day9,
   day10,
   day11,
+  day12,
   day13,
   day14,
+  day15,
   day31,
   day32,
   day62,
